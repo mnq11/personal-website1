@@ -2,11 +2,10 @@
   "basics": {
     "name": "Mohammed Nabil Al-Qalisi",
     "label": "Software  Developer\n",
-    "picture": "images/jcoelho.webp",
-    "x_pictureFallback": "images/jcoelho.jpg",
-    "x_title": "Hey There! Glad you're here",
-    "summary": "My name is Mohammed. I am a software developer .\n\n\n\n\uD83E\uDDD0 Interested in full stack. Recent focus on React.\n\n\uD83D\uDCBC Worked with different technologies like Node.js, React, Docker, AWS, Hibernate etc.\n\n\uD83C\uDF93 Batchelor in Software development and Computer Science.\n\n\uD83C\uDF31 Currently learning Linux, Rust, Solidity, and exploring new technology .\n\n\uD83D\uDCBB Looking for software development opportunities.\n\n⛵ Love open source collaborations.\n\n",
-
+    "picture": "images/443.png",
+    "x_pictureFallback": "images/443.png",
+    "x_title": "Hey There! Glad you're here \uD83D\uDC4B",
+    "summary": "Experienced software developer with a passion for delivering innovative solutions. Proficient in multiple\nprogramming languages and frameworks, with 4 years of experience in software development. Strong\nability to work independently and as part of a team. Always looking for new challenges and eager to\ngrow in a fast-paced environment",
     "location": {
       "country": "Sweden",
       "countryCode": "SE",
@@ -17,7 +16,7 @@
         "network": "DEV Community",
         "username": "Mohammed",
         "url": "https://dev.to/mnq11",
-        "x_icon":"fab fa-2x fa-dev"
+        "x_icon": "fab fa-2x fa-dev"
       },
       {
         "network": "LinkedIn",
@@ -34,15 +33,20 @@
     ]
   },
   "work": [
-
     {
-      "company": "Student & Freelancer",
+      "company": "Freelancer",
       "position": "Software development consultant",
       "website": "https://www.linkedin.com/in/mohammed-nabil-48b539107",
-      "startDate": "2021-01-15",
-      "endDate": "",
-      "summary": "Started working for myself, providing expertise on software development and DevOps culture and best practices for international startups.",
-      "highlights": []
+      "startDate": "2022-01-15",
+      "endDate": "2023-01-15",
+      "summary": "I provide expertise in software development and related services to clients on a project basis as a software development consultant. I work independently, offering a variety of services including coding, software design, testing, and debugging. Additionally, I provide guidance on best practices, project management, and other related areas to help clients achieve success. As a software freelancer, I have experience managing multiple projects simultaneously and am adept at managing my time and resources effectively to meet project deadlines.",
+      "highlights": [
+        "Successfully managed multiple projects concurrently, ensuring timely delivery and high-quality output.",
+        "Provided expert guidance on software development best practices, project management, and related areas to clients.",
+        "Demonstrated proficiency in a range of programming languages, frameworks, and tools to deliver high-quality software solutions.",
+        "Maintained excellent communication skills and responsiveness to client feedback, resulting in long-term client relationships and repeat business.",
+        "Continuously pursued professional development opportunities to stay current with emerging trends and technologies in the software development field."
+      ]
     },
     {
       "company": "Östra Göinge Municipality",
@@ -50,29 +54,27 @@
       "website": "https://www.ostragoinge.se/",
       "startDate": "2015-08-16",
       "endDate": "2019-08-16",
-      "summary": "Started my first professional job experience as a pedagogical personal",
+      "summary": "I work as a pedagog in a government agency where I develop and implement educational programs and initiatives that promote environmental awareness and sustainable practices. My job involves designing and delivering engaging educational materials and activities for different audiences, including school groups, community organizations, and the general public. I collaborate with other departments to integrate environmental education into their programs and policies, and conduct research to stay up-to-date with emerging trends and best practices in environmental education. Additionally, I advocate for policies that support sustainable practices to help protect the environment and ensure a better future for our planet.",
       "highlights": []
     },
     {
       "company": "Kristianstad Municipality",
       "position": "Pedagogic",
       "website": "https://www.kristianstad.se/",
-      "startDate": "2019-05-01",
-      "endDate": "",
-      "summary": "Moved to Prague, Czech Republic to intern for the European Commission helping them build one of the biggest european projects, Galileo Satellite System",
+      "startDate": "2017-08-16",
+      "endDate": "2019-08-16",
+      "summary": "I work as a pedagog in a government agency where I develop and implement educational programs and initiatives that promote environmental awareness and sustainable practices. My job involves designing and delivering engaging educational materials and activities for different audiences, including school groups, community organizations, and the general public. I collaborate with other departments to integrate environmental education into their programs and policies, and conduct research to stay up-to-date with emerging trends and best practices in environmental education. Additionally, I advocate for policies that support sustainable practices to help protect the environment and ensure a better future for our planet.",
       "highlights": []
     },
     {
-      "company": "HP",
-      "position": "Hardware Engineer",
-      "website": "https://www.hp.com/emea_middle_east-en/contact-hp/phone-assist.html",
-      "startDate": "2009-04-01",
-      "endDate": "2011-08-30",
-      "summary": "worked as hardware engineer",
+      "company": "Järnia",
+      "position": "Warehouse worker\n",
+      "website": "https://jarnia.se/",
+      "startDate": "2018-12-01",
+      "endDate": "2018-12-01",
+      "summary": "Järnia is a Swedish hardware store chain with over 120 locations. It oGers a wide range of products for home and garden projects. Järnia also provides tool rental, repair services, and workshops to\nhelp customers improve their DIY skills",
       "highlights": []
     }
-
-
   ],
   "education": [
     {
@@ -80,7 +82,7 @@
       "area": "Software development",
       "studyType": "Bachelor",
       "startDate": "2019-09-15",
-      "endDate": "2022-06-07",
+      "endDate": "2022-09-07",
       "courses": [
         "Object Oriented Programming",
         "Database Management Systems",
@@ -97,71 +99,250 @@
   ],
   "skills": [
     {
+      "name": "Java",
+      "level": "Advanced",
+      "keywords": [
+        "Software Developer"
+      ]
+    },
+    {
+      "name": "HTML",
+      "level": "Advanced",
+      "keywords": [
+        "Software Developer"
+      ]
+    },
+    {
+      "name": "CSS",
+      "level": "Advanced",
+      "keywords": [
+        "Software Developer"
+      ]
+    },
+    {
+      "name": "JavaScript",
+      "level": "Advanced",
+      "keywords": [
+        "Software Developer"
+      ]
+    },
+    {
+      "name": "TypeScript",
+      "level": "Advanced",
+      "keywords": [
+        "Software Developer"
+      ]
+    },
+    {
+      "name": "Mongodb",
+      "level": "Advanced",
+      "keywords": [
+        "DevOps"
+      ]
+    },
+    {
+      "name": "Heroku",
+      "level": "Intermediate",
+      "keywords": [
+        "DevOps"
+      ]
+    },
+    {
+      "name": "SQL",
+      "level": "Advanced",
+      "keywords": [
+        "Software Developer"
+      ]
+    },
+    {
+      "name": "NoSQL",
+      "level": "Intermediate",
+      "keywords": [
+        "Software Developer"
+      ]
+    },
+    {
+      "name": "Android development",
+      "level": "Intermediate",
+      "keywords": [
+        "Software Developer"
+      ]
+    },
+    {
+      "name": "Back-end",
+      "level": "Problem Solver and Team Player",
+      "keywords": [
+        "Software Developer"
+      ]
+    },
+    {
+      "name": "Front-end",
+      "level": "Intermediate",
+      "keywords": [
+        "Software Developer"
+      ]
+    },
+    {
+      "name": "JavaFx",
+      "level": "Intermediate",
+      "keywords": [
+        "Software Developer"
+      ]
+    },
+    {
+      "name": "React.JS",
+      "level": "Intermediate",
+      "keywords": [
+        "Software Developer"
+      ]
+    },
+    {
+      "name": "Spring",
+      "level": "Intermediate",
+      "keywords": [
+        "Software Developer"
+      ]
+    },
+    {
+      "name": "Python",
+      "level": "Intermediate",
+      "keywords": [
+        "Software Developer"
+      ]
+    },
+    {
+      "name": "Rest APIs",
+      "level": "Advanced",
+      "keywords": [
+        "Software Developer"
+      ]
+    },
+    {
+      "name": "Agile",
+      "level": "Intermediate",
+      "keywords": [
+        "DevOps"
+      ]
+    },
+    {
+      "name": "Linux",
+      "level": "Intermediate",
+      "keywords": [
+        "DevOps"
+      ]
+    },
+    {
       "name": "Jenkins",
       "level": "Intermediate",
-      "keywords": ["DevOps"]
+      "keywords": [
+        "DevOps"
+      ]
     },
     {
       "name": "Continuous Integration",
       "level": "Intermediate",
-      "keywords": ["DevOps"]
+      "keywords": [
+        "DevOps"
+      ]
     },
     {
       "name": "Scripting",
       "level": "Intermediate",
-      "keywords": ["DevOps"]
+      "keywords": [
+        "DevOps"
+      ]
     },
     {
       "name": "Containers",
       "level": "Intermediate",
-      "keywords": ["DevOps"]
+      "keywords": [
+        "DevOps"
+      ]
     },
     {
       "name": "Cloud",
       "level": "Basic",
-      "keywords": ["DevOps"]
+      "keywords": [
+        "DevOps"
+      ]
     },
     {
       "name": "Troubleshooting",
       "level": "Intermediate",
-      "keywords": ["DevOps"]
+      "keywords": [
+        "DevOps"
+      ]
     },
     {
       "name": "Infrastructure as Code",
       "level": "Intermediate",
-      "keywords": ["DevOps"]
+      "keywords": [
+        "DevOps"
+      ]
     },
     {
-      "name": "Object Oriented Programming",
+      "name": "Docker",
+      "level": "Intermediate",
+      "keywords": [
+        "DevOps"
+      ]
+    },
+    {
+      "name": "Kubernetes",
+      "level": "Intermediate",
+      "keywords": [
+        "DevOps"
+      ]
+    },
+    {
+      "name": "AWS",
+      "level": "Basic",
+      "keywords": [
+        "DevOps"
+      ]
+    },
+    {
+      "name": "Ansible",
+      "level": "Intermediate",
+      "keywords": [
+        "DevOps"
+      ]
+    },
+    {
+      "name": "Linux Administration",
+      "level": "Intermediate",
+      "keywords": [
+        "DevOps"
+      ]
+    },
+    {
+      "name": "Hibernate",
       "level": "Advanced",
-      "keywords": ["Software Developer"]
+      "keywords": [
+        "Software Developer"
+      ]
     },
     {
-      "name": "Design Patterns",
+      "name": "JUnit",
       "level": "Intermediate",
-      "keywords": ["Software Developer"]
+      "keywords": [
+        "Software Developer"
+      ]
     },
     {
-      "name": "Git",
+      "name": "Servlets",
       "level": "Intermediate",
-      "keywords": ["Software Developer"]
+      "keywords": [
+        "Software Developer"
+      ]
     },
     {
-      "name": "REST API",
-      "level": "Advanced",
-      "keywords": ["Software Developer"]
-    },
-    {
-      "name": "Unit Testing",
+      "name": "Tomcat",
       "level": "Intermediate",
-      "keywords": ["Software Developer"]
-    },
-    {
-      "name": "MySQL",
-      "level": "Intermediate",
-      "keywords": ["Software Developer"]
+      "keywords": [
+        "Software Developer"
+      ]
     }
-
   ],
   "languages": [
     {
