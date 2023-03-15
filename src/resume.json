@@ -30,6 +30,12 @@
         "username": "mnq11",
         "url": "https://github.com/mnq11",
         "x_icon": "fab fa-2x fa-github"
+      },
+      {
+        "network": "twitter",
+        "username": "MohammedlNabil",
+        "url": "https://twitter.com/MohammedlNabil",
+        "x_icon": "fab fa-2x fa-twitter"
       }
     ]
   },
@@ -76,7 +82,6 @@
       "summary": "As an experienced pedagog in a government agency, I have successfully developed and executed numerous environmental awareness and sustainable practice initiatives. Skilled in designing and delivering captivating educational materials and activities, I have effectively engaged diverse audiences such as school groups, community organizations, and the general public. My strong collaboration skills have allowed me to work seamlessly with various departments to incorporate environmental education into their programs and policies. ",
       "highlights": []
     }
-
   ],
   "education": [
     {
@@ -254,7 +259,6 @@
         "DevOps"
       ]
     },
-
     {
       "name": "Cloud",
       "level": "Advanced",
@@ -262,7 +266,6 @@
         "DevOps"
       ]
     },
-
     {
       "name": "AWS",
       "level": "Basic",
@@ -297,7 +300,8 @@
       "keywords": [
         "Back-end"
       ]
-    },{
+    },
+    {
       "name": ".NET",
       "level": "Advanced",
       "keywords": [
@@ -310,7 +314,8 @@
       "keywords": [
         "Back-end"
       ]
-    },{
+    },
+    {
       "name": "Spring Boot",
       "level": "Advanced",
       "keywords": [
