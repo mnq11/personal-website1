@@ -12,7 +12,6 @@
       "region": "United Kingdom",
       "flag": "🇸🇪"
     },
-
     "profiles": [
       {
         "network": "DEV Community",
@@ -41,7 +40,7 @@
       "website": "https://www.linkedin.com/in/mohammed-nabil-48b539107",
       "startDate": "2022-01-15",
       "endDate": "2023-01-15",
-      "summary": "I provide expertise in software development and related services to clients on a project basis as a software development consultant. I work independently, offering a variety of services including coding, software design, testing, and debugging. Additionally, I provide guidance on best practices, project management, and other related areas to help clients achieve success. As a software freelancer, I have experience managing multiple projects simultaneously and am adept at managing my time and resources effectively to meet project deadlines.",
+      "summary": "As a software development consultant, I provide expert services in software development and related areas to clients on a project basis. My clients rely on me to deliver high-quality software solutions that meet their needs, and I take pride in my ability to meet their expectations. I enjoy the challenge of juggling multiple projects at once, and I am skilled at managing my time and resources effectively to ensure that I meet project deadlines. I am always learning and staying up-to-date with the latest trends and technologies in my field, and I am committed to providing my clients with the best possible service. As a software development consultant, I find fulfillment in solving complex problems and delivering results that make a real difference in the world of technology.",
       "highlights": [
         "Successfully managed multiple projects concurrently, ensuring timely delivery and high-quality output.",
         "Provided expert guidance on software development best practices, project management, and related areas to clients.",
@@ -51,7 +50,7 @@
       ]
     },
     {
-      "company": "Östra Göinge Municipality",
+      "company": "Pedagog",
       "position": "Pedagogic",
       "website": "https://www.ostragoinge.se/",
       "startDate": "2015-08-16",
@@ -60,23 +59,24 @@
       "highlights": []
     },
     {
-      "company": "Kristianstad Municipality",
-      "position": "Pedagogic",
-      "website": "https://www.kristianstad.se/",
-      "startDate": "2017-08-16",
-      "endDate": "2019-08-16",
-      "summary": "I work as a pedagog in a government agency where I develop and implement educational programs and initiatives that promote environmental awareness and sustainable practices. My job involves designing and delivering engaging educational materials and activities for different audiences, including school groups, community organizations, and the general public. I collaborate with other departments to integrate environmental education into their programs and policies, and conduct research to stay up-to-date with emerging trends and best practices in environmental education. Additionally, I advocate for policies that support sustainable practices to help protect the environment and ensure a better future for our planet.",
-      "highlights": []
-    },
-    {
-      "company": "Järnia",
+      "company": "Salesman",
       "position": "Warehouse worker\n",
       "website": "https://jarnia.se/",
       "startDate": "2018-12-01",
       "endDate": "2018-12-01",
-      "summary": "Järnia is a Swedish hardware store chain with over 120 locations. It oGers a wide range of products for home and garden projects. Järnia also provides tool rental, repair services, and workshops to\nhelp customers improve their DIY skills",
+      "summary": "As a Salesman for Järnia, a leading Swedish hardware store chain, I gained extensive experience in the supply chain and retail industry. With over 120 locations, Järnia offers a diverse range of products for home and garden projects, including tools, hardware, and DIY supplies.\n\nIn my role, I was responsible for assisting customers in finding the right products to meet their needs and providing excellent customer service. \n\nThrough my experience at Järnia, I developed strong communication and interpersonal skills, as well as a deep understanding of the importance of meeting customer needs and delivering exceptional service. I gained valuable knowledge of the retail industry, including supply chain management, inventory control, and sales techniques. My time at Järnia has provided me with a solid foundation in the retail industry and has prepared me for future roles in sales and customer service.",
+      "highlights": []
+    },
+    {
+      "company": "Educator",
+      "position": "Pedagogic",
+      "website": "https://www.kristianstad.se/",
+      "startDate": "2017-08-16",
+      "endDate": "2019-08-16",
+      "summary": "As an experienced pedagog in a government agency, I have successfully developed and executed numerous environmental awareness and sustainable practice initiatives. Skilled in designing and delivering captivating educational materials and activities, I have effectively engaged diverse audiences such as school groups, community organizations, and the general public. My strong collaboration skills have allowed me to work seamlessly with various departments to incorporate environmental education into their programs and policies. ",
       "highlights": []
     }
+
   ],
   "education": [
     {
@@ -104,180 +104,54 @@
       "name": "Java",
       "level": "Advanced",
       "keywords": [
-        "Software Developer"
+        "Back-end"
       ]
     },
     {
       "name": "HTML",
       "level": "Advanced",
       "keywords": [
-        "Software Developer"
+        "Front-end"
       ]
     },
     {
       "name": "CSS",
       "level": "Advanced",
       "keywords": [
-        "Software Developer"
+        "Front-end"
       ]
     },
     {
       "name": "JavaScript",
       "level": "Advanced",
       "keywords": [
-        "Software Developer"
+        "Front-end"
       ]
     },
     {
-      "name": "TypeScript",
+      "name": "jQuery",
       "level": "Advanced",
       "keywords": [
-        "Software Developer"
+        "Front-end"
+      ]
+    },
+    {
+      "name": "Angular",
+      "level": "Basic",
+      "keywords": [
+        "Front-end"
       ]
     },
     {
       "name": "Mongodb",
       "level": "Advanced",
       "keywords": [
-        "DevOps"
+        "Database"
       ]
     },
     {
-      "name": "Heroku",
-      "level": "Intermediate",
-      "keywords": [
-        "DevOps"
-      ]
-    },
-    {
-      "name": "SQL",
+      "name": "Git",
       "level": "Advanced",
-      "keywords": [
-        "Software Developer"
-      ]
-    },
-    {
-      "name": "NoSQL",
-      "level": "Intermediate",
-      "keywords": [
-        "Software Developer"
-      ]
-    },
-    {
-      "name": "Android development",
-      "level": "Intermediate",
-      "keywords": [
-        "Software Developer"
-      ]
-    },
-    {
-      "name": "Back-end",
-      "level": "Problem Solver and Team Player",
-      "keywords": [
-        "Software Developer"
-      ]
-    },
-    {
-      "name": "Front-end",
-      "level": "Intermediate",
-      "keywords": [
-        "Software Developer"
-      ]
-    },
-    {
-      "name": "JavaFx",
-      "level": "Intermediate",
-      "keywords": [
-        "Software Developer"
-      ]
-    },
-    {
-      "name": "React.JS",
-      "level": "Intermediate",
-      "keywords": [
-        "Software Developer"
-      ]
-    },
-    {
-      "name": "Spring",
-      "level": "Intermediate",
-      "keywords": [
-        "Software Developer"
-      ]
-    },
-    {
-      "name": "Python",
-      "level": "Intermediate",
-      "keywords": [
-        "Software Developer"
-      ]
-    },
-    {
-      "name": "Rest APIs",
-      "level": "Advanced",
-      "keywords": [
-        "Software Developer"
-      ]
-    },
-    {
-      "name": "Agile",
-      "level": "Intermediate",
-      "keywords": [
-        "DevOps"
-      ]
-    },
-    {
-      "name": "Linux",
-      "level": "Intermediate",
-      "keywords": [
-        "DevOps"
-      ]
-    },
-    {
-      "name": "Jenkins",
-      "level": "Intermediate",
-      "keywords": [
-        "DevOps"
-      ]
-    },
-    {
-      "name": "Continuous Integration",
-      "level": "Intermediate",
-      "keywords": [
-        "DevOps"
-      ]
-    },
-    {
-      "name": "Scripting",
-      "level": "Intermediate",
-      "keywords": [
-        "DevOps"
-      ]
-    },
-    {
-      "name": "Containers",
-      "level": "Intermediate",
-      "keywords": [
-        "DevOps"
-      ]
-    },
-    {
-      "name": "Cloud",
-      "level": "Basic",
-      "keywords": [
-        "DevOps"
-      ]
-    },
-    {
-      "name": "Troubleshooting",
-      "level": "Intermediate",
-      "keywords": [
-        "DevOps"
-      ]
-    },
-    {
-      "name": "Infrastructure as Code",
-      "level": "Intermediate",
       "keywords": [
         "DevOps"
       ]
@@ -290,12 +164,105 @@
       ]
     },
     {
-      "name": "Kubernetes",
+      "name": "Heroku",
+      "level": "Advanced",
+      "keywords": [
+        "DevOps"
+      ]
+    },
+    {
+      "name": "SQL",
+      "level": "Advanced",
+      "keywords": [
+        "Database"
+      ]
+    },
+    {
+      "name": "NoSQL",
+      "level": "Advanced",
+      "keywords": [
+        "Database"
+      ]
+    },
+    {
+      "name": "Real-time Databases",
+      "level": "Advanced",
+      "keywords": [
+        "Database"
+      ]
+    },
+    {
+      "name": "Android development",
+      "level": "Intermediate",
+      "keywords": [
+        "Software Development"
+      ]
+    },
+    {
+      "name": "PostgreSQL",
+      "level": "Advanced",
+      "keywords": [
+        "Database"
+      ]
+    },
+    {
+      "name": "React.JS",
+      "level": "Advanced",
+      "keywords": [
+        "Front-end"
+      ]
+    },
+    {
+      "name": "Node.js",
+      "level": "Advanced",
+      "keywords": [
+        "Database"
+      ]
+    },
+    {
+      "name": "Spring",
+      "level": "Advanced",
+      "keywords": [
+        "Back-end"
+      ]
+    },
+    {
+      "name": "Python",
+      "level": "Advanced",
+      "keywords": [
+        "Back-end"
+      ]
+    },
+    {
+      "name": "Rest APIs",
+      "level": "Advanced",
+      "keywords": [
+        "Software Development"
+      ]
+    },
+    {
+      "name": "Agile",
+      "level": "Advanced",
+      "keywords": [
+        "DevOps"
+      ]
+    },
+    {
+      "name": "Jenkins",
       "level": "Intermediate",
       "keywords": [
         "DevOps"
       ]
     },
+
+    {
+      "name": "Cloud",
+      "level": "Advanced",
+      "keywords": [
+        "DevOps"
+      ]
+    },
+
     {
       "name": "AWS",
       "level": "Basic",
@@ -304,45 +271,78 @@
       ]
     },
     {
-      "name": "Ansible",
-      "level": "Intermediate",
-      "keywords": [
-        "DevOps"
-      ]
-    },
-    {
-      "name": "Linux Administration",
-      "level": "Intermediate",
-      "keywords": [
-        "DevOps"
-      ]
-    },
-    {
       "name": "Hibernate",
       "level": "Advanced",
       "keywords": [
-        "Software Developer"
+        "Back-end"
       ]
     },
     {
       "name": "JUnit",
       "level": "Intermediate",
       "keywords": [
-        "Software Developer"
+        "Back-end"
       ]
     },
     {
       "name": "Servlets",
-      "level": "Intermediate",
+      "level": "Advanced",
       "keywords": [
-        "Software Developer"
+        "Back-end"
       ]
     },
     {
       "name": "Tomcat",
+      "level": "Advanced",
+      "keywords": [
+        "Back-end"
+      ]
+    },{
+      "name": ".NET",
+      "level": "Advanced",
+      "keywords": [
+        "Back-end"
+      ]
+    },
+    {
+      "name": "Express.js ",
+      "level": "Advanced",
+      "keywords": [
+        "Back-end"
+      ]
+    },{
+      "name": "Spring Boot",
+      "level": "Advanced",
+      "keywords": [
+        "Back-end"
+      ]
+    },
+    {
+      "name": "React Native",
+      "level": "Advanced",
+      "keywords": [
+        "Mobile APP"
+      ]
+    },
+    {
+      "name": "Flutter",
       "level": "Intermediate",
       "keywords": [
-        "Software Developer"
+        "Mobile APP"
+      ]
+    },
+    {
+      "name": "APIs and SDKs",
+      "level": "Advanced",
+      "keywords": [
+        "Mobile APP"
+      ]
+    },
+    {
+      "name": " (UX) design",
+      "level": "Advanced",
+      "keywords": [
+        "Mobile APP"
       ]
     }
   ],

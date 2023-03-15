@@ -9,11 +9,35 @@ html {
     margin: 30px 0 0 0;
 }
 .has-bg-image {
-    background-image: url('https://initiate.alphacoders.com/images/442/cropped-1440-900-44298.jpg?7082');
-    /*background-repeat: no-repeat;*/
+    /*set background pic from images*/
+
+    background-image: url('../images/background1.gif');
+    background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-}
+}.has-bg-image2 {
+     /*set background pic from images*/
+
+     background-image: url('../images/background5.gif');
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+     background-size: cover;
+ }
+.has-bg-image3 {
+    /*set background pic from images*/
+
+    background-image: url('../images/background6.gif');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+} .has-bg-image4 {
+      /*set background pic from images*/
+
+      background-image: url('../images/background8.gif');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+  }
 .bulma-image {
     width: 1px;
 }

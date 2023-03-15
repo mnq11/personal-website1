@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="footer has-background-link">
+    <footer className="footer has-bg-image4">
       <div className="content has-text-centered has-text-white">
         <p>
           Built at <i className="fas fa-moon"></i> by{" "}

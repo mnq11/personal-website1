@@ -4,7 +4,7 @@ import Resume from "../../resume.json";
 
 function AboutMe() {
   return (
-    <section className="section has-background-link" id="aboutMe">
+    <section className="section has-bg-image4" id="aboutMe">
       <div className="container has-text-centered">
         <figure className="image container is-180x180">
           <img
@@ -16,10 +16,10 @@ function AboutMe() {
             onError={(e)=>{e.target.onerror = null; e.target.src=Resume.basics.x_pictureFallback}}
           />
         </figure>
-        <p className="subtitle is-4 has-text-white has-text-weight-bold">
+        <p className="subtitle is-4 has-text-white-bis has-text-weight-bold">
           {Resume.basics.x_title}
         </p>
-        <p className="subtitle is-5 has-text-white has-text-weight-light summary-text">
+        <p className="subtitle is-5 has-text-white-bis has-text-weight-light summary-text">
           {Resume.basics.summary}
         </p>
         <div className="container interests">
