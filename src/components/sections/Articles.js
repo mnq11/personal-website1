@@ -16,7 +16,7 @@ class Articles extends Component {
             })
             .then(data => {
                 let articles = [];
-                data = data.slice(0, 3);
+                data = data.slice(0, 4);
                 data.forEach((element, index) => {
                     articles.push( <div className="column"  key={index}>
                             <Article
