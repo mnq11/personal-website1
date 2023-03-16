@@ -6,14 +6,14 @@ function Footer() {
         <div className="content has-text-centered has-text-white">
 
           <p>
-            Let's connect on
+
             <a href="https://www.linkedin.com/in/mohammed-nabil-48b539107/" className="has-text-white">
               <i>  </i>
-              <i className=" fab fa-linkedin"> </i> LinkedIn
+              <i className=" fab fa-linkedin"> </i> Let's connect on LinkedIn
             </a>
             <p>  </p>
             <a href="mailto:mnq_77@yahoo.com" className="has-text-white">
-              <i className="far fa-envelope"></i>    Email me and discuss the next big thing!
+              <i className="far fa-envelope"></i> Email me and discuss the next big thing!
             </a>
           </p>
           <p>
