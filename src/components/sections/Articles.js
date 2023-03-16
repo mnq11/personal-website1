@@ -16,11 +16,12 @@ class Articles extends Component {
             })
             .then(data => {
                 let articles = [];
+                data = data.slice(0, 3);
                 data.forEach((element, index) => {
-                    articles.push(
-                        <div className="column" key={`article-column-${index}`}>
+                    articles.push( <div className="column"  key={index}>
                             <Article
-                                key={`article-${index}`}
+
+                                key={index}
                                 title={element.title}
                                 url={element.url}
                                 image={element.cover_image}
@@ -29,11 +30,10 @@ class Articles extends Component {
                         </div>
                     );
                 });
-                const offset = 4 - data.length;
-                for (let i = 0; i < offset; i++) {
-                    articles.push(<div className="column" key={`empty-column-${i}`}></div>);
+                var offset = 4 - data.length;
+                for (var i = 0; i < offset; i++) {
+                    articles.push(<div className="column"></div>);
                 }
-
                 this.setState({articles: articles});
             });
     }
