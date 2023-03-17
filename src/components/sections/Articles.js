@@ -1,10 +1,10 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import Article from "../elements/Article";
 
 class Articles extends Component {
     constructor(props) {
-        super(props);
-        this.state = {articles: []};
+        super();
+        this.state = { articles: [] };
     }
 
     componentDidMount() {
@@ -15,13 +15,23 @@ class Articles extends Component {
                 return response.json();
             })
             .then(data => {
-                let articles = [];
-                data = data.slice(0, 4);
-                data.forEach((element, index) => {
-                    articles.push( <div className="column"  key={index}>
-                            <Article
+                // Filter out duplicate articles based on their 'id'
+                const uniqueData = Array.from(new Set(data.map(article => article.id)))
+                    .map(id => {
+                        return data.find(article => article.id === id);
+                    });
 
-                                key={index}
+                let articles = [];
+                if (uniqueData.length >= 4) {
+                    uniqueData.slice(-4);
+                } else {
+                    uniqueData.slice(-2);
+                }
+                uniqueData.forEach((element, index) => {
+                    articles.push(
+                        <div className="column" key={`article-${index}`}>
+                            <Article
+                                key={`article-element-${index}`}
                                 title={element.title}
                                 url={element.url}
                                 image={element.cover_image}
@@ -30,27 +40,25 @@ class Articles extends Component {
                         </div>
                     );
                 });
-                let offset = 4 - data.length;
-                for (let i = 0; i < offset; i++) {
-                    articles.push(<div className="column"></div>);
+                var offset = 4 - uniqueData.length;
+                for (var i = 0; i < offset; i++) {
+                    articles.push(<div className="column" key={`empty-column-${i}`}></div>);
                 }
-                this.setState({articles: articles});
+                this.setState({ articles: articles });
             });
     }
 
     render() {
         return (
-        <section className="hero is-dark is-fullheight has-bg-image3">
-
-            <section className="section" id="articles">
-                    <div className="container" >
-                    <h1 className="title">Articles</h1>
-                    <h2 className="subtitle is-4">My latest articles</h2>
-                    <div className="columns">{this.state.articles}</div>
-                </div>
+            <section className="hero is-dark is-fullheight has-bg-image3">
+                <section className="section" id="articles">
+                    <div className="container">
+                        <h1 className="title">Articles</h1>
+                        <h2 className="subtitle is-4">My latest articles</h2>
+                        <div className="columns">{this.state.articles}</div>
+                    </div>
+                </section>
             </section>
-        </section>
-
         );
     }
 }
