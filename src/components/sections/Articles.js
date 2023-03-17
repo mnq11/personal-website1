@@ -3,7 +3,7 @@ import Article from "../elements/Article";
 
 class Articles extends Component {
     constructor(props) {
-        super();
+        super(props);
         this.state = {articles: []};
     }
 
@@ -30,8 +30,8 @@ class Articles extends Component {
                         </div>
                     );
                 });
-                var offset = 4 - data.length;
-                for (var i = 0; i < offset; i++) {
+                let offset = 4 - data.length;
+                for (let i = 0; i < offset; i++) {
                     articles.push(<div className="column"></div>);
                 }
                 this.setState({articles: articles});
@@ -40,16 +40,16 @@ class Articles extends Component {
 
     render() {
         return (
-            <section className="hero is-dark is-fullheight has-bg-image3">
+        <section className="hero is-dark is-fullheight has-bg-image3">
 
-                <section className="section" id="articles">
+            <section className="section" id="articles">
                     <div className="container" >
-                        <h1 className="title">Articles</h1>
-                        <h2 className="subtitle is-4">My latest articles</h2>
-                        <div className="columns">{this.state.articles}</div>
-                    </div>
-                </section>
+                    <h1 className="title">Articles</h1>
+                    <h2 className="subtitle is-4">My latest articles</h2>
+                    <div className="columns">{this.state.articles}</div>
+                </div>
             </section>
+        </section>
 
         );
     }
