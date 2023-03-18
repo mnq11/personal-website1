@@ -1,13 +1,16 @@
 html {
     scroll-behavior: smooth;
 }
-.is-180x180{
+
+.is-180x180 {
     height: 180px;
     width: 180px;
 }
-.skill-list > li{
+
+.skill-list > li {
     margin: 30px 0 0 0;
 }
+
 .has-bg-image {
     /*set background pic from images*/
 
@@ -15,14 +18,17 @@ html {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-}.has-bg-image2 {
-     /*set background pic from images*/
+}
 
-     background-image: url('../images/background5.gif');
-     background-repeat: no-repeat;
-     background-attachment: fixed;
-     background-size: cover;
- }
+.has-bg-image2 {
+    /*set background pic from images*/
+
+    background-image: url('../images/background5.gif');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
 .has-bg-image3 {
     /*set background pic from images*/
 
@@ -30,26 +36,453 @@ html {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-} .has-bg-image4 {
-      /*set background pic from images*/
+}
 
-      background-image: url('../images/background8.gif');
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-size: cover;
-  }
+.has-bg-image4 {
+    /*set background pic from images*/
+
+    background-image: url('../images/background8.gif');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
 .bulma-image {
     width: 1px;
 }
+
 .interests {
     display: flex;
     justify-content: center;
 }
+
 .summary-text {
     margin-left: auto;
     margin-right: auto;
     max-width: 36em;
 }
+
 .skill-percentage {
-	float: right;
+    float: right;
 }
+
+@keyframes zoom-in {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.avatar-animation {
+    animation: zoom-in 3s ease-in-out infinite;
+}
+
+
+@keyframes cycle-colors {
+    0% {
+        border-color: hsl(0, 100%, 50%);
+    }
+    25% {
+        border-color: hsl(90, 100%, 50%);
+    }
+    50% {
+        border-color: hsl(180, 100%, 50%);
+    }
+    75% {
+        border-color: hsl(270, 100%, 50%);
+    }
+    100% {
+        border-color: hsl(360, 100%, 50%);
+    }
+}
+
+@keyframes pulse {
+    to {
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+
+.avatar::before,
+.avatar::after {
+    animation: pulse 2s linear infinite;
+    border: #fff solid 8px;
+    border-radius: 9999px;
+    box-sizing: border-box;
+    content: ' ';
+    height: 140%;
+    left: -20%;
+    opacity: .6;
+    position: absolute;
+    top: -20%;
+    transform: scale(0.714);
+    width: 140%;
+    z-index: 1;
+}
+
+.avatar::after {
+    animation-delay: 1s;
+}
+
+.avatar:hover img {
+    content: url('https://s.blixt.org/hypnotoad.jpg');
+}
+
+.avatar:hover::before,
+.avatar:hover::after {
+    animation: pulse 1s linear infinite, cycle-colors 6s linear infinite;
+}
+
+.avatar:hover::after {
+    animation-delay: .5s;
+}
+
+
+@font-face {
+    font-family: Clip;
+    src: url("https://acupoftee.github.io/fonts/Clip.ttf");
+}
+
+@keyframes blink {
+    0%,
+    22%,
+    36%,
+    75% {
+        color: #ffe6ff;
+        text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #656dff,
+        -0.2rem 0.1rem 1rem #7a65ff, 0.2rem 0.1rem 1rem #6a65ff,
+        0 -0.5rem 2rem #2428ff, 0 0.5rem 3rem #3a24ff;
+    }
+    28%,
+    33% {
+        color: #6a65ff;
+        text-shadow: none;
+    }
+    82%,
+    97% {
+        color: #2428ff;
+        text-shadow: none;
+    }
+}
+
+.flicker {
+    animation: shine 2s forwards, blink 3s 2s infinite;
+}
+
+.fast-flicker {
+    animation: shine 2s forwards, blink 10s 1s infinite;
+}
+
+.fast-flicker1 {
+    animation: shine 3s forwards, blink 7s 3s infinite;
+}
+
+.fast-flicker2 {
+    animation: shine 1s forwards, blink 2s 1s infinite;
+}
+
+@keyframes shine {
+    0% {
+        color: #20186b;
+        text-shadow: none;
+    }
+    100% {
+        color: #ffe6ff;
+        text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #6584ff,
+        -0.2rem 0.1rem 1rem #656dff, 0.2rem 0.1rem 1rem #6a65ff,
+        0 -0.5rem 2rem #242fff, 0 0.5rem 3rem #2436ff;
+    }
+}
+
+@keyframes flicker {
+    from {
+        opacity: 1;
+    }
+
+    4% {
+        opacity: 0.9;
+    }
+
+    6% {
+        opacity: 0.85;
+    }
+
+    8% {
+        opacity: 0.95;
+    }
+
+    10% {
+        opacity: 0.9;
+    }
+
+    11% {
+        opacity: 0.922;
+    }
+
+    12% {
+        opacity: 0.9;
+    }
+
+    14% {
+        opacity: 0.95;
+    }
+
+    16% {
+        opacity: 0.98;
+    }
+
+    17% {
+        opacity: 0.9;
+    }
+
+    19% {
+        opacity: 0.93;
+    }
+
+    20% {
+        opacity: 0.99;
+    }
+
+    24% {
+        opacity: 1;
+    }
+
+    26% {
+        opacity: 0.94;
+    }
+
+    28% {
+        opacity: 0.98;
+    }
+
+    37% {
+        opacity: 0.93;
+    }
+
+    38% {
+        opacity: 0.5;
+    }
+
+    39% {
+        opacity: 0.96;
+    }
+
+    42% {
+        opacity: 1;
+    }
+
+    44% {
+        opacity: 0.97;
+    }
+
+    46% {
+        opacity: 0.94;
+    }
+
+    56% {
+        opacity: 0.9;
+    }
+
+    58% {
+        opacity: 0.9;
+    }
+
+    60% {
+        opacity: 0.99;
+    }
+
+    68% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 0.9;
+    }
+
+    72% {
+        opacity: 0.95;
+    }
+
+    93% {
+        opacity: 0.93;
+    }
+
+    95% {
+        opacity: 0.95;
+    }
+
+    97% {
+        opacity: 0.93;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+
+.glitch {
+    color: rgb(223, 191, 191);
+    position: relative;
+    font-size: 3vw;
+    animation: glitch 5s 5s infinite;
+}
+
+.glitch::before {
+    content: attr(data-text);
+    position: absolute;
+    left: -2px;
+    text-shadow: -5px 0 magenta;
+    background: black;
+    overflow: hidden;
+    top: 0;
+    animation: noise-1 3s linear infinite alternate-reverse, glitch 5s 5.05s infinite;
+}
+
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 2px;
+    text-shadow: -5px 0 lightgreen;
+    background: black;
+    overflow: hidden;
+    top: 0;
+    animation: noise-2 3s linear infinite alternate-reverse, glitch 5s 5s infinite;
+}
+
+@keyframes glitch {
+    1% {
+        transform: rotateX(10deg) skewX(90deg);
+    }
+    2% {
+        transform: rotateX(0deg) skewX(0deg);
+    }
+    3% {
+        transform: rotateX(10deg) skewX(90deg);
+    }
+}
+
+@keyframes noise-1 {
+    0% { clip-path: inset(48% 0 43% 0); }
+    3% { clip-path: inset(94% 0 6% 0); }
+    6% { clip-path: inset(44% 0 53% 0); }
+    9% { clip-path: inset(10% 0 71% 0); }
+    12% { clip-path: inset(58% 0 14% 0); }
+    15% { clip-path: inset(31% 0 55% 0); }
+    18% { clip-path: inset(25% 0 25% 0); }
+    21% { clip-path: inset(6% 0 83% 0); }
+    24% { clip-path: inset(35% 0 39% 0); }
+    27% { clip-path: inset(68% 0 11% 0); }
+    30% { clip-path: inset(97% 0 1% 0); }
+    33% { clip-path: inset(12% 0 82% 0); }
+    36% { clip-path: inset(73% 0 16% 0); }
+    39% { clip-path: inset(49% 0 37% 0); }
+    42% { clip-path: inset(43% 0 33% 0); }
+    45% { clip-path: inset(90% 0 6% 0); }
+    48% { clip-path: inset(46% 0 37% 0); }
+    51% { clip-path: inset(93% 0 1% 0); }
+    54% { clip-path: inset(6% 0 49% 0); }
+    57% { clip-path: inset(18% 0 63% 0); }
+    60% { clip-path: inset(89% 0 1% 0); }
+    63% { clip-path: inset(76% 0 17% 0); }
+    66% { clip-path: inset(17% 0 74% 0); }
+    69% { clip-path: inset(60% 0 33% 0); }
+    72% { clip-path: inset(56% 0 32% 0); }
+    75% { clip-path: inset(21% 0 36% 0); }
+    78% { clip-path: inset(33% 0 50% 0); }
+    81% { clip-path: inset(24% 0 70% 0); }
+    84% { clip-path: inset(81% 0 12% 0); }
+    87% { clip-path: inset(12% 0 80% 0); }
+    90% { clip-path: inset(20% 0 76% 0); }
+    93% { clip-path: inset(2% 0 97% 0); }
+    96% { clip-path: inset(55% 0 44% 0); }
+    100% { clip-path: inset(50% 0 50% 0); }
+}
+
+@keyframes noise-2 {
+    0% { clip-path: inset(52% 0 48% 0); }
+    3% { clip-path: inset(28% 0 72% 0); }
+    6% { clip-path: inset(40% 0 60% 0); }
+    9% { clip-path: inset(5% 0 95% 0); }
+    12% { clip-path: inset(67% 0 33% 0); }
+    15% { clip-path: inset(8% 0 92% 0); }
+    18% { clip-path: inset(34% 0 66% 0); }
+    21% { clip-path: inset(54% 0 46% 0); }
+    24% { clip-path: inset(19% 0 81% 0); }
+    27% { clip-path: inset(69% 0 31% 0); }
+    30% { clip-path: inset(92% 0 8% 0); }
+    33% { clip-path: inset(29% 0 71% 0); }
+    36% { clip-path: inset(45% 0 55% 0); }
+    39% { clip-path: inset(75% 0 25% 0); }
+    42% { clip-path: inset(59% 0 41% 0); }
+    45% { clip-path: inset(22% 0 78% 0); }
+    48% { clip-path: inset(57% 0 43% 0); }
+    51% { clip-path: inset(85% 0 15% 0); }
+    54% { clip-path: inset(26% 0 74% 0); }
+    57% { clip-path: inset(33% 0 67% 0); }
+    60% { clip-path: inset(77% 0 23% 0); }
+    63% { clip-path: inset(61% 0 39% 0); }
+    66% { clip-path: inset(3% 0 97% 0); }
+    69% { clip-path: inset(13% 0 87% 0); }
+    72% { clip-path: inset(39% 0 62% 0); }
+    75% { clip-path: inset(80% 0 20% 0); }
+    78% { clip-path: inset(11% 0 89% 0); }
+    81% { clip-path: inset(47% 0 53% 0); }
+    84% { clip-path: inset(16% 0 84% 0); }
+    87% { clip-path: inset(70% 0 30% 0); }
+    90% { clip-path: inset(93% 0 7% 0); }
+    93% { clip-path: inset(6% 0 94% 0); }
+    96% { clip-path: inset(44% 0 56% 0); }
+    100% { clip-path: inset(50% 0 50% 0); }
+}
+.scantiness {
+    overflow: hidden;
+    mix-blend-mode: difference;
+}
+
+.scantiness::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    background: repeating-linear-gradient(
+            to bottom,
+            transparent 0%,
+            rgba(255, 255, 255, 0.05) .5%,
+            transparent 1%
+    );
+
+    animation: fudge 7s ease-in-out alternate infinite;
+}
+
+@keyframes fudge {
+    from {
+        transform: translate(0px, 0px);
+    }
+    to {
+        transform: translate(0px, 2%);
+    }
+}
+
+.glow {
+    color: transparent;
+    position: absolute;
+    top: 0;
+    text-shadow: 0 0 1000px rgb(223, 191, 191);
+    font-size: 9vw;
+    animation: glitch 5s 5s infinite;
+}
+
+
+
+
+

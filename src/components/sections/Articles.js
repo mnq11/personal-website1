@@ -55,7 +55,7 @@ class Articles extends Component {
                     <div className="container">
                         <h1 className="title">Articles</h1>
                         <h2 className="subtitle is-4">My latest articles</h2>
-                        <div className="columns">{this.state.articles}</div>
+                        <div className="columns ">{this.state.articles}</div>
                     </div>
                 </section>
             </section>
