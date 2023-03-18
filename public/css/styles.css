@@ -1,6 +1,52 @@
 html {
     scroll-behavior: smooth;
 }
+/* ... existing CSS ... */
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 1024px) {
+    .glitch {
+        font-size: 6vw;
+    }
+
+    .summary-text {
+        max-width: 32em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .glitch {
+        font-size: 9vw;
+    }
+
+    .summary-text {
+        max-width: 28em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .glitch {
+        font-size: 12vw;
+    }
+
+    .summary-text {
+        max-width: 24em;
+    }
+
+    .is-180x180 {
+        height: 120px;
+        width: 120px;
+    }
+
+    .skill-list > li {
+        margin: 15px 0 0 0;
+    }
+
+    .interests {
+        display: block;
+    }
+}
+
 
 .is-180x180 {
     height: 180px;
