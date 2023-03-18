@@ -79,7 +79,7 @@ html {
 }
 
 .avatar-animation {
-    animation: zoom-in 3s ease-in-out infinite;
+    animation: zoom-in 2s ease-in-out infinite;
 }
 
 
@@ -111,7 +111,7 @@ html {
 .avatar::before,
 .avatar::after {
     animation: pulse 2s linear infinite;
-    border: #fff solid 8px;
+    border: #143f86 solid 8px;
     border-radius: 9999px;
     box-sizing: border-box;
     content: ' ';
@@ -126,7 +126,7 @@ html {
 }
 
 .avatar::after {
-    animation-delay: 1s;
+    animation-delay: 2s;
 }
 
 .avatar:hover img {
@@ -338,7 +338,7 @@ html {
     content: attr(data-text);
     position: absolute;
     left: -2px;
-    text-shadow: -5px 0 #a100ff;
+    text-shadow: -5px 0 #0080ff;
     background: black;
     overflow: hidden;
     top: 0;

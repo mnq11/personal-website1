@@ -37,6 +37,8 @@ class NavBar extends React.Component {
                                 <span className="flicker">{name3}</span>
                                 <span className="fast-flicker2">{name4}</span>
                             </div>
+
+
                         </a>
                     </div>
                     <span
