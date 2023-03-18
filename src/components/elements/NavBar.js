@@ -20,15 +20,15 @@ class NavBar extends React.Component {
     }
 
     render() {
-        // divide String into 3 parts that have 24 characters
+        // divide String into 4 Strings
         // 1. first 5 characters
         // 2. 5th to 9th characters
         // 3. 9th to 15th characters
         // 4. 15th to 24th characters
-        const name = Resume.basics.name.substring(0, 5);
-        const name2 = Resume.basics.name.substring(5, 9);
-        const name3 = Resume.basics.name.substring(9, 15);
-        const name4 = Resume.basics.name.substring(15, 24);
+        const name = Resume.basics.name.substring(0, 4);
+        const name2 = Resume.basics.name.substring(4, 8);
+        const name3 = Resume.basics.name.substring(8, 12);
+        const name4 = Resume.basics.name.substring(12, 14);
 
         return (
             <nav className="navbar is-transparent">
