@@ -1,31 +1,857 @@
 html {
     scroll-behavior: smooth;
 }
-.is-180x180{
+
+/* ... existing CSS ... */
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 1024px) {
+    .glitch {
+        font-size: 6vw;
+    }
+
+    .summary-text {
+        max-width: 32em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .glitch {
+        font-size: 9vw;
+    }
+
+    .summary-text {
+        max-width: 28em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .glitch {
+        font-size: 12vw;
+    }
+
+    .summary-text {
+        max-width: 24em;
+    }
+
+    .is-180x180 {
+        height: 120px;
+        width: 120px;
+    }
+
+
+    .interests {
+        display: block;
+    }
+}
+
+
+.is-180x180 {
     height: 180px;
     width: 180px;
 }
-.skill-list > li{
+
+.skill-list > li {
     margin: 30px 0 0 0;
+
+}
+.skill-percentage {
+    float: right;
+    margin: 0 0 0 0;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #817e7e;
+
+
+
 }
 .has-bg-image {
-    background-image: url('../images/cover10.webp'), url('../images/cover10.JPG');
+    /*set background pic from images*/
+
+    background-image: url('../images/background1.gif');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
 }
-.bulma-image {
-    width: 200px;
+
+.has-bg-image2 {
+    /*set background pic from images*/
+
+    background-image: url('../images/background5.gif');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
+
+.has-bg-image3 {
+    /*set background pic from images*/
+
+    background-image: url('../images/background6.gif');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.has-bg-image4 {
+    /*set background pic from images*/
+
+    background-image: url('../images/background8.gif');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.bulma-image {
+    width: 1px;
+}
+
 .interests {
     display: flex;
     justify-content: center;
 }
+
 .summary-text {
     margin-left: auto;
     margin-right: auto;
     max-width: 36em;
 }
-.skill-percentage {
-	float: right;
+
+
+@keyframes zoom-in {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
+
+.avatar-animation {
+    animation: zoom-in 2s ease-in-out infinite;
+}
+
+
+@keyframes cycle-colors {
+    0% {
+        border-color: hsl(0, 100%, 50%);
+    }
+    25% {
+        border-color: hsl(90, 100%, 50%);
+    }
+    50% {
+        border-color: hsl(180, 100%, 50%);
+    }
+    75% {
+        border-color: hsl(270, 100%, 50%);
+    }
+    100% {
+        border-color: hsl(360, 100%, 50%);
+    }
+}
+
+@keyframes pulse {
+    to {
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+
+.avatar::before,
+.avatar::after {
+    animation: pulse 2s linear infinite;
+    border: #143f86 solid 8px;
+    border-radius: 9999px;
+    box-sizing: border-box;
+    content: ' ';
+    height: 140%;
+    left: -20%;
+    opacity: .6;
+    position: absolute;
+    top: -20%;
+    transform: scale(0.714);
+    width: 140%;
+    z-index: 1;
+}
+
+.avatar::after {
+    animation-delay: 2s;
+}
+
+
+.avatar:hover::before,
+.avatar:hover::after {
+    animation: pulse 1s linear infinite, cycle-colors 6s linear infinite;
+}
+
+.avatar:hover::after {
+    animation-delay: .5s;
+}
+
+
+@font-face {
+    font-family: Clip;
+    src: url("https://acupoftee.github.io/fonts/Clip.ttf");
+}
+
+@keyframes blink {
+    0%,
+    22%,
+    36%,
+    75% {
+        color: #ffe6ff;
+        text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #656dff,
+        -0.2rem 0.1rem 1rem #7a65ff, 0.2rem 0.1rem 1rem #6a65ff,
+        0 -0.5rem 2rem #2428ff, 0 0.5rem 3rem #3a24ff;
+    }
+    28%,
+    33% {
+        color: #6a65ff;
+        text-shadow: none;
+    }
+    82%,
+    97% {
+        color: #2428ff;
+        text-shadow: none;
+    }
+}
+
+.flicker {
+    animation: shine 2s forwards, blink 3s 2s infinite;
+}
+
+.fast-flicker {
+    animation: shine 2s forwards, blink 10s 1s infinite;
+}
+
+.fast-flicker1 {
+    animation: shine 3s forwards, blink 7s 3s infinite;
+}
+
+.fast-flicker2 {
+    animation: shine 1s forwards, blink 2s 1s infinite;
+}
+.flickerGray {
+    animation: shine1 2s forwards, blink 6s 6s infinite;
+    color: #20b401;
+}
+
+@keyframes shine {
+    0% {
+        color: #20186b;
+        text-shadow: none;
+    }
+    100% {
+        color: #ffe6ff;
+        text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #6584ff,
+        -0.2rem 0.1rem 1rem #656dff, 0.2rem 0.1rem 1rem #6a65ff,
+        0 -0.5rem 2rem #242fff, 0 0.5rem 3rem #2436ff;
+    }
+}
+
+@keyframes shine1 {
+   /*make it shine Gray*/
+    0% {
+        color: #333050;
+        text-shadow: none;
+    }
+    100% {
+        color: #ffe6ff;
+        text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #4e5365,
+        -0.2rem 0.1rem 1rem #343550, 0.2rem 0.1rem 1rem #26262d,
+        0 -0.5rem 2rem #0c0c15, 0 0.5rem 3rem #0c0c0e;
+    }
+}
+
+@keyframes flicker {
+    from {
+        opacity: 1;
+    }
+
+    4% {
+        opacity: 0.9;
+    }
+
+    6% {
+        opacity: 0.85;
+    }
+
+    8% {
+        opacity: 0.95;
+    }
+
+    10% {
+        opacity: 0.9;
+    }
+
+    11% {
+        opacity: 0.922;
+    }
+
+    12% {
+        opacity: 0.9;
+    }
+
+    14% {
+        opacity: 0.95;
+    }
+
+    16% {
+        opacity: 0.98;
+    }
+
+    17% {
+        opacity: 0.9;
+    }
+
+    19% {
+        opacity: 0.93;
+    }
+
+    20% {
+        opacity: 0.99;
+    }
+
+    24% {
+        opacity: 1;
+    }
+
+    26% {
+        opacity: 0.94;
+    }
+
+    28% {
+        opacity: 0.98;
+    }
+
+    37% {
+        opacity: 0.93;
+    }
+
+    38% {
+        opacity: 0.5;
+    }
+
+    39% {
+        opacity: 0.96;
+    }
+
+    42% {
+        opacity: 1;
+    }
+
+    44% {
+        opacity: 0.97;
+    }
+
+    46% {
+        opacity: 0.94;
+    }
+
+    56% {
+        opacity: 0.9;
+    }
+
+    58% {
+        opacity: 0.9;
+    }
+
+    60% {
+        opacity: 0.99;
+    }
+
+    68% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 0.9;
+    }
+
+    72% {
+        opacity: 0.95;
+    }
+
+    93% {
+        opacity: 0.93;
+    }
+
+    95% {
+        opacity: 0.95;
+    }
+
+    97% {
+        opacity: 0.93;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+.glitch {
+    color: rgb(191, 193, 223);
+    position: relative;
+    font-size: 3vw;
+    animation: glitch 5s 5s infinite;
+}
+
+.glitch::before {
+    content: attr(data-text);
+    position: absolute;
+    left: -2px;
+    text-shadow: -5px 0 #0080ff;
+    background: black;
+    overflow: hidden;
+    top: 0;
+    animation: noise-1 3s linear infinite alternate-reverse, glitch 5s 5.05s infinite;
+}
+
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 2px;
+    text-shadow: -5px 0 lightgreen;
+    background: black;
+    overflow: hidden;
+    top: 0;
+    animation: noise-2 3s linear infinite alternate-reverse, glitch 5s 5s infinite;
+}
+
+@keyframes glitch {
+    1% {
+        transform: rotateX(10deg) skewX(90deg);
+    }
+    2% {
+        transform: rotateX(0deg) skewX(0deg);
+    }
+
+}
+
+@keyframes noise-1 {
+    0% {
+        clip-path: inset(48% 0 43% 0);
+    }
+    3% {
+        clip-path: inset(28% 0 72% 0);
+    }
+    6% {
+        clip-path: inset(40% 0 60% 0);
+    }
+    9% {
+        clip-path: inset(5% 0 95% 0);
+    }
+    12% {
+        clip-path: inset(67% 0 33% 0);
+    }
+
+    21% {
+        clip-path: inset(54% 0 46% 0);
+    }
+    24% {
+        clip-path: inset(19% 0 81% 0);
+    }
+    27% {
+        clip-path: inset(69% 0 31% 0);
+    }
+
+    39% {
+        clip-path: inset(75% 0 25% 0);
+    }
+    42% {
+        clip-path: inset(59% 0 41% 0);
+    }
+    45% {
+        clip-path: inset(9% 0 91% 0);
+    }
+    48% {
+        clip-path: inset(77% 0 23% 0);
+    }
+    51% {
+        clip-path: inset(8% 0 92% 0);
+    }
+    54% {
+        clip-path: inset(59% 0 41% 0);
+    }
+    57% {
+        clip-path: inset(4% 0 96% 0);
+    }
+    60% {
+        clip-path: inset(56% 0 44% 0);
+    }
+    63% {
+        clip-path: inset(60% 0 40% 0);
+    }
+    66% {
+        clip-path: inset(20% 0 80% 0);
+    }
+    69% {
+        clip-path: inset(4% 0 96% 0);
+    }
+    72% {
+        clip-path: inset(60% 0 40% 0);
+    }
+    75% {
+        clip-path: inset(50% 0 50% 0);
+    }
+    78% {
+        clip-path: inset(60% 0 40% 0);
+    }
+    81% {
+        clip-path: inset(30% 0 70% 0);
+    }
+    84% {
+        clip-path: inset(60% 0 40% 0);
+    }
+    87% {
+        clip-path: inset(70% 0 30% 0);
+    }
+    90% {
+        clip-path: inset(60% 0 40% 0);
+    }
+    93% {
+        clip-path: inset(40% 0 60% 0);
+    }
+    96% {
+        clip-path: inset(60% 0 40% 0);
+    }
+    99% {
+        clip-path: inset(80% 0 20% 0);
+    }
+}
+
+@keyframes noise-2 {
+    0% {
+        clip-path: inset(52% 0 48% 0);
+    }
+    3% {
+        clip-path: inset(28% 0 72% 0);
+    }
+    6% {
+        clip-path: inset(40% 0 60% 0);
+    }
+    9% {
+        clip-path: inset(5% 0 95% 0);
+    }
+    12% {
+        clip-path: inset(67% 0 33% 0);
+    }
+
+    21% {
+        clip-path: inset(54% 0 46% 0);
+    }
+    24% {
+        clip-path: inset(19% 0 81% 0);
+    }
+    27% {
+        clip-path: inset(69% 0 31% 0);
+    }
+
+    39% {
+        clip-path: inset(75% 0 25% 0);
+    }
+    42% {
+        clip-path: inset(59% 0 41% 0);
+    }
+    45% {
+        clip-path: inset(9% 0 91% 0);
+    }
+    48% {
+        clip-path: inset(77% 0 23% 0);
+    }
+    51% {
+        clip-path: inset(8% 0 92% 0);
+    }
+    54% {
+        clip-path: inset(59% 0 41% 0);
+    }
+    57% {
+        clip-path: inset(4% 0 96% 0);
+    }
+    60% {
+        clip-path: inset(56% 0 44% 0);
+    }
+    63% {
+        clip-path: inset(60% 0 40% 0);
+    }
+    66% {
+        clip-path: inset(20% 0 80% 0);
+    }
+    69% {
+        clip-path: inset(4% 0 96% 0);
+    }
+    72% {
+        clip-path: inset(60% 0 40% 0);
+    }
+    75% {
+        clip-path: inset(50% 0 50% 0);
+    }
+    78% {
+        clip-path: inset(60% 0 40% 0);
+    }
+    81% {
+        clip-path: inset(30% 0 70% 0);
+    }
+    84% {
+        clip-path: inset(60% 0 40% 0);
+    }
+    87% {
+        clip-path: inset(70% 0 30% 0);
+    }
+    90% {
+        clip-path: inset(60% 0 40% 0);
+    }
+    93% {
+        clip-path: inset(40% 0 60% 0);
+    }
+    96% {
+        clip-path: inset(60% 0 40% 0);
+    }
+    99% {
+        clip-path: inset(80% 0 20% 0);
+    }
+}
+
+.scantiness {
+    overflow: hidden;
+    mix-blend-mode: difference;
+}
+
+.scantiness::before {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 150%;
+
+
+    background: repeating-linear-gradient(
+            to bottom,
+            transparent 0%,
+            rgba(255, 255, 255, 0.05) .5%,
+            transparent 1%
+    );
+
+    animation: fudge 7s ease-in-out alternate infinite;
+}
+
+@keyframes fudge {
+    from {
+        transform: translate(0px, 0px);
+    }
+    to {
+        transform: translate(0px, 2%);
+    }
+}
+
+.glow {
+    color: transparent;
+    position: absolute;
+    top: 0;
+    text-shadow: 0 0 1000px rgb(87, 68, 68);
+    font-size: 9vw;
+    animation: glitch 5s 5s infinite;
+}
+
+
+.nav-menu {
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+}
+
+.nav-menu.is-active {
+    max-height: 500px; /* Adjust this value based on the actual height of your menu */
+    opacity: 1;
+}
+
+/* Responsive styles */
+@media screen and (min-width: 1024px) {
+    .nav-menu {
+        max-height: none;
+        opacity: 1;
+        transition: none;
+    }
+
+    .nav-menu.is-active {
+        max-height: none;
+    }
+}
+
+
+.container__progressbars {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    min-width: 270px;
+    width: 100%;
+    min-height: 100%;
+}
+
+.progressbar {
+    position: relative;
+    width: 170px;
+    height: 170px;
+    /*center it in the parent */
+    margin: 0 auto;
+
+    transform: rotate(-90deg);
+    display: inline-block;
+}
+
+.progressbar__svg {
+    transform: rotate(-90deg);
+    width: 100%;
+    height: 100%;
+}
+
+.progressbar__svg-circle {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke-width: 10;
+    stroke-dasharray: 440;
+    stroke-dashoffset: 440;
+    stroke-linecap: round;
+    transform: translate(5px, 5px);
+    animation: circleColor 5s infinite;
+
+}
+
+.progressbar__svg-circle {
+    animation: circle-glowing 5s infinite;
+}
+
+@keyframes circleColor {
+    0% {
+        stroke: hsl(232, 48%, 25%);
+    }
+    5 % {
+        stroke: hsl(210, 66%, 15%);
+    }
+    10% {
+        stroke: hsl(222, 83%, 31%);
+    }
+    15% {
+        stroke: hsl(227, 61%, 50%);
+    }
+    20% {
+        stroke: hsl(228, 97%, 64%);
+    }
+    25% {
+        stroke: hsl(232, 48%, 25%);
+    }
+    30% {
+        stroke: hsl(210, 66%, 15%);
+    }
+    35% {
+        stroke: hsl(222, 83%, 31%);
+    }
+    40% {
+        stroke: hsl(227, 61%, 50%);
+    }
+    45% {
+        stroke: hsl(228, 97%, 64%);
+    }
+    50% {
+        stroke: hsl(232, 48%, 25%);
+    }
+    55% {
+        stroke: hsl(210, 66%, 15%);
+    }
+    60% {
+        stroke: hsl(222, 83%, 31%);
+    }
+    65% {
+        stroke: hsl(227, 61%, 50%);
+    }
+    70% {
+        stroke: hsl(228, 97%, 64%);
+    }
+    75% {
+        stroke: hsl(232, 48%, 25%);
+    }
+    80% {
+        stroke: hsl(210, 66%, 15%);
+    }
+    85% {
+        stroke: hsl(222, 83%, 31%);
+    }
+    90% {
+        stroke: hsl(227, 61%, 50%);
+    }
+    95% {
+        stroke: hsl(228, 97%, 64%);
+    }
+    100% {
+        stroke: hsl(232, 48%, 25%);
+    }
+
+}
+
+@keyframes circle-glowing {
+    0% {
+        stroke: hsl(232, 48%, 25%);
+    }
+    25% {
+        stroke: hsl(210, 66%, 15%);
+    }
+    50% {
+        stroke: hsl(222, 83%, 31%);
+    }
+    75% {
+        stroke: hsl(227, 61%, 50%);
+    }
+    100% {
+        stroke: hsl(228, 97%, 64%);
+    }
+}
+
+/* Define the glowing effect using keyframes */
+@keyframes glowing {
+    0% {
+        text-shadow: 0 0 5px, 0 0 10px, 0 0 15px, 0 0 20px;
+    }
+    50% {
+        text-shadow: 0 0 10px, 0 0 20px, 0 0 30px, 0 0 40px;
+    }
+    100% {
+        text-shadow: 0 0 5px, 0 0 10px, 0 0 15px, 0 0 20px;
+    }
+}
+
+.progressbar {
+    position: relative;
+}
+
+.progressbar__text {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 0.25em 0.5em;
+    color: hsl(0, 0%, 100%);
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 0.25em;
+    transform: translate(-50%, -50%) rotate(90deg);
+    font-size: 1.5em;
+    animation: glowing 1s infinite;
+    animation-duration: var(--animation-duration, 1s);
+}
+
+/* You can change the --animation-duration value for different instances */
+.progressbar:nth-child(2) .progressbar__text {
+    --animation-duration: 1.5s;
+}
+
+.progressbar:nth-child(3) .progressbar__text {
+    --animation-duration: 2s;
+}
+
+
+
+

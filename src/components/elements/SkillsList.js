@@ -2,22 +2,17 @@ import React from "react";
 import ProgressBar from "./ProgressBar";
 
 function SkillsList(props) {
-  const skills = props.skills;
-  return <ul className="skill-list">{buildSkills(skills)}</ul>;
-}
+  const { skills } = props;
 
-function buildSkills(skills) {
-  let progressBars = [];
-  let counter = 0;
-  Object.entries(skills).forEach(([key, value]) => {
-    progressBars.push(
-      <li key={counter}>
-        <ProgressBar key={counter} text={key} level={value} />
-      </li>
-    );
-    counter++;
-  });
-  return progressBars;
+  function buildSkills(skills) {
+    return Object.entries(skills).map(([key, value]) => (
+        <li key={key}>
+          <ProgressBar text={key} level={value} />
+        </li>
+    ));
+  }
+
+  return <ul className="skill-list">{buildSkills(skills)}</ul>;
 }
 
 export default SkillsList;

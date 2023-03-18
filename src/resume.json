@@ -1,22 +1,23 @@
 {
   "basics": {
-    "name": "Mohammed Nabil ",
+    "name": "Mohammed Nabil",
     "label": "Software  Developer\n",
-    "picture": "images/jcoelho.webp",
-    "x_pictureFallback": "images/jcoelho.jpg",
-    "x_title": "Hey There! Glad you're here",
-    "summary": "Going on 3 years of experience in IT. Currently I’m working as a developer exploring the DevOps world. I’m interested in service management, all sorts of automation and developing front-end and back-end applications.",
+    "picture": "images/443.png",
+    "x_pictureFallback": "images/443.png",
+    "x_title": "Hi there!\uD83D\uDC4B",
+    "summary": " Glad you're here ! I love finding fun and creative solutions to complex problems. Proficient in various languages and frameworks, I enjoy tackling new challenges both solo and with a team. When I'm not debugging code or brainstorming, I'm all about expanding my skillset. So if you need a talented, passionate, and fun-loving software developer, look no further – I'm your person!",
     "location": {
-      "country": "Sweden",
-      "countryCode": "SE",
-      "region": "Skane"
+      "country": "Sweden  \uD83C\uDDF8\uD83C\uDDEA  ",
+      "countryCode": "\uD83C\uDDF8\uD83C\uDDEA",
+      "region": "United Kingdom",
+      "flag": "🇸🇪"
     },
     "profiles": [
       {
         "network": "DEV Community",
         "username": "Mohammed",
         "url": "https://dev.to/mnq11",
-        "x_icon":"fab fa-2x fa-dev"
+        "x_icon": "fab fa-2x fa-dev"
       },
       {
         "network": "LinkedIn",
@@ -29,49 +30,59 @@
         "username": "mnq11",
         "url": "https://github.com/mnq11",
         "x_icon": "fab fa-2x fa-github"
+      },
+      {
+        "network": "twitter",
+        "username": "MohammedlNabil",
+        "url": "https://twitter.com/MohammedlNabil",
+        "x_icon": "fab fa-2x fa-twitter"
       }
     ]
   },
   "work": [
-
     {
-      "company": "Student & Freelancer",
+      "company": "Freelancer",
       "position": "Software development consultant",
       "website": "https://www.linkedin.com/in/mohammed-nabil-48b539107",
-      "startDate": "2021-01-15",
-      "endDate": "",
-      "summary": "Started working for myself, providing expertise on software development and DevOps culture and best practices for international startups.",
+      "startDate": "2022-01-15",
+      "endDate": "2023-01-15",
+      "summary": "As a software development consultant, I provide expert services in software development and related areas to clients on a project basis. My clients rely on me to deliver high-quality software solutions that meet their needs, and I take pride in my ability to meet their expectations. I enjoy the challenge of juggling multiple projects at once, and I am skilled at managing my time and resources effectively to ensure that I meet project deadlines. I am always learning and staying up-to-date with the latest trends and technologies in my field, and I am committed to providing my clients with the best possible service. As a software development consultant, I find fulfillment in solving complex problems and delivering results that make a real difference in the world of technology.",
+      "highlights": [
+        "Successfully managed multiple projects concurrently, ensuring timely delivery and high-quality output.",
+        "Provided expert guidance on software development best practices, project management, and related areas to clients.",
+        "Demonstrated proficiency in a range of programming languages, frameworks, and tools to deliver high-quality software solutions.",
+        "Maintained excellent communication skills and responsiveness to client feedback, resulting in long-term client relationships and repeat business.",
+        "Continuously pursued professional development opportunities to stay current with emerging trends and technologies in the software development field."
+      ]
+    },
+
+    {
+      "company": "Järnia",
+      "position": "Salesman",
+      "website": "https://jarnia.se/",
+      "startDate": "2018-12-01",
+      "endDate": "2018-12-01",
+      "summary": "As a Salesman for Järnia, a leading Swedish hardware store chain, I gained extensive experience in the supply chain and retail industry. With over 120 locations, Järnia offers a diverse range of products for home and garden projects, including tools, hardware, and DIY supplies.\n\nIn my role, I was responsible for assisting customers in finding the right products to meet their needs and providing excellent customer service. \n\nThrough my experience at Järnia, I developed strong communication and interpersonal skills, as well as a deep understanding of the importance of meeting customer needs and delivering exceptional service. I gained valuable knowledge of the retail industry, including supply chain management, inventory control, and sales techniques. My time at Järnia has provided me with a solid foundation in the retail industry and has prepared me for future roles in sales and customer service.",
       "highlights": []
     },
     {
-      "company": "Östra Göinge Municipality",
+      "company": "kristianstad kommun",
+      "position": "Pedagogic",
+      "website": "https://www.kristianstad.se/",
+      "startDate": "2017-08-16",
+      "endDate": "2019-08-16",
+      "summary": "As an experienced pedagog in a government agency, I have successfully developed and executed numerous environmental awareness and sustainable practice initiatives. Skilled in designing and delivering captivating educational materials and activities, I have effectively engaged diverse audiences such as school groups, community organizations, and the general public. My strong collaboration skills have allowed me to work seamlessly with various departments to incorporate environmental education into their programs and policies. ",
+      "highlights": []
+    },
+    {
+      "company": "Östra göinge kommun",
       "position": "Pedagogic",
       "website": "https://www.ostragoinge.se/",
       "startDate": "2015-08-16",
       "endDate": "2019-08-16",
-      "summary": "Started my first professional job experience as a pedagogical personal",
-      "highlights": []
-    },
-    {
-      "company": "Kristianstad Municipality",
-      "position": "Pedagogic",
-      "website": "https://www.kristianstad.se/",
-      "startDate": "2019-05-01",
-      "endDate": "",
-      "summary": "Moved to Prague, Czech Republic to intern for the European Commission helping them build one of the biggest european projects, Galileo Satellite System",
-      "highlights": []
-    },
-    {
-      "company": "HP",
-      "position": "Hardware Engineer",
-      "website": "https://www.hp.com/emea_middle_east-en/contact-hp/phone-assist.html",
-      "startDate": "2009-04-01",
-      "endDate": "2011-08-30",
-      "summary": "worked as hardware engineer",
+      "summary": "I work as a pedagog in a government agency where I develop and implement educational programs and initiatives that promote environmental awareness and sustainable practices. My job involves designing and delivering engaging educational materials and activities for different audiences, including school groups, community organizations, and the general public. I collaborate with other departments to integrate environmental education into their programs and policies, and conduct research to stay up-to-date with emerging trends and best practices in environmental education. Additionally, I advocate for policies that support sustainable practices to help protect the environment and ensure a better future for our planet.",
       "highlights": []
     }
-
-
   ],
   "education": [
     {
@@ -79,7 +90,7 @@
       "area": "Software development",
       "studyType": "Bachelor",
       "startDate": "2019-09-15",
-      "endDate": "2022-06-07",
+      "endDate": "2022-09-07",
       "courses": [
         "Object Oriented Programming",
         "Database Management Systems",
@@ -96,71 +107,250 @@
   ],
   "skills": [
     {
-      "name": "Jenkins",
-      "level": "Intermediate",
-      "keywords": ["DevOps"]
+      "name": "Java",
+      "level": "Master",
+      "keywords": [
+        "Back-end"
+      ]
     },
     {
-      "name": "Continuous Integration",
-      "level": "Intermediate",
-      "keywords": ["DevOps"]
+      "name": "HTML",
+      "level": "Master",
+      "keywords": [
+        "Front-end"
+      ]
     },
     {
-      "name": "Scripting",
-      "level": "Intermediate",
-      "keywords": ["DevOps"]
+      "name": "CSS",
+      "level": "Expert",
+      "keywords": [
+        "Front-end"
+      ]
     },
     {
-      "name": "Containers",
-      "level": "Intermediate",
-      "keywords": ["DevOps"]
+      "name": "JavaScript",
+      "level": "Expert",
+      "keywords": [
+        "Front-end"
+      ]
     },
     {
-      "name": "Cloud",
-      "level": "Basic",
-      "keywords": ["DevOps"]
-    },
-    {
-      "name": "Troubleshooting",
-      "level": "Intermediate",
-      "keywords": ["DevOps"]
-    },
-    {
-      "name": "Infrastructure as Code",
-      "level": "Intermediate",
-      "keywords": ["DevOps"]
-    },
-    {
-      "name": "Object Oriented Programming",
+      "name": "jQuery",
       "level": "Advanced",
-      "keywords": ["Software Developer"]
+      "keywords": [
+        "Front-end"
+      ]
     },
     {
-      "name": "Design Patterns",
+      "name": "Angular",
       "level": "Intermediate",
-      "keywords": ["Software Developer"]
+      "keywords": [
+        "Front-end"
+      ]
+    },
+    {
+      "name": "Mongodb",
+      "level": "Expert",
+      "keywords": [
+        "Database"
+      ]
     },
     {
       "name": "Git",
-      "level": "Intermediate",
-      "keywords": ["Software Developer"]
+      "level": "Expert",
+      "keywords": [
+        "DevOps"
+      ]
     },
     {
-      "name": "REST API",
+      "name": "Docker",
+      "level": "Intermediate",
+      "keywords": [
+        "DevOps"
+      ]
+    },
+    {
+      "name": "Heroku",
       "level": "Advanced",
-      "keywords": ["Software Developer"]
+      "keywords": [
+        "DevOps"
+      ]
     },
     {
-      "name": "Unit Testing",
-      "level": "Intermediate",
-      "keywords": ["Software Developer"]
+      "name": "SQL",
+      "level": "Master",
+      "keywords": [
+        "Database"
+      ]
     },
     {
-      "name": "MySQL",
+      "name": "NoSQL",
+      "level": "Master",
+      "keywords": [
+        "Database"
+      ]
+    },
+    {
+      "name": "Real-time",
       "level": "Intermediate",
-      "keywords": ["Software Developer"]
+      "keywords": [
+        "Database"
+      ]
+    },
+    {
+      "name": "Android development",
+      "level": "Advanced",
+      "keywords": [
+        "Software Development"
+      ]
+    },
+    {
+      "name": "PostgreSQL",
+      "level": "Advanced",
+      "keywords": [
+        "Database"
+      ]
+    },
+    {
+      "name": "React.JS",
+      "level": "Expert",
+      "keywords": [
+        "Front-end"
+      ]
+    },
+    {
+      "name": "Node.js",
+      "level": "Master",
+      "keywords": [
+        "Back-end"
+      ]
+    },
+    {
+      "name": "Spring",
+      "level": "Expert",
+      "keywords": [
+        "Back-end"
+      ]
+    },
+    {
+      "name": "Python",
+      "level": "Master",
+      "keywords": [
+        "Back-end"
+      ]
+    },
+    {
+      "name": "APIs",
+      "level": "Expert",
+      "keywords": [
+        "Software Development"
+      ]
+    },
+    {
+      "name": "Agile",
+      "level": "Expert",
+      "keywords": [
+        "DevOps"
+      ]
+    },
+    {
+      "name": "Jenkins",
+      "level": "Beginner",
+      "keywords": [
+        "DevOps"
+      ]
+    },
+    {
+      "name": "Cloud",
+      "level": "Expert",
+      "keywords": [
+        "DevOps"
+      ]
+    },
+    {
+      "name": "AWS",
+      "level": "Intermediate",
+      "keywords": [
+        "DevOps"
+      ]
+    },
+    {
+      "name": "Hibernate",
+      "level": "Master",
+      "keywords": [
+        "Back-end"
+      ]
+    },
+    {
+      "name": "JUnit",
+      "level": "Intermediate",
+      "keywords": [
+        "Back-end"
+      ]
+    },
+    {
+      "name": "Servlets",
+      "level": "Advanced",
+      "keywords": [
+        "Back-end"
+      ]
+    },
+    {
+      "name": "Tomcat",
+      "level": "Advanced",
+      "keywords": [
+        "Back-end"
+      ]
+    },
+    {
+      "name": ".NET",
+      "level": "Advanced",
+      "keywords": [
+        "Back-end"
+      ]
+    },
+    {
+      "name": "Express.js ",
+      "level": "Expert",
+      "keywords": [
+        "Back-end"
+      ]
+    },
+    {
+      "name": "Spring Boot",
+      "level": "Master",
+      "keywords": [
+        "Back-end"
+      ]
+    },
+    {
+      "name": "React",
+      "level": "Expert",
+      "keywords": [
+        "Mobile APP"
+      ]
+    },
+    {
+      "name": "Flutter",
+      "level": "Intermediate",
+      "keywords": [
+        "Mobile APP"
+      ]
+    },
+    {
+      "name": "APIs and SDKs",
+      "level": "Expert",
+      "keywords": [
+        "Mobile APP"
+      ]
+    },
+    {
+      "name": " (UX) design",
+      "level": "Expert",
+      "keywords": [
+        "Mobile APP"
+      ]
     }
-
   ],
   "languages": [
     {

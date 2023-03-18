@@ -2,48 +2,76 @@ import React from "react";
 import SkillsList from "../elements/SkillsList";
 import Resume from "../../resume.json";
 
-function Skills() {
-  return (
-    <section className="section" id="skills">
-      <div className="container">
-        <h1 className="title">Skills</h1>
-        <div className="columns">
-          <div className="column is-6">
-            <div className="has-text-centered">
-              <span className="icon has-text-link">
-                <i className="fas fa-3x fa-cogs"></i>
-              </span>
-              <h2 className="title is-5">DevOps</h2>
-            </div>
-            <SkillsList
-              skills={Resume.skills
-                .filter(skill => skill.keywords.includes("DevOps"))
-                .reduce((obj, item) => {
-                  obj[item.name] = item.level;
-                  return obj;
-                }, {})}
-            />
-          </div>
-          <div className="column is-6">
-            <div className="has-text-centered">
-              <span className="icon has-text-link">
-                <i className="fas fa-3x fa-laptop-code"></i>
-              </span>
-              <h2 className="title is-5">Software Development</h2>
-            </div>
-            <SkillsList
-              skills={Resume.skills
-                .filter(skill => skill.keywords.includes("Software Developer"))
-                .reduce((obj, item) => {
-                  obj[item.name] = item.level;
-                  return obj;
-                }, {})}
-            />
-          </div>
+// Helper function to generate skills object
+const generateSkillsObject = (skills, keyword) => {
+    return skills
+        .filter((skill) => skill.keywords.includes(keyword))
+        .reduce((obj, item) => {
+            obj[item.name] = item.level;
+            return obj;
+        }, {});
+};
+
+// SkillColumn component
+const SkillColumn = ({ icon, title, skills }) => (
+    <div className="column is-2.5">
+        <div className="has-text-centered">
+      <span className="icon has-text-link">
+        <i className={`fas fa-3x ${icon}`}></i>
+      </span>
+            <h2 className="title is-5">{title}</h2>
         </div>
-      </div>
-    </section>
-  );
+        <SkillsList skills={skills} />
+    </div>
+);
+
+function Skills() {
+    const { skills } = Resume;
+
+    return (
+        <section className="hero is-dark is-fullheight has-bg-image1">
+            <section className="section" id="skills">
+                <div className="container">
+                    <div className="container">
+                        <div className="container">
+                            <div className="glitch" data-text="Skills">Skills</div>
+                            <div className="glow">Skills</div>
+                        </div>
+                        <div className="scantiness"></div>
+                    </div>
+
+                    {/*<h1 className="title">Skills</h1>*/}
+                    <div className="columns">
+                        <SkillColumn
+                            icon="fa-solid fa-user"
+                            title="Front-end"
+                            skills={generateSkillsObject(skills, "Front-end")}
+                        />
+                        <SkillColumn
+                            icon="fa-solid fa-hat-wizard"
+                            title="Back-end"
+                            skills={generateSkillsObject(skills, "Back-end")}
+                        />
+                        <SkillColumn
+                            icon="fa-solid fa-database"
+                            title="Database"
+                            skills={generateSkillsObject(skills, "Database")}
+                        />
+                        <SkillColumn
+                            icon="fa-solid fa-cogs"
+                            title="DevOps"
+                            skills={generateSkillsObject(skills, "DevOps")}
+                        />
+                        <SkillColumn
+                            icon="fa-duotone fa-mobile"
+                            title="Mobile APP"
+                            skills={generateSkillsObject(skills, "Mobile APP")}
+                        />
+                    </div>
+                </div>
+            </section>
+        </section>
+    );
 }
 
 export default Skills;

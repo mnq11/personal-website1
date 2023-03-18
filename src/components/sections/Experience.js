@@ -4,12 +4,22 @@ import Timeline from "../elements/Timeline";
 
 function Experience() {
   return (
-    <section className="section" id="experience">
+      <section className="hero is-dark is-fullheight has-bg-image2">
+
+      <section className="section" id="experience">
       <div className="container">
-        <h1 className="title">Experience</h1>
-        <Timeline />
+          <div className="container">
+              <div className="container">
+                  <div className="glitch" data-text="Experience">Experience</div>
+                  <div className="glow">Experience</div>
+              </div>
+              <div className="scantiness"></div>
+          </div>
+        <Timeline  />
       </div>
-    </section>
+      </section>
+
+      </section>
   );
 }
 
