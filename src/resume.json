@@ -262,14 +262,14 @@
     },
     {
       "name": "Cloud",
-      "level": "80",
+      "level": "Expert",
       "keywords": [
         "DevOps"
       ]
     },
     {
       "name": "AWS",
-      "level": "Basic",
+      "level": "Intermediate",
       "keywords": [
         "DevOps"
       ]
