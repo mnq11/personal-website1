@@ -29,7 +29,7 @@ function Skills() {
     const { skills } = Resume;
 
     return (
-        <section className="hero is-dark is-fullheight has-bg-image1">
+        <section className="hero is-dark is-fullheight has-bg-image3">
             <section className="section" id="skills">
                 <div className="container">
                     <div className="container">
