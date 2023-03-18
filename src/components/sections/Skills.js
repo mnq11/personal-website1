@@ -2,107 +2,67 @@ import React from "react";
 import SkillsList from "../elements/SkillsList";
 import Resume from "../../resume.json";
 
+// Helper function to generate skills object
+const generateSkillsObject = (skills, keyword) => {
+    return skills
+        .filter((skill) => skill.keywords.includes(keyword))
+        .reduce((obj, item) => {
+            obj[item.name] = item.level;
+            return obj;
+        }, {});
+};
+
+// SkillColumn component
+const SkillColumn = ({ icon, title, skills }) => (
+    <div className="column is-2.5">
+        <div className="has-text-centered">
+      <span className="icon has-text-link">
+        <i className={`fas fa-3x ${icon}`}></i>
+      </span>
+            <h2 className="title is-5">{title}</h2>
+        </div>
+        <SkillsList skills={skills} />
+    </div>
+);
+
 function Skills() {
+    const { skills } = Resume;
+
     return (
         <section className="hero is-dark is-fullheight has-bg-image1">
-        <section className="section" id="skills">
-
-            <div className="container">
-                <h1 className="title">Skills</h1>
-                <div className="columns">
-                    <div className="column is-2.5">
-                        <div className="has-text-centered">
-              <span className="icon has-text-link">
-                <i className="fas fa-3x fa-solid fa-user"></i>
-              </span>
-                            <h2 className="title is-5"> Front-end </h2>
-                        </div>
-                        <SkillsList
-                            skills={Resume.skills
-                                .filter(skill => skill.keywords.includes("Front-end"))
-                                .reduce((obj, item) => {
-                                    obj[item.name] = item.level;
-                                    return obj;
-                                }, {})}
+            <section className="section" id="skills">
+                <div className="container">
+                    <h1 className="title">Skills</h1>
+                    <div className="columns">
+                        <SkillColumn
+                            icon="fa-solid fa-user"
+                            title="Front-end"
+                            skills={generateSkillsObject(skills, "Front-end")}
                         />
-
-                    </div>
-                    <div className="column is-2.5">
-                        <div className="has-text-centered">
-              <span className="icon has-text-link">
-                <i className="fas fa-3x fa-solid fa-hat-wizard"></i>
-              </span>
-                            <h2 className="title is-5"> Back-end  ️</h2>
-                        </div>
-                        <SkillsList
-                            skills={Resume.skills
-                                .filter(skill => skill.keywords.includes("Back-end"))
-                                .reduce((obj, item) => {
-                                    obj[item.name] = item.level;
-                                    return obj;
-                                }, {})}
+                        <SkillColumn
+                            icon="fa-solid fa-hat-wizard"
+                            title="Back-end"
+                            skills={generateSkillsObject(skills, "Back-end")}
                         />
-
-                    </div>
-
-                    <div className="column is-2.5">
-                        <div className="has-text-centered">
-              <span className="icon has-text-link">
-                <i className="fas fa-3x fa-solid fa-database"></i>
-              </span>
-                            <h2 className="title is-5"> Database </h2>
-                        </div>
-                        <SkillsList
-                            skills={Resume.skills
-                                .filter(skill => skill.keywords.includes("Database"))
-                                .reduce((obj, item) => {
-                                    obj[item.name] = item.level;
-                                    return obj;
-                                }, {})}
+                        <SkillColumn
+                            icon="fa-solid fa-database"
+                            title="Database"
+                            skills={generateSkillsObject(skills, "Database")}
                         />
-
-                    </div>
-                    <div className="column is-2.5">
-                        <div className="has-text-centered">
-              <span className="icon has-text-link">
-                <i className="fas fa-3x fa-cogs"></i>
-              </span>
-                            <h2 className="title is-5"> DevOps </h2>
-                        </div>
-                        <SkillsList
-                            skills={Resume.skills
-                                .filter(skill => skill.keywords.includes("DevOps"))
-                                .reduce((obj, item) => {
-                                    obj[item.name] = item.level;
-                                    return obj;
-                                }, {})}
+                        <SkillColumn
+                            icon="fa-solid fa-cogs"
+                            title="DevOps"
+                            skills={generateSkillsObject(skills, "DevOps")}
+                        />
+                        <SkillColumn
+                            icon="fa-duotone fa-mobile"
+                            title="Mobile APP"
+                            skills={generateSkillsObject(skills, "Mobile APP")}
                         />
                     </div>
-
-                    <div className="column is-2.5">
-                        <div className="has-text-centered">
-              <span className="icon has-text-link">
-                <i className="fas fa-3x fa-duotone fa-mobile"></i>
-              </span>
-                            <h2 className="title is-5"> Mobile APP </h2>
-                        </div>
-                        <SkillsList
-                            skills={Resume.skills
-                                .filter(skill => skill.keywords.includes("Mobile APP"))
-                                .reduce((obj, item) => {
-                                    obj[item.name] = item.level;
-                                    return obj;
-                                }, {})}
-                        />
-
-                    </div>
-
                 </div>
-            </div>
+            </section>
         </section>
-        </section>
-
-
     );
 }
 
