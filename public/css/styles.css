@@ -853,5 +853,13 @@ html {
 }
 
 
+.favicon {
+    margin-right: 10px;
+    /*make it bigger*/
+    width: 32px;
+    height: 32px;
+
+
+}
 
 

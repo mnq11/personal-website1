@@ -1,6 +1,8 @@
 import React from "react";
 import MenuItem from "./MenuItem";
 import Resume from "../../resume.json";
+import favicon from '../../components/myfacicon/favicon.ico';
+
 
 class NavBar extends React.Component {
 
@@ -35,6 +37,10 @@ class NavBar extends React.Component {
                 <div className="container">
                     <div className="navbar-brand">
                         <a href="/" className="navbar-item title is-unselectable my-name">
+                            {/*add favicon and make it to the left of the sign*/}
+                            <img className="favicon" src={favicon} alt="logo" />                            {/*add space */}
+                            <span className="space">     </span>
+
                             <div className="sign">
                                 <span className="flicker">{name}</span>
                                 <span className="fast-flicker1">{name2}</span>
@@ -53,17 +59,6 @@ class NavBar extends React.Component {
               <span></span>
               <span></span>
             </span>
-
-                    <button
-                        className="navbar-burger burger"
-                        aria-label="menu"
-                        aria-expanded="false"
-                        onClick={this.handleMenuClick}
-                    >
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                    </button>
 
                     <div
                         className={

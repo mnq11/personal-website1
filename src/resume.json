@@ -378,6 +378,44 @@
     {
       "name": "Live in the now",
       "x_icon": "fa-brain"
+    },
+    {
+      "name": "Code aficionado",
+      "x_icon": "fa-laptop-code"
+    },
+    {
+      "name": "Open-source enthusiast",
+      "x_icon": "fa-code-branch"
+    },
+    {
+      "name": "Tech gadget fan",
+      "x_icon": "fa-mobile-alt"
+    },
+    {
+      "name": "AI and machine learning explorer",
+      "x_icon": "fa-robot"
+    },
+    {
+      "name": "Gaming aficionado",
+      "x_icon": "fa-gamepad"
+    },
+    {
+      "name": "Continuous learner",
+      "x_icon": "fa-book"
+    },
+    {
+      "name": "Networking guru",
+      "x_icon": "fa-globe"
+    },
+    {
+      "name": "Nature enthusiast",
+      "x_icon": "fa-leaf"
+    },
+    {
+      "name": "Creative thinker",
+      "x_icon": "fa-lightbulb"
     }
   ]
+
+
 }
