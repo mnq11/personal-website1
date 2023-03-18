@@ -55,15 +55,7 @@
         "Continuously pursued professional development opportunities to stay current with emerging trends and technologies in the software development field."
       ]
     },
-    {
-      "company": "Pedagog",
-      "position": "Pedagogic",
-      "website": "https://www.ostragoinge.se/",
-      "startDate": "2015-08-16",
-      "endDate": "2019-08-16",
-      "summary": "I work as a pedagog in a government agency where I develop and implement educational programs and initiatives that promote environmental awareness and sustainable practices. My job involves designing and delivering engaging educational materials and activities for different audiences, including school groups, community organizations, and the general public. I collaborate with other departments to integrate environmental education into their programs and policies, and conduct research to stay up-to-date with emerging trends and best practices in environmental education. Additionally, I advocate for policies that support sustainable practices to help protect the environment and ensure a better future for our planet.",
-      "highlights": []
-    },
+
     {
       "company": "Salesman",
       "position": "Warehouse worker\n",
@@ -80,6 +72,15 @@
       "startDate": "2017-08-16",
       "endDate": "2019-08-16",
       "summary": "As an experienced pedagog in a government agency, I have successfully developed and executed numerous environmental awareness and sustainable practice initiatives. Skilled in designing and delivering captivating educational materials and activities, I have effectively engaged diverse audiences such as school groups, community organizations, and the general public. My strong collaboration skills have allowed me to work seamlessly with various departments to incorporate environmental education into their programs and policies. ",
+      "highlights": []
+    },
+    {
+      "company": "Pedagog",
+      "position": "Pedagogic",
+      "website": "https://www.ostragoinge.se/",
+      "startDate": "2015-08-16",
+      "endDate": "2019-08-16",
+      "summary": "I work as a pedagog in a government agency where I develop and implement educational programs and initiatives that promote environmental awareness and sustainable practices. My job involves designing and delivering engaging educational materials and activities for different audiences, including school groups, community organizations, and the general public. I collaborate with other departments to integrate environmental education into their programs and policies, and conduct research to stay up-to-date with emerging trends and best practices in environmental education. Additionally, I advocate for policies that support sustainable practices to help protect the environment and ensure a better future for our planet.",
       "highlights": []
     }
   ],

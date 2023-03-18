@@ -6,13 +6,17 @@ class NavBar extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {showMenu: false};
+        this.state = {
+            showMenu: false,
+        };
+
         this.handleMenuClick = this.handleMenuClick.bind(this);
     }
 
-    handleMenuClick(e) {
-        const currentState = this.state.showMenu;
-        this.setState({showMenu: !currentState});
+    handleMenuClick() {
+        this.setState((prevState) => ({
+            showMenu: !prevState.showMenu,
+        }));
     }
 
     render() {
@@ -50,10 +54,21 @@ class NavBar extends React.Component {
               <span></span>
             </span>
 
+                    <button
+                        className="navbar-burger burger"
+                        aria-label="menu"
+                        aria-expanded="false"
+                        onClick={this.handleMenuClick}
+                    >
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </button>
+
                     <div
                         className={
-                            "navbar-menu nav-menu " +
-                            (this.state.showMenu ? "is-active" : null)
+                            'navbar-menu nav-menu ' +
+                            (this.state.showMenu ? 'is-active' : '')
                         }
                     >
                         <div className="navbar-end" onClick={this.handleMenuClick}>
@@ -63,6 +78,7 @@ class NavBar extends React.Component {
                             <MenuItem text="Articles" href="#articles"/>
                         </div>
                     </div>
+
                 </div>
             </nav>
         );

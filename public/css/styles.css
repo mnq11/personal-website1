@@ -500,5 +500,29 @@ html {
 
 
 
+.nav-menu {
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+}
+
+.nav-menu.is-active {
+    max-height: 500px; /* Adjust this value based on the actual height of your menu */
+    opacity: 1;
+}
+
+/* Responsive styles */
+@media screen and (min-width: 1024px) {
+    .nav-menu {
+        max-height: none;
+        opacity: 1;
+        transition: none;
+    }
+
+    .nav-menu.is-active {
+        max-height: none;
+    }
+}
 
 
