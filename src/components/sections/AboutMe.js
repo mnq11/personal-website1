@@ -6,8 +6,8 @@ import Resume from "../../resume.json";
 const Avatar = ({ src, alt, fallback }) => (
     <figure className="image container is-180x180 avatar-animation avatar">
         <img
-            width="180px"
-            height="180px"
+            width="180"
+            height="180"
             src={src}
             alt={alt}
             className="is-rounded is-centered"
@@ -45,8 +45,8 @@ function AboutMe() {
                 </p>
                 <div className="container interests">
                     <div className="field is-grouped is-grouped-multiline has-text-centered">
-                        {interests.map((value, index) => (
-                            <Badge key={index} text={value.name} faIcon={value.x_icon} />
+                        {interests.map((interest, index) => (
+                            <Badge key={index} text={interest.name} faIcon={interest.x_icon} />
                         ))}
                     </div>
                 </div>

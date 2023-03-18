@@ -175,9 +175,6 @@ html {
     animation-delay: 2s;
 }
 
-.avatar:hover img {
-    content: url('https://s.blixt.org/hypnotoad.jpg');
-}
 
 .avatar:hover::before,
 .avatar:hover::after {
