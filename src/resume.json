@@ -57,8 +57,8 @@
     },
 
     {
-      "company": "Salesman",
-      "position": "Warehouse worker\n",
+      "company": "Järnia",
+      "position": "Salesman",
       "website": "https://jarnia.se/",
       "startDate": "2018-12-01",
       "endDate": "2018-12-01",
@@ -66,7 +66,7 @@
       "highlights": []
     },
     {
-      "company": "Educator",
+      "company": "kristianstad kommun",
       "position": "Pedagogic",
       "website": "https://www.kristianstad.se/",
       "startDate": "2017-08-16",
@@ -75,7 +75,7 @@
       "highlights": []
     },
     {
-      "company": "Pedagog",
+      "company": "Östra göinge kommun",
       "position": "Pedagogic",
       "website": "https://www.ostragoinge.se/",
       "startDate": "2015-08-16",
@@ -108,28 +108,28 @@
   "skills": [
     {
       "name": "Java",
-      "level": "Advanced",
+      "level": "Master",
       "keywords": [
         "Back-end"
       ]
     },
     {
       "name": "HTML",
-      "level": "Advanced",
+      "level": "Master",
       "keywords": [
         "Front-end"
       ]
     },
     {
       "name": "CSS",
-      "level": "Advanced",
+      "level": "Expert",
       "keywords": [
         "Front-end"
       ]
     },
     {
       "name": "JavaScript",
-      "level": "Advanced",
+      "level": "Expert",
       "keywords": [
         "Front-end"
       ]
@@ -143,21 +143,21 @@
     },
     {
       "name": "Angular",
-      "level": "Basic",
+      "level": "Intermediate",
       "keywords": [
         "Front-end"
       ]
     },
     {
       "name": "Mongodb",
-      "level": "Advanced",
+      "level": "Expert",
       "keywords": [
         "Database"
       ]
     },
     {
       "name": "Git",
-      "level": "Advanced",
+      "level": "Expert",
       "keywords": [
         "DevOps"
       ]
@@ -178,28 +178,28 @@
     },
     {
       "name": "SQL",
-      "level": "Advanced",
+      "level": "Master",
       "keywords": [
         "Database"
       ]
     },
     {
       "name": "NoSQL",
-      "level": "Advanced",
+      "level": "Master",
       "keywords": [
         "Database"
       ]
     },
     {
-      "name": "Real-time Databases",
-      "level": "Advanced",
+      "name": "Real-time",
+      "level": "Intermediate",
       "keywords": [
         "Database"
       ]
     },
     {
       "name": "Android development",
-      "level": "Intermediate",
+      "level": "Advanced",
       "keywords": [
         "Software Development"
       ]
@@ -213,56 +213,56 @@
     },
     {
       "name": "React.JS",
-      "level": "Advanced",
+      "level": "Expert",
       "keywords": [
         "Front-end"
       ]
     },
     {
       "name": "Node.js",
-      "level": "Advanced",
+      "level": "Master",
       "keywords": [
         "Back-end"
       ]
     },
     {
       "name": "Spring",
-      "level": "Advanced",
+      "level": "Expert",
       "keywords": [
         "Back-end"
       ]
     },
     {
       "name": "Python",
-      "level": "Advanced",
+      "level": "Master",
       "keywords": [
         "Back-end"
       ]
     },
     {
-      "name": "Rest APIs",
-      "level": "Advanced",
+      "name": "APIs",
+      "level": "Expert",
       "keywords": [
         "Software Development"
       ]
     },
     {
       "name": "Agile",
-      "level": "Advanced",
+      "level": "Expert",
       "keywords": [
         "DevOps"
       ]
     },
     {
       "name": "Jenkins",
-      "level": "Intermediate",
+      "level": "Beginner",
       "keywords": [
         "DevOps"
       ]
     },
     {
       "name": "Cloud",
-      "level": "Advanced",
+      "level": "80",
       "keywords": [
         "DevOps"
       ]
@@ -276,7 +276,7 @@
     },
     {
       "name": "Hibernate",
-      "level": "Advanced",
+      "level": "Master",
       "keywords": [
         "Back-end"
       ]
@@ -311,21 +311,21 @@
     },
     {
       "name": "Express.js ",
-      "level": "Advanced",
+      "level": "Expert",
       "keywords": [
         "Back-end"
       ]
     },
     {
       "name": "Spring Boot",
-      "level": "Advanced",
+      "level": "Master",
       "keywords": [
         "Back-end"
       ]
     },
     {
-      "name": "React Native",
-      "level": "Advanced",
+      "name": "React",
+      "level": "Expert",
       "keywords": [
         "Mobile APP"
       ]
@@ -339,14 +339,14 @@
     },
     {
       "name": "APIs and SDKs",
-      "level": "Advanced",
+      "level": "Expert",
       "keywords": [
         "Mobile APP"
       ]
     },
     {
       "name": " (UX) design",
-      "level": "Advanced",
+      "level": "Expert",
       "keywords": [
         "Mobile APP"
       ]

@@ -16,7 +16,7 @@ function Timeline() {
             const items = Resume.work
                 .filter((work) => new Date(work.startDate).getFullYear() === year)
                 .map((item, j) => {
-                    const { startDate, company, summary } = item;
+                    const { startDate, company, summary,position,endDate } = item;
                     const date = new Date(startDate).toLocaleString("en-UK", {
                         month: "long",
                         year: "numeric",
@@ -28,6 +28,8 @@ function Timeline() {
                             date={date}
                             company={company}
                             summary={summary}
+                            position={position}
+                            endDate={endDate}
                         />
                     );
                 });

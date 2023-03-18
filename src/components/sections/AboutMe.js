@@ -29,7 +29,7 @@ function AboutMe() {
     return (
         <section className="section has-bg-image4" id="aboutMe">
             <div className="container has-text-centered">
-                <div className="circles-container">
+                <div className="circles-container ">
                     {/* Render the Avatar component */}
                     <Avatar src={picture} alt={name} fallback={x_pictureFallback} />
                 </div>

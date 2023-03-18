@@ -1,6 +1,7 @@
 html {
     scroll-behavior: smooth;
 }
+
 /* ... existing CSS ... */
 
 /* Media queries for responsiveness */
@@ -38,9 +39,6 @@ html {
         width: 120px;
     }
 
-    .skill-list > li {
-        margin: 15px 0 0 0;
-    }
 
     .interests {
         display: block;
@@ -55,8 +53,18 @@ html {
 
 .skill-list > li {
     margin: 30px 0 0 0;
-}
 
+}
+.skill-percentage {
+    float: right;
+    margin: 0 0 0 0;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #817e7e;
+
+
+
+}
 .has-bg-image {
     /*set background pic from images*/
 
@@ -108,9 +116,6 @@ html {
     max-width: 36em;
 }
 
-.skill-percentage {
-    float: right;
-}
 
 @keyframes zoom-in {
     0% {
@@ -228,6 +233,10 @@ html {
 .fast-flicker2 {
     animation: shine 1s forwards, blink 2s 1s infinite;
 }
+.flickerGray {
+    animation: shine1 2s forwards, blink 6s 6s infinite;
+    color: #20b401;
+}
 
 @keyframes shine {
     0% {
@@ -239,6 +248,20 @@ html {
         text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #6584ff,
         -0.2rem 0.1rem 1rem #656dff, 0.2rem 0.1rem 1rem #6a65ff,
         0 -0.5rem 2rem #242fff, 0 0.5rem 3rem #2436ff;
+    }
+}
+
+@keyframes shine1 {
+   /*make it shine Gray*/
+    0% {
+        color: #333050;
+        text-shadow: none;
+    }
+    100% {
+        color: #ffe6ff;
+        text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #4e5365,
+        -0.2rem 0.1rem 1rem #343550, 0.2rem 0.1rem 1rem #26262d,
+        0 -0.5rem 2rem #0c0c15, 0 0.5rem 3rem #0c0c0e;
     }
 }
 
@@ -369,7 +392,6 @@ html {
 }
 
 
-
 .glitch {
     color: rgb(191, 193, 223);
     position: relative;
@@ -410,72 +432,189 @@ html {
 }
 
 @keyframes noise-1 {
-    0% { clip-path: inset(48% 0 43% 0); }
-    3% { clip-path: inset(28% 0 72% 0); }
-    6% { clip-path: inset(40% 0 60% 0); }
-    9% { clip-path: inset(5% 0 95% 0); }
-    12% { clip-path: inset(67% 0 33% 0); }
+    0% {
+        clip-path: inset(48% 0 43% 0);
+    }
+    3% {
+        clip-path: inset(28% 0 72% 0);
+    }
+    6% {
+        clip-path: inset(40% 0 60% 0);
+    }
+    9% {
+        clip-path: inset(5% 0 95% 0);
+    }
+    12% {
+        clip-path: inset(67% 0 33% 0);
+    }
 
-    21% { clip-path: inset(54% 0 46% 0); }
-    24% { clip-path: inset(19% 0 81% 0); }
-    27% { clip-path: inset(69% 0 31% 0); }
+    21% {
+        clip-path: inset(54% 0 46% 0);
+    }
+    24% {
+        clip-path: inset(19% 0 81% 0);
+    }
+    27% {
+        clip-path: inset(69% 0 31% 0);
+    }
 
-    39% { clip-path: inset(75% 0 25% 0); }
-    42% { clip-path: inset(59% 0 41% 0); }
-    45% { clip-path: inset(9% 0 91% 0); }
-    48% { clip-path: inset(77% 0 23% 0); }
-    51% { clip-path: inset(8% 0 92% 0); }
-    54% { clip-path: inset(59% 0 41% 0); }
-    57% { clip-path: inset(4% 0 96% 0); }
-    60% { clip-path: inset(56% 0 44% 0); }
-    63% { clip-path: inset(60% 0 40% 0); }
-    66% { clip-path: inset(20% 0 80% 0); }
-    69% { clip-path: inset(4% 0 96% 0); }
-    72% { clip-path: inset(60% 0 40% 0); }
-    75% { clip-path: inset(50% 0 50% 0); }
-    78% { clip-path: inset(60% 0 40% 0); }
-    81% { clip-path: inset(30% 0 70% 0); }
-    84% { clip-path: inset(60% 0 40% 0); }
-    87% { clip-path: inset(70% 0 30% 0); }
-    90% { clip-path: inset(60% 0 40% 0); }
-    93% { clip-path: inset(40% 0 60% 0); }
-    96% { clip-path: inset(60% 0 40% 0); }
-    99% { clip-path: inset(80% 0 20% 0); }
+    39% {
+        clip-path: inset(75% 0 25% 0);
+    }
+    42% {
+        clip-path: inset(59% 0 41% 0);
+    }
+    45% {
+        clip-path: inset(9% 0 91% 0);
+    }
+    48% {
+        clip-path: inset(77% 0 23% 0);
+    }
+    51% {
+        clip-path: inset(8% 0 92% 0);
+    }
+    54% {
+        clip-path: inset(59% 0 41% 0);
+    }
+    57% {
+        clip-path: inset(4% 0 96% 0);
+    }
+    60% {
+        clip-path: inset(56% 0 44% 0);
+    }
+    63% {
+        clip-path: inset(60% 0 40% 0);
+    }
+    66% {
+        clip-path: inset(20% 0 80% 0);
+    }
+    69% {
+        clip-path: inset(4% 0 96% 0);
+    }
+    72% {
+        clip-path: inset(60% 0 40% 0);
+    }
+    75% {
+        clip-path: inset(50% 0 50% 0);
+    }
+    78% {
+        clip-path: inset(60% 0 40% 0);
+    }
+    81% {
+        clip-path: inset(30% 0 70% 0);
+    }
+    84% {
+        clip-path: inset(60% 0 40% 0);
+    }
+    87% {
+        clip-path: inset(70% 0 30% 0);
+    }
+    90% {
+        clip-path: inset(60% 0 40% 0);
+    }
+    93% {
+        clip-path: inset(40% 0 60% 0);
+    }
+    96% {
+        clip-path: inset(60% 0 40% 0);
+    }
+    99% {
+        clip-path: inset(80% 0 20% 0);
+    }
 }
 
 @keyframes noise-2 {
-    0% { clip-path: inset(52% 0 48% 0); }
-    3% { clip-path: inset(28% 0 72% 0); }
-    6% { clip-path: inset(40% 0 60% 0); }
-    9% { clip-path: inset(5% 0 95% 0); }
-    12% { clip-path: inset(67% 0 33% 0); }
+    0% {
+        clip-path: inset(52% 0 48% 0);
+    }
+    3% {
+        clip-path: inset(28% 0 72% 0);
+    }
+    6% {
+        clip-path: inset(40% 0 60% 0);
+    }
+    9% {
+        clip-path: inset(5% 0 95% 0);
+    }
+    12% {
+        clip-path: inset(67% 0 33% 0);
+    }
 
-    21% { clip-path: inset(54% 0 46% 0); }
-    24% { clip-path: inset(19% 0 81% 0); }
-    27% { clip-path: inset(69% 0 31% 0); }
+    21% {
+        clip-path: inset(54% 0 46% 0);
+    }
+    24% {
+        clip-path: inset(19% 0 81% 0);
+    }
+    27% {
+        clip-path: inset(69% 0 31% 0);
+    }
 
-    39% { clip-path: inset(75% 0 25% 0); }
-    42% { clip-path: inset(59% 0 41% 0); }
-    45% { clip-path: inset(9% 0 91% 0); }
-    48% { clip-path: inset(77% 0 23% 0); }
-    51% { clip-path: inset(8% 0 92% 0); }
-    54% { clip-path: inset(59% 0 41% 0); }
-    57% { clip-path: inset(4% 0 96% 0); }
-    60% { clip-path: inset(56% 0 44% 0); }
-    63% { clip-path: inset(60% 0 40% 0); }
-    66% { clip-path: inset(20% 0 80% 0); }
-    69% { clip-path: inset(4% 0 96% 0); }
-    72% { clip-path: inset(60% 0 40% 0); }
-    75% { clip-path: inset(50% 0 50% 0); }
-    78% { clip-path: inset(60% 0 40% 0); }
-    81% { clip-path: inset(30% 0 70% 0); }
-    84% { clip-path: inset(60% 0 40% 0); }
-    87% { clip-path: inset(70% 0 30% 0); }
-    90% { clip-path: inset(60% 0 40% 0); }
-    93% { clip-path: inset(40% 0 60% 0); }
-    96% { clip-path: inset(60% 0 40% 0); }
-    99% { clip-path: inset(80% 0 20% 0); }
+    39% {
+        clip-path: inset(75% 0 25% 0);
+    }
+    42% {
+        clip-path: inset(59% 0 41% 0);
+    }
+    45% {
+        clip-path: inset(9% 0 91% 0);
+    }
+    48% {
+        clip-path: inset(77% 0 23% 0);
+    }
+    51% {
+        clip-path: inset(8% 0 92% 0);
+    }
+    54% {
+        clip-path: inset(59% 0 41% 0);
+    }
+    57% {
+        clip-path: inset(4% 0 96% 0);
+    }
+    60% {
+        clip-path: inset(56% 0 44% 0);
+    }
+    63% {
+        clip-path: inset(60% 0 40% 0);
+    }
+    66% {
+        clip-path: inset(20% 0 80% 0);
+    }
+    69% {
+        clip-path: inset(4% 0 96% 0);
+    }
+    72% {
+        clip-path: inset(60% 0 40% 0);
+    }
+    75% {
+        clip-path: inset(50% 0 50% 0);
+    }
+    78% {
+        clip-path: inset(60% 0 40% 0);
+    }
+    81% {
+        clip-path: inset(30% 0 70% 0);
+    }
+    84% {
+        clip-path: inset(60% 0 40% 0);
+    }
+    87% {
+        clip-path: inset(70% 0 30% 0);
+    }
+    90% {
+        clip-path: inset(60% 0 40% 0);
+    }
+    93% {
+        clip-path: inset(40% 0 60% 0);
+    }
+    96% {
+        clip-path: inset(60% 0 40% 0);
+    }
+    99% {
+        clip-path: inset(80% 0 20% 0);
+    }
 }
+
 .scantiness {
     overflow: hidden;
     mix-blend-mode: difference;
@@ -517,7 +656,6 @@ html {
 }
 
 
-
 .nav-menu {
     transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
     max-height: 0;
@@ -542,5 +680,178 @@ html {
         max-height: none;
     }
 }
+
+
+.container__progressbars {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    min-width: 270px;
+    width: 100%;
+    min-height: 100%;
+}
+
+.progressbar {
+    position: relative;
+    width: 170px;
+    height: 170px;
+    /*center it in the parent */
+    margin: 0 auto;
+
+    transform: rotate(-90deg);
+    display: inline-block;
+}
+
+.progressbar__svg {
+    transform: rotate(-90deg);
+    width: 100%;
+    height: 100%;
+}
+
+.progressbar__svg-circle {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke-width: 10;
+    stroke-dasharray: 440;
+    stroke-dashoffset: 440;
+    stroke-linecap: round;
+    transform: translate(5px, 5px);
+    animation: circleColor 5s infinite;
+
+}
+
+.progressbar__svg-circle {
+    animation: circle-glowing 5s infinite;
+}
+
+@keyframes circleColor {
+    0% {
+        stroke: hsl(232, 48%, 25%);
+    }
+    5 % {
+        stroke: hsl(210, 66%, 15%);
+    }
+    10% {
+        stroke: hsl(222, 83%, 31%);
+    }
+    15% {
+        stroke: hsl(227, 61%, 50%);
+    }
+    20% {
+        stroke: hsl(228, 97%, 64%);
+    }
+    25% {
+        stroke: hsl(232, 48%, 25%);
+    }
+    30% {
+        stroke: hsl(210, 66%, 15%);
+    }
+    35% {
+        stroke: hsl(222, 83%, 31%);
+    }
+    40% {
+        stroke: hsl(227, 61%, 50%);
+    }
+    45% {
+        stroke: hsl(228, 97%, 64%);
+    }
+    50% {
+        stroke: hsl(232, 48%, 25%);
+    }
+    55% {
+        stroke: hsl(210, 66%, 15%);
+    }
+    60% {
+        stroke: hsl(222, 83%, 31%);
+    }
+    65% {
+        stroke: hsl(227, 61%, 50%);
+    }
+    70% {
+        stroke: hsl(228, 97%, 64%);
+    }
+    75% {
+        stroke: hsl(232, 48%, 25%);
+    }
+    80% {
+        stroke: hsl(210, 66%, 15%);
+    }
+    85% {
+        stroke: hsl(222, 83%, 31%);
+    }
+    90% {
+        stroke: hsl(227, 61%, 50%);
+    }
+    95% {
+        stroke: hsl(228, 97%, 64%);
+    }
+    100% {
+        stroke: hsl(232, 48%, 25%);
+    }
+
+}
+
+@keyframes circle-glowing {
+    0% {
+        stroke: hsl(232, 48%, 25%);
+    }
+    25% {
+        stroke: hsl(210, 66%, 15%);
+    }
+    50% {
+        stroke: hsl(222, 83%, 31%);
+    }
+    75% {
+        stroke: hsl(227, 61%, 50%);
+    }
+    100% {
+        stroke: hsl(228, 97%, 64%);
+    }
+}
+
+/* Define the glowing effect using keyframes */
+@keyframes glowing {
+    0% {
+        text-shadow: 0 0 5px, 0 0 10px, 0 0 15px, 0 0 20px;
+    }
+    50% {
+        text-shadow: 0 0 10px, 0 0 20px, 0 0 30px, 0 0 40px;
+    }
+    100% {
+        text-shadow: 0 0 5px, 0 0 10px, 0 0 15px, 0 0 20px;
+    }
+}
+
+.progressbar {
+    position: relative;
+}
+
+.progressbar__text {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 0.25em 0.5em;
+    color: hsl(0, 0%, 100%);
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 0.25em;
+    transform: translate(-50%, -50%) rotate(90deg);
+    font-size: 1.5em;
+    animation: glowing 1s infinite;
+    animation-duration: var(--animation-duration, 1s);
+}
+
+/* You can change the --animation-duration value for different instances */
+.progressbar:nth-child(2) .progressbar__text {
+    --animation-duration: 1.5s;
+}
+
+.progressbar:nth-child(3) .progressbar__text {
+    --animation-duration: 2s;
+}
+
+
 
 

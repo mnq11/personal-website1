@@ -32,7 +32,15 @@ function Skills() {
         <section className="hero is-dark is-fullheight has-bg-image1">
             <section className="section" id="skills">
                 <div className="container">
-                    <h1 className="title">Skills</h1>
+                    <div className="container">
+                        <div className="container">
+                            <div className="glitch" data-text="Skills">Skills</div>
+                            <div className="glow">Skills</div>
+                        </div>
+                        <div className="scantiness"></div>
+                    </div>
+
+                    {/*<h1 className="title">Skills</h1>*/}
                     <div className="columns">
                         <SkillColumn
                             icon="fa-solid fa-user"

@@ -8,7 +8,13 @@ function Experience() {
 
       <section className="section" id="experience">
       <div className="container">
-        <h1 className="title">Experience</h1>
+          <div className="container">
+              <div className="container">
+                  <div className="glitch" data-text="Experience">Experience</div>
+                  <div className="glow">Experience</div>
+              </div>
+              <div className="scantiness"></div>
+          </div>
         <Timeline  />
       </div>
       </section>
