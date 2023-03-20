@@ -60,16 +60,9 @@ class Articles extends Component {
                             </div>
                             <div className="scantiness"></div>
                         </div>
-                        {/*<h1 className="title">Articles</h1>*/}
 
-                        <div className="container">
-                            <div className="container">
-                                <div className="glitch" data-text="My latest articles">My latest articles</div>
-                                <div className="glow">My latest articles</div>
-                            </div>
-                            <div className="scantiness"></div>
-                        </div>
-                        {/*<h2 className="subtitle is-4">My latest articles</h2>*/}
+                        <br/>
+                        <br/>
                         <div className="columns ">{this.state.articles}</div>
                     </div>
                 </section>

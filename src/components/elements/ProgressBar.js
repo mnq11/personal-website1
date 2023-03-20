@@ -16,7 +16,7 @@ function ProgressBar(props) {
         <div>
 
             <span className="title is-6 is-spaced fast-flicker1">{props.text}</span>
-            <span className="subtitle is-6 skill-percentage flickerGray">{props.level}</span>
+            <span className="subtitle is-6 skill-percentage ">{props.level}</span>
             <progress
                 className="progress is-success"
                 value={progress[props.level]}

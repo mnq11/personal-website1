@@ -46,6 +46,9 @@ function Skills() {
                             </div>
                         </h1>
                     </div>
+                    {/*add space*/}
+                    <br/>
+                    <br/>
 
                     {/*<h1 className="title">Skills</h1>*/}
                     <div className="columns">

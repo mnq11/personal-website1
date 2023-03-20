@@ -22,8 +22,9 @@ function Experience() {
                           <div className="scantiness"></div>
                       </div>
                   </h1>
+                  <br/>
+                  <br/>
                     </div>
-                    <div className="scantiness"></div>
                 </div>
         <Timeline  />
       </div>
