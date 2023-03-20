@@ -28,16 +28,23 @@ const SkillColumn = ({ icon, title, skills }) => (
 function Skills() {
     const { skills } = Resume;
 
+    let label = "Skills";
     return (
         <section className="hero is-dark is-fullheight has-bg-image3">
             <section className="section" id="skills">
                 <div className="container">
                     <div className="container">
-                        <div className="container">
-                            <div className="glitch" data-text="Skills">Skills</div>
-                            <div className="glow">Skills</div>
-                        </div>
-                        <div className="scantiness"></div>
+                        <h1 className="title">
+                            <div className="container">
+                                <div className="container">
+                                    <div className="glitch" data-text={label}>
+                                        {label}
+                                    </div>
+                                    <div className="glow">{label}</div>
+                                </div>
+                                <div className="scantiness"></div>
+                            </div>
+                        </h1>
                     </div>
 
                     {/*<h1 className="title">Skills</h1>*/}

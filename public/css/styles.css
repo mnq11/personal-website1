@@ -2,8 +2,6 @@ html {
     scroll-behavior: smooth;
 }
 
-/* ... existing CSS ... */
-
 /* Media queries for responsiveness */
 @media screen and (max-width: 1024px) {
     .glitch {
@@ -39,12 +37,10 @@ html {
         width: 120px;
     }
 
-
     .interests {
         display: block;
     }
 }
-
 
 .is-180x180 {
     height: 180px;
@@ -52,22 +48,19 @@ html {
 }
 
 .skill-list > li {
-    margin: 30px 0 0 0;
-
+    margin-top: 30px;
 }
+
 .skill-percentage {
     float: right;
-    margin: 0 0 0 0;
+    margin: 0;
     font-size: 1.5em;
     font-weight: 600;
     color: #817e7e;
-
-
-
 }
-.has-bg-image {
-    /*set background pic from images*/
 
+/* Set background images */
+.has-bg-image {
     background-image: url('../images/background1.gif');
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -75,8 +68,6 @@ html {
 }
 
 .has-bg-image2 {
-    /*set background pic from images*/
-
     background-image: url('../images/background5.gif');
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -84,8 +75,6 @@ html {
 }
 
 .has-bg-image3 {
-    /*set background pic from images*/
-
     background-image: url('../images/background6.gif');
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -93,8 +82,6 @@ html {
 }
 
 .has-bg-image4 {
-    /*set background pic from images*/
-
     background-image: url('../images/background8.gif');
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -116,7 +103,7 @@ html {
     max-width: 36em;
 }
 
-
+/* Avatar animation */
 @keyframes zoom-in {
     0% {
         transform: scale(1);
@@ -133,7 +120,7 @@ html {
     animation: zoom-in 2s ease-in-out infinite;
 }
 
-
+/* Avatar border color animation */
 @keyframes cycle-colors {
     0% {
         border-color: hsl(0, 100%, 50%);
@@ -152,6 +139,7 @@ html {
     }
 }
 
+/* Avatar pulse animation */
 @keyframes pulse {
     to {
         opacity: 0;
@@ -233,6 +221,7 @@ html {
 .fast-flicker2 {
     animation: shine 1s forwards, blink 2s 1s infinite;
 }
+
 .flickerGray {
     animation: shine1 2s forwards, blink 6s 6s infinite;
     color: #20b401;
@@ -252,7 +241,7 @@ html {
 }
 
 @keyframes shine1 {
-   /*make it shine Gray*/
+    /*make it shine Gray*/
     0% {
         color: #333050;
         text-shadow: none;
@@ -408,6 +397,16 @@ html {
     overflow: hidden;
     top: 0;
     animation: noise-1 3s linear infinite alternate-reverse, glitch 5s 5.05s infinite;
+}
+
+.glitch::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #ff00ff;
+    text-shadow: -1px 0 #161c5d;
+    animation: noise-2 3s linear infinite alternate-reverse, glitch 5s 5s infinite;
 }
 
 .glitch::after {
@@ -622,7 +621,7 @@ html {
 
 .scantiness::before {
     content: "";
-    position: absolute;
+    position: relative;
     width: 50%;
     height: 150%;
 
@@ -652,7 +651,7 @@ html {
     top: 0;
     text-shadow: 0 0 1000px rgb(87, 68, 68);
     font-size: 9vw;
-    animation: glitch 5s 5s infinite;
+    animation: glitch 0.2s 0.2s infinite;
 }
 
 
@@ -730,7 +729,7 @@ html {
     0% {
         stroke: hsl(232, 48%, 25%);
     }
-    5 % {
+    5% {
         stroke: hsl(210, 66%, 15%);
     }
     10% {
