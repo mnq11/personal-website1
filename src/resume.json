@@ -55,7 +55,31 @@
         "Continuously pursued professional development opportunities to stay current with emerging trends and technologies in the software development field."
       ]
     },
-
+    {
+      "company": "Echo Swift Ltd.",
+      "position": "Full-stack Developer",
+      "startDate": "2020-06-01",
+      "endDate": "2021-12-31",
+      "summary": "Full-stack Developer at Echo Swift Ltd., I was responsible for designing, developing, and implementing software solutions to address complex business requirements. I collaborated closely with cross-functional teams to ensure the delivery of high-quality products. My role also involved mentoring junior developers, improving code quality, and streamlining development processes.",      "highlights": [
+        "Led a team of 5 software engineers, providing guidance and support in their professional growth.",
+        "Developed a scalable and efficient e-commerce platform that increased the company's online sales by 25%.",
+        "Improved code quality by implementing rigorous code reviews and introducing automated testing practices.",
+        "Conducted technical presentations and workshops, sharing industry best practices with the development team."
+      ]
+    },
+    {
+      "company": "MTN ",
+      "position": "Full-stack Developer",
+      "startDate": "2019-02-01",
+      "endDate": "2020-05-31",
+      "summary": "As a Full-stack Developer at MTN Yemen, I played a crucial role in building and maintaining web applications for internal and external users. I was responsible for both front-end and back-end development, ensuring seamless user experiences and efficient data processing. I also participated in code reviews and collaborated with team members to optimize performance and address any technical challenges.",
+      "highlights": [
+        "Developed a responsive customer portal that improved user engagement and increased customer satisfaction by 15%.",
+        "Optimized back-end processes, resulting in a 20% reduction in server load and faster response times.",
+        "Collaborated with the design team to create user-friendly interfaces, leading to a 30% increase in page views.",
+        "Implemented security measures, such as data encryption and secure APIs, to protect sensitive customer information."
+      ]
+    },
     {
       "company": "Järnia",
       "position": "Salesman",
