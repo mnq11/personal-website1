@@ -206,53 +206,9 @@ html {
     }
 }
 
-.flicker {
-    animation: shine 2s forwards, blink 3s 2s infinite;
-}
-
-.fast-flicker {
-    animation: shine 2s forwards, blink 10s 1s infinite;
-}
-
-.fast-flicker1 {
-    animation: shine 3s forwards, blink 7s 3s infinite;
-}
-
-.fast-flicker2 {
-    animation: shine 1s forwards, blink 2s 1s infinite;
-}
-
-.flickerGray {
-    animation: shine1 2s forwards, blink 6s 6s infinite;
-    color: #20b401;
-}
-
-@keyframes shine {
-    0% {
-        color: #20186b;
-        text-shadow: none;
-    }
-    100% {
-        color: #ffe6ff;
-        text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #6584ff,
-        -0.2rem 0.1rem 1rem #656dff, 0.2rem 0.1rem 1rem #6a65ff,
-        0 -0.5rem 2rem #242fff, 0 0.5rem 3rem #2436ff;
-    }
-}
-
-@keyframes shine1 {
-    /*make it shine Gray*/
-    0% {
-        color: #333050;
-        text-shadow: none;
-    }
-    100% {
-        color: #ffe6ff;
-        text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #4e5365,
-        -0.2rem 0.1rem 1rem #343550, 0.2rem 0.1rem 1rem #26262d,
-        0 -0.5rem 2rem #0c0c15, 0 0.5rem 3rem #0c0c0e;
-    }
-}
+/*.flicker {*/
+/*    animation: shine 2s forwards, blink 4s 4s infinite;*/
+/*}*/
 
 @keyframes flicker {
     from {
@@ -379,7 +335,64 @@ html {
         opacity: 1;
     }
 }
+.Slow-flicker {
+    animation: shine1 1s forwards, blink 20s 2s infinite;
+}
+.fast-flicker {
+    animation: shine 2s forwards, blink 10s 2s infinite;
+}
 
+.fast-flicker1 {
+    animation: shine 3s forwards, blink 8s 3s infinite;
+}
+
+.fast-flicker2 {
+    animation: shine 1s forwards, blink 2s 1s infinite;
+}
+
+.flickerGray {
+    animation: shine1 2s forwards, blink 6s 6s infinite;
+}
+@keyframes shine {
+    0% {
+        color: #000000;
+        text-shadow: none;
+    }
+    33% {
+        color: #ffe6ff;
+        text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #6584ff,
+        -0.2rem 0.1rem 1rem #656dff, 0.2rem 0.1rem 1rem #6a65ff,
+        0 -0.5rem 2rem #242fff, 0 0.5rem 3rem #2436ff;
+    }
+    66% {
+        color: #ff0000;
+        text-shadow: 0 0 0.6rem #ff0000, 0 0 1.5rem #ff0000;
+    }
+    100% {
+        color: #00ff00;
+        text-shadow: 0 0 0.6rem #00ff00, 0 0 1.5rem #00ff00;
+    }
+}
+@keyframes shine1 {
+    0% {
+        color: #333050;
+        text-shadow: none;
+    }
+    33% {
+        color: #ffe6ff;
+        text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #4e5365,
+        -0.2rem 0.1rem 1rem #343550, 0.2rem 0.1rem 1rem #26262d,
+        0 -0.5rem 2rem #0c0c15, 0 0.5rem 3rem #0c0c0e;
+    }
+    66% {
+        color: #ff0000;
+        text-shadow: 0 0 0.6rem #ff0000, 0 0 1.5rem #ff0000;
+    }
+    100% {
+        color: #00ff00;
+        text-shadow: 0 0 0.6rem #00ff00, 0 0 1.5rem #00ff00;
+    }
+}
 
 .glitch {
     color: rgb(191, 193, 223);

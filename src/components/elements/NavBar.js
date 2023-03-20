@@ -22,32 +22,43 @@ class NavBar extends React.Component {
     }
 
     render() {
-        // divide String into 4 Strings
-        // 1. first 5 characters
-        // 2. 5th to 9th characters
-        // 3. 9th to 15th characters
-        // 4. 15th to 24th characters
-        const name = Resume.basics.name.substring(0, 4);
-        const name2 = Resume.basics.name.substring(4, 8);
-        const name3 = Resume.basics.name.substring(8, 12);
-        const name4 = Resume.basics.name.substring(12, 14);
 
+
+        const classes = ['flicker', 'fast-flicker1', 'flickerGray', 'fast-flicker2'];
+
+        const getRandomClass = () => {
+            return classes[Math.floor(Math.random() * classes.length)];
+        };
+
+
+        const getRandomColor = () => {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        };
+        const characterArray = Resume.basics.name.split("").map((char) => ({
+            character: char,
+            className: getRandomClass(),
+            color: getRandomColor(),
+        }));
         return (
             <nav className="navbar is-transparent">
                 <div className="container">
                     <div className="navbar-brand">
                         <a href="/" className="navbar-item title is-unselectable my-name">
                             {/*add favicon and make it to the left of the sign*/}
-                            <img className="favicon" src={favicon} alt="logo" />
+                            <img className="favicon" src={favicon} alt="logo"/>
                             {/*add space */}
                             {/* Replace space span with CSS */}
                             <style>{`.my-name { margin-left: 8px; }`}</style>
 
                             <div className="sign">
-                                <span className="flicker">{name}</span>
-                                <span className="fast-flicker1">{name2}</span>
-                                <span className="flicker">{name3}</span>
-                                <span className="fast-flicker2">{name4}</span>
+                                {characterArray.map(({character, className, color}, index) => (
+                                    <span key={index} className={className} style={{color}}>{character}</span>
+                                ))}
                             </div>
 
 
