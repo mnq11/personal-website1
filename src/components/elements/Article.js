@@ -1,30 +1,33 @@
 import React from "react";
 
-function Article(props) {
-    const darkCardStyle = {
+// Consolidated darkCardStyle and whiteColor to a single object
+const cardStyles = {
+    container: {
         backgroundColor: "#333",
-    };
-
-    const whiteColor = {
+    },
+    textColor: {
         color: "white",
-    };
+    },
+};
 
+function Article(props) {
     return (
-        <div className="card" style={darkCardStyle}>
+        <div className="card" style={cardStyles.container}>
             <div className="card-header">
-                <a href={props.url} target="blank" style={whiteColor}>
-                    <p className="card-header-title"  style={whiteColor}>{props.title}</p>
+                <a href={props.url} target="_blank" rel="noopener noreferrer" style={cardStyles.textColor}>
+                    <p className="card-header-title" style={cardStyles.textColor}>{props.title}</p>
                 </a>
                 <a
                     href={props.url}
-                    target="blank"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="card-header-icon"
                     aria-label="Dev Community"
-                    style={whiteColor}
+                    style={cardStyles.textColor}
                 >
-          <span className="icon">
-            <i className="fab fa-2x fa-dev"></i>
-          </span>
+                    <span className="icon">
+                        <i className="fab fa-2x fa-dev"></i>
+                    </span>
                 </a>
             </div>
             <div className="card-image">
@@ -33,11 +36,11 @@ function Article(props) {
                 </figure>
             </div>
             <div className="card-content">
-                <h1 className="heading" style={whiteColor}>DEV.TO</h1>
-                <div className="content" style={whiteColor}>
+                <h1 className="heading" style={cardStyles.textColor}>DEV.TO</h1>
+                <div className="content" style={cardStyles.textColor}>
                     <p>{props.extract}</p>
                 </div>
-                <a href={props.url} target="blank" style={whiteColor}>
+                <a href={props.url} target="_blank" rel="noopener noreferrer" style={cardStyles.textColor}>
                     Read the full article
                 </a>
             </div>

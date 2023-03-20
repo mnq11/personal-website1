@@ -38,8 +38,10 @@ class NavBar extends React.Component {
                     <div className="navbar-brand">
                         <a href="/" className="navbar-item title is-unselectable my-name">
                             {/*add favicon and make it to the left of the sign*/}
-                            <img className="favicon" src={favicon} alt="logo" />                            {/*add space */}
-                            <span className="space">     </span>
+                            <img className="favicon" src={favicon} alt="logo" />
+                            {/*add space */}
+                            {/* Replace space span with CSS */}
+                            <style>{`.my-name { margin-left: 8px; }`}</style>
 
                             <div className="sign">
                                 <span className="flicker">{name}</span>

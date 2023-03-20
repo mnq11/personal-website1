@@ -30,7 +30,9 @@ function Hero() {
                     <h1 className="title">
                         <div className="container">
                             <div className="container">
-                                <div className="glitch" data-text={label}>{label}</div>
+                                <div className="glitch" data-text={label}>
+                                    {label}
+                                </div>
                                 <div className="glow">{label}</div>
                             </div>
                             <div className="scantiness"></div>
@@ -41,19 +43,19 @@ function Hero() {
                     </h2>
                 </div>
             </div>
-            <div className="hero-foot" style={{ paddingBottom: "20px" }}>
-                <div className="columns is-mobile">
-                    <div className="column"></div>
-                    {/* Render the SocialIcon components */}
-                    {profiles.map((profile, index) => (
-                        <SocialIcon
-                            key={index}
-                            url={profile.url}
-                            network={profile.network}
-                            icon={profile.x_icon}
-                        />
-                    ))}
-                    <div className="column"></div>
+            <div className="hero-foot">
+                <div className="container">
+                    <div className="columns is-mobile is-centered">
+                        {/* Render the SocialIcon components */}
+                        {profiles.map((profile, index) => (
+                            <SocialIcon
+                                key={index}
+                                url={profile.url}
+                                network={profile.network}
+                                icon={profile.x_icon}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>

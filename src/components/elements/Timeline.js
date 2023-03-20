@@ -1,4 +1,4 @@
-import React, {useMemo} from "react";
+import React, { useMemo } from "react";
 import TimelineItem from "./TimelineItem";
 import TimelineHeader from "./TimelineHeader";
 import Resume from "../../resume.json";
@@ -10,14 +10,13 @@ function Timeline() {
             .filter((value, index, self) => self.indexOf(value) === index);
     }, []);
 
-
     const timelineContent = useMemo(() => {
-        return workYears.map((year, i) => {
-            const header = <TimelineHeader key={`header-${i}`} year={year}/>;
+        return workYears.flatMap((year, i) => {
+            const header = <TimelineHeader key={`header-${i}`} year={year} />;
             const items = Resume.work
                 .filter((work) => new Date(work.startDate).getFullYear() === year)
                 .map((item, j) => {
-                    const {startDate, company, summary, position, endDate} = item;
+                    const { startDate, company, summary, position, endDate } = item;
                     const date = new Date(startDate).toLocaleString("en-UK", {
                         month: "long",
                         year: "numeric",
