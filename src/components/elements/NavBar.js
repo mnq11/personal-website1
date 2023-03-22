@@ -1,6 +1,5 @@
 import React from "react";
 import MenuItem from "./MenuItem";
-import Resume from "../../resume.json";
 import favicon from '../../components/myfacicon/favicon.ico';
 
 
@@ -23,27 +22,6 @@ class NavBar extends React.Component {
 
     render() {
 
-
-        const classes = ['flicker', 'fast-flicker1', 'flickerGray', 'fast-flicker2'];
-
-        const getRandomClass = () => {
-            return classes[Math.floor(Math.random() * classes.length)];
-        };
-
-
-        const getRandomColor = () => {
-            const letters = '0123456789ABCDEF';
-            let color = '#';
-            for (let i = 0; i < 6; i++) {
-                color += letters[Math.floor(Math.random() * 16)];
-            }
-            return color;
-        };
-        const characterArray = Resume.basics.name.split("").map((char) => ({
-            character: char,
-            className: getRandomClass(),
-            color: getRandomColor(),
-        }));
         return (
             <nav className="navbar is-transparent">
                 <div className="container">
@@ -56,9 +34,8 @@ class NavBar extends React.Component {
                             <style>{`.my-name { margin-left: 8px; }`}</style>
 
                             <div className="sign">
-                                {characterArray.map(({character, className, color}, index) => (
-                                    <span key={index} className={className} style={{color}}>{character}</span>
-                                ))}
+                            {/*   add Title */}
+                                <div className="subtitle is-5 has-text-weight-light">Mohammed Nabil</div>
                             </div>
 
 
