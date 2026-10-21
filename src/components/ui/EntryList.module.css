@@ -1,0 +1,100 @@
+/* Shared by Projects and Writing: a quiet two-column index of links rather than a wall of cards. */
+.list {
+  display: grid;
+  border-block-start: 1px solid var(--line);
+}
+
+@media (min-width: 760px) {
+  .list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 2.5rem;
+  }
+}
+
+.item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-block: 1.5rem;
+  border-block-end: 1px solid var(--line);
+}
+
+.name {
+  font-size: var(--step-1);
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.name a {
+  text-decoration: none;
+}
+
+/* The whole row is the click target, while the accessible name stays the title alone. */
+.name a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.item:hover .name a {
+  color: var(--saffron);
+}
+
+.description {
+  color: rgb(232 239 243 / 0.78);
+  font-size: var(--step-0);
+  max-width: 52ch;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 1rem;
+  margin-block-start: auto;
+  padding-block-start: 0.4rem;
+  color: var(--mist);
+  font-size: var(--step--1);
+  font-variant-numeric: tabular-nums;
+}
+
+.metaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.status {
+  padding-block: 1.5rem;
+  color: var(--mist);
+}
+
+.status[data-tone='error'] {
+  color: var(--snow);
+}
+
+.more {
+  display: inline-block;
+  margin-block-start: 1.75rem;
+  font-weight: 450;
+}
+
+.skeleton {
+  height: 7.5rem;
+  border-block-end: 1px solid var(--line);
+  background: linear-gradient(90deg, transparent, rgb(158 190 214 / 0.06), transparent) 0 0 / 200% 100%;
+  animation: shimmer 1.6s linear infinite;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton {
+    animation: none;
+  }
+}

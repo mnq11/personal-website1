@@ -1,0 +1,29 @@
+.footer {
+  position: relative;
+  z-index: 1;
+  border-block-start: 1px solid var(--line);
+  background: rgb(5 14 23 / 0.6);
+  color: var(--mist);
+  font-size: var(--step--1);
+}
+
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 2rem;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding: 2rem var(--gutter);
+}
+
+.inner > p {
+  margin-inline-end: auto;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding-block: 0.4rem;
+}

@@ -1,0 +1,72 @@
+.hero {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  min-height: 100svh;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding: calc(var(--header-height) + 1rem) var(--gutter) clamp(2rem, 6vh, 4rem);
+}
+
+/* Shown only when WebGL is unavailable: the name set large, in the same stance as the particles. */
+.fallbackTitle {
+  align-self: center;
+  justify-self: center;
+  font-size: clamp(3rem, 1rem + 9vw, 8rem);
+  font-weight: 650;
+  line-height: 1;
+  text-align: center;
+  background: linear-gradient(100deg, var(--teal), var(--violet));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.foot {
+  grid-row: 2;
+  display: grid;
+  gap: 1.75rem;
+  align-items: end;
+  padding-block-start: 1.75rem;
+  border-block-start: 1px solid var(--line);
+}
+
+@media (min-width: 760px) {
+  .foot {
+    grid-template-columns: 1fr auto;
+    gap: 3rem;
+  }
+}
+
+.copy {
+  max-width: 40rem;
+}
+
+.role {
+  color: var(--mist);
+  font-size: var(--step--1);
+}
+
+.intro {
+  margin-block-start: 0.4rem;
+  font-size: var(--step-2);
+  font-weight: 380;
+  line-height: 1.35;
+}
+
+[dir='rtl'] .intro {
+  line-height: 1.6;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+@media (max-width: 759px) {
+  .actions > * {
+    flex: 1 1 10rem;
+  }
+}

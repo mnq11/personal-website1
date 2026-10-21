@@ -1,0 +1,70 @@
+.section {
+  position: relative;
+  padding-block: clamp(4.5rem, 3rem + 7vw, 9rem);
+  border-block-start: 1px solid var(--line);
+}
+
+.inner {
+  display: grid;
+  gap: clamp(1.75rem, 1rem + 3vw, 4rem);
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+@media (min-width: 900px) {
+  .inner {
+    grid-template-columns: minmax(13rem, 1fr) 3fr;
+  }
+
+  /* The heading runs the full width; content sits in the wider column so every section shares one left edge. */
+  .head {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .body {
+    grid-column: 2;
+  }
+}
+
+.title {
+  font-size: var(--step-4);
+  font-weight: 560;
+  /* Readex Pro's hyper-expansion axis gives section titles a broad, horizon-like stance. */
+  font-variation-settings: 'HEXP' 100;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+[dir='rtl'] .title {
+  letter-spacing: 0;
+  line-height: 1.25;
+}
+
+.lede {
+  margin-block-start: 1rem;
+  max-width: 30ch;
+  color: var(--mist);
+  font-size: var(--step--1);
+}
+
+.body {
+  min-width: 0;
+}
+
+@media (min-width: 900px) {
+  .lede {
+    margin-block: 0 0.4rem;
+    text-align: end;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-variation-settings: 'HEXP' 70;
+  }
+}

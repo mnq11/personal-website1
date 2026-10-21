@@ -1,0 +1,119 @@
+.timeline {
+  position: relative;
+}
+
+.entry {
+  display: grid;
+  gap: 0.5rem 2.5rem;
+  padding-block: 1.75rem;
+  border-block-start: 1px solid var(--line);
+}
+
+.entry:first-child {
+  border-block-start: 0;
+  padding-block-start: 0;
+}
+
+@media (min-width: 720px) {
+  .entry {
+    grid-template-columns: 11rem minmax(0, 1fr);
+  }
+}
+
+.when {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 0.75rem;
+  color: var(--mist);
+  font-size: var(--step--1);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (min-width: 720px) {
+  .when {
+    flex-direction: column;
+    padding-block-start: 0.2rem;
+  }
+}
+
+.range {
+  color: var(--snow);
+}
+
+.duration {
+  color: var(--mist);
+}
+
+.detail {
+  max-width: var(--measure);
+}
+
+.title {
+  font-size: var(--step-1);
+  font-weight: 500;
+}
+
+.organisation {
+  margin-block-start: 0.15rem;
+  color: var(--mist);
+}
+
+.organisation a {
+  color: var(--snow);
+}
+
+.summary {
+  margin-block-start: 0.85rem;
+  color: rgb(232 239 243 / 0.85);
+}
+
+.highlights {
+  display: grid;
+  gap: 0.45rem;
+  margin-block-start: 1rem;
+}
+
+.highlights li {
+  position: relative;
+  padding-inline-start: 1.25rem;
+  color: rgb(232 239 243 / 0.85);
+}
+
+.highlights li::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 0.75em;
+  width: 0.5rem;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--saffron);
+}
+
+.subheading {
+  margin-block: clamp(3rem, 6vw, 4.5rem) 1.5rem;
+  color: var(--mist);
+  font-size: var(--step-0);
+  font-weight: 450;
+}
+
+.coursesLabel {
+  margin-block-start: 1rem;
+  color: var(--mist);
+  font-size: var(--step--1);
+}
+
+.courses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-block-start: 0.6rem;
+}
+
+.courses li {
+  padding: 0.25rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  font-size: var(--step--1);
+  color: rgb(232 239 243 / 0.85);
+}

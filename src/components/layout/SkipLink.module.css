@@ -1,0 +1,17 @@
+.skip {
+  position: fixed;
+  inset-block-start: 0.75rem;
+  inset-inline-start: 0.75rem;
+  z-index: 50;
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius-m);
+  background: var(--saffron);
+  color: var(--night-deep);
+  font-weight: 500;
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+
+.skip:focus-visible {
+  transform: none;
+}

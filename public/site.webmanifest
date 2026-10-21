@@ -1,0 +1,14 @@
+{
+  "name": "Mohammed Nabil",
+  "short_name": "M. Nabil",
+  "description": "Portfolio of Mohammed Nabil, software developer in Sweden.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#081521",
+  "theme_color": "#081521",
+  "icons": [
+    { "src": "images/favicon/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "images/favicon/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

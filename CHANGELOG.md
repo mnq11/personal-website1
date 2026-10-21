@@ -8,6 +8,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0] - 2026-10-21
+
+Complete rebuild.
+
+### Added
+- WebGL hero: custom-shader particle field that assembles the name, morphs between its Latin and Arabic spellings, reacts to the pointer and dissolves into a night sky on scroll.
+- Full Arabic version with right-to-left layout, language toggle and `?lang=` links.
+- Projects section fed live from GitHub; articles from DEV with loading, empty and error states.
+- Skills grouped by depth of experience; experience timeline with durations; education with courses.
+- Copy-email action, skip link, active-section navigation, reduced-motion support, WebGL fallback.
+- SEO and sharing metadata (Open Graph, JSON-LD Person, hreflang), web manifest, SVG favicon.
+- TypeScript strict mode, ESLint, Vitest tests and a GitHub Actions workflow.
+
+### Changed
+- Migrated from Create React App and Bulma to Vite, React 19 and CSS Modules.
+- Content moved to a typed, bilingual `src/data/resume.ts`; copy rewritten to be concise.
+- Self-hosted Readex Pro replaces Font Awesome and Bulma fonts.
+
+### Removed
+- About 80 MB of animated GIF backgrounds and the background audio track.
+- Deprecated Universal Analytics tag.
+
 ## [1.3.3] - 2021-04-12
 ### Added
 - Github link to author name
