@@ -17,7 +17,7 @@ The hero is a WebGL particle field drawn with custom GLSL shaders: about 16,000 
 
 ## Getting started
 
-Requires Node 20.19 or newer.
+Requires Node 22.
 
 ```bash
 npm install
@@ -68,7 +68,7 @@ src/
 
 ## Deployment
 
-`npm run build` produces a static site in `dist/` with relative asset paths, so it can be served from Vercel, Netlify, GitHub Pages or any static host. On Vercel, import the repository and keep the detected Vite defaults.
+`npm run build` produces a static site in `dist/` with relative asset paths, so it can be served from Vercel, Netlify, GitHub Pages or any static host. On Vercel, `vercel.json` sets the Vite build and the `dist` output folder, so no project settings need changing.
 
 ## License
 

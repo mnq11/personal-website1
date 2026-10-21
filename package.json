@@ -7,7 +7,7 @@
   "license": "MIT",
   "author": "Mohammed Nabil (https://github.com/mnq11)",
   "engines": {
-    "node": ">=20.19"
+    "node": "22.x"
   },
   "scripts": {
     "dev": "vite",
