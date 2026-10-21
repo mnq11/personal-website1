@@ -74,6 +74,13 @@
   text-decoration: none;
 }
 
+/* On wide screens the copy keeps to one half; the particle greeting fills the other. */
+@media (min-width: 1000px) {
+  .inner > * {
+    max-width: min(100%, 38rem);
+  }
+}
+
 /* Fully expanded letters need room; narrow screens get a slightly tighter stance instead of broken words. */
 @media (max-width: 560px) {
   .title {

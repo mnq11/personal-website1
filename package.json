@@ -1,6 +1,6 @@
 {
   "name": "mohammed-nabil-portfolio",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "private": true,
   "description": "Bilingual (English / Arabic) portfolio of Mohammed Nabil, built with React, TypeScript and Three.js.",
   "type": "module",

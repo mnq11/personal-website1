@@ -11,6 +11,8 @@ const FONT_FAMILY = 'Readex Pro Variable';
 const HOLD_SECONDS = 4.2;
 const MORPH_SECONDS = 2.4;
 const ASSEMBLE_SECONDS = 2.8;
+/** Height-to-width box for the two-line contact greeting. */
+const GREETING_ASPECT = 0.62;
 /** Mirrors --max-width (78rem) and --gutter in global.css so the name lines up with the content. */
 const CONTENT_MAX_PX = 78 * 16;
 const gutterPx = (viewportWidth: number) => Math.min(Math.max(16, 8 + viewportWidth * 0.03), 48);
@@ -23,6 +25,7 @@ interface ParticleNameProps {
 }
 
 interface Cloud {
+  greeting: Float32Array;
   latin: Float32Array;
   arabic: Float32Array;
   field: Float32Array;
@@ -51,6 +54,7 @@ function useCloud(count: number, compact: boolean): Cloud | null {
     Promise.all([
       document.fonts.load(`700 200px "${FONT_FAMILY}"`, latinText.join(' ')),
       document.fonts.load(`700 200px "${FONT_FAMILY}"`, arabicText.join(' ')),
+      document.fonts.load(`700 200px "${FONT_FAMILY}"`, profile.greeting.lines.join(' ')),
     ])
       .catch(() => undefined)
       .then(() => {
@@ -61,6 +65,14 @@ function useCloud(count: number, compact: boolean): Cloud | null {
           arabic: sampleText({ lines: arabicText, fontFamily: FONT_FAMILY, direction: 'rtl', count, boxAspect, random }),
           field: sampleField(count, random),
           seeds: sampleSeeds(count, random),
+          greeting: sampleText({
+            lines: profile.greeting.lines,
+            fontFamily: FONT_FAMILY,
+            direction: 'ltr',
+            count,
+            boxAspect: GREETING_ASPECT,
+            random,
+          }),
         });
       });
 
@@ -85,7 +97,12 @@ export function ParticleName({ language, reducedMotion, compact, onReady }: Part
     morphTarget: language === 'ar' ? 1 : 0,
     holdUntil: ASSEMBLE_SECONDS + HOLD_SECONDS,
     pointerStrength: 0,
+    burst: 0,
+    burstX: 0,
+    burstY: 0,
+    greet: 0,
   });
+  const contact = useRef<HTMLElement | null>(null);
 
   const geometry = useMemo(() => {
     if (!cloud) return null;
@@ -96,6 +113,7 @@ export function ParticleName({ language, reducedMotion, compact, onReady }: Part
     built.setAttribute('aArabic', new BufferAttribute(cloud.arabic, 3));
     built.setAttribute('aField', new BufferAttribute(cloud.field, 3));
     built.setAttribute('aSeed', new BufferAttribute(cloud.seeds, 1));
+    built.setAttribute('aGreeting', new BufferAttribute(cloud.greeting, 3));
     return built;
   }, [cloud]);
 
@@ -122,6 +140,11 @@ export function ParticleName({ language, reducedMotion, compact, onReady }: Part
           uSize: { value: 2.6 },
           uPixelRatio: { value: 1 },
           uDim: { value: 1 },
+          uGreet: { value: 0 },
+          uGreetScale: { value: 1 },
+          uGreetOffset: { value: [0, 0] },
+          uBurst: { value: 0 },
+          uBurstPoint: { value: [0, 0] },
         },
       }),
     [],
@@ -146,10 +169,21 @@ export function ParticleName({ language, reducedMotion, compact, onReady }: Part
     const onLeave = () => {
       pointer.current.active = false;
     };
+    // A click or tap on the hero (but not on its links and buttons) scatters the letters.
+    const onDown = (event: PointerEvent) => {
+      const target = event.target as Element | null;
+      if (!target?.closest('#top') || target.closest('a, button')) return;
+      if (window.scrollY > window.innerHeight * 0.4) return;
+      timeline.current.burst = 1;
+      timeline.current.burstX = (event.clientX / window.innerWidth) * 2 - 1;
+      timeline.current.burstY = -(event.clientY / window.innerHeight) * 2 + 1;
+    };
+    window.addEventListener('pointerdown', onDown, { passive: true });
     window.addEventListener('pointermove', onMove, { passive: true });
     document.documentElement.addEventListener('pointerleave', onLeave);
     window.addEventListener('blur', onLeave);
     return () => {
+      window.removeEventListener('pointerdown', onDown);
       window.removeEventListener('pointermove', onMove);
       document.documentElement.removeEventListener('pointerleave', onLeave);
       window.removeEventListener('blur', onLeave);
@@ -209,6 +243,25 @@ export function ParticleName({ language, reducedMotion, compact, onReady }: Part
     set('uSize', compact ? 2.5 : 2.6);
     set('uPixelRatio', state.gl.getPixelRatio());
     set('uDim', 1 - scatter * 0.35);
+
+    // Burst decays over about a second.
+    s.burst = reducedMotion ? 0 : s.burst * Math.exp(-delta * 1.8);
+    set('uBurst', s.burst);
+    set('uBurstPoint', [(s.burstX * width) / 2, (s.burstY * height) / 2]);
+
+    // Greeting: on wide screens the empty side of the contact section fills with "Hej · Hello · مرحباً".
+    contact.current ??= document.getElementById('contact');
+    let greetTarget = 0;
+    if (contact.current && !compact) {
+      const top = contact.current.getBoundingClientRect().top;
+      greetTarget = top < window.innerHeight * 0.55 ? 1 : 0;
+    }
+    s.greet = reducedMotion ? greetTarget : approach(s.greet, greetTarget, delta / 1.6);
+    const rtl = document.documentElement.dir === 'rtl';
+    const greetScale = Math.min(width * 0.32, (height * 0.48) / GREETING_ASPECT);
+    set('uGreet', s.greet);
+    set('uGreetScale', greetScale);
+    set('uGreetOffset', [width * (rtl ? -0.23 : 0.23), height * 0.04]);
 
     if (!readyFired.current) {
       readyFired.current = true;

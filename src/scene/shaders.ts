@@ -6,6 +6,8 @@
  *   uAssemble  0 → 1  sky to name, the one-off intro
  *   uMorph     0 → 1  Latin to Arabic, with a staggered, arcing flight per particle
  *   uScatter   0 → 1  name back to sky as the visitor scrolls past the hero
+ *   uGreet     0 → 1  sky into a trilingual greeting when the contact section arrives
+ * A click adds a short-lived burst (uBurst) that blows the letters apart around the click point.
  */
 
 const noise = /* glsl */ `
@@ -43,8 +45,14 @@ export const vertexShader = /* glsl */ `
   uniform float uSize;
   uniform float uPixelRatio;
   uniform float uDim;
+  uniform float uGreet;
+  uniform float uGreetScale;
+  uniform vec2 uGreetOffset;
+  uniform float uBurst;
+  uniform vec2 uBurstPoint;
 
   attribute vec3 aLatin;
+  attribute vec3 aGreeting;
   attribute vec3 aArabic;
   attribute vec3 aField;
   attribute float aSeed;
@@ -81,10 +89,25 @@ export const vertexShader = /* glsl */ `
     position.xy += (away / max(distance, 1e-4)) * push * uPointerRadius * 0.55;
     position.z += push * 0.9;
 
+    // Click burst: letters near the click fly outwards and towards the viewer, then drift home.
+    vec2 fromBurst = position.xy - uBurstPoint;
+    float burstDistance = length(fromBurst);
+    float blast = uBurst * smoothstep(uPointerRadius * 9.0, 0.0, burstDistance) * inName;
+    position.xy += (fromBurst / max(burstDistance, 1e-4)) * blast * uPointerRadius * 5.0 * (0.4 + aSeed);
+    position.z += blast * (aSeed - 0.3) * 4.0;
+
+    // Greeting near the contact section.
+    float greet = stagger(uGreet, fract(aSeed * 5.31), 0.45);
+    vec3 greeting = aGreeting * uGreetScale;
+    greeting.xy += uGreetOffset;
+    greeting += drift(greeting, t * 1.8, aSeed) * 0.012 * uMotion;
+    position = mix(position, greeting, greet);
+    float lit = max(inName, greet);
+
     vec4 viewPosition = modelViewMatrix * vec4(position, 1.0);
     gl_Position = projectionMatrix * viewPosition;
 
-    float size = uSize * (0.55 + aSeed * 0.9) * mix(1.7, 1.0, inName);
+    float size = uSize * (0.55 + aSeed * 0.9) * mix(1.7, 1.0, lit);
     gl_PointSize = size * uPixelRatio * (10.0 / -viewPosition.z);
 
     // Aurora gradient across the screen, with a rare saffron spark.
@@ -98,7 +121,7 @@ export const vertexShader = /* glsl */ `
     vColor = color;
 
     float twinkle = 0.75 + 0.25 * sin(t * (1.0 + aSeed * 2.0) + aSeed * 40.0) * uMotion;
-    vAlpha = mix(0.5, 0.95, inName) * uDim * (0.5 + 0.5 * aSeed) * twinkle;
+    vAlpha = mix(0.5, 0.95, lit) * mix(uDim, 1.0, greet) * (0.5 + 0.5 * aSeed) * twinkle;
   }
 `;
 

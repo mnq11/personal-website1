@@ -2,7 +2,7 @@
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-rows: 1fr auto;
+  grid-template-rows: 1fr auto auto;
   min-height: 100svh;
   max-width: var(--max-width);
   margin-inline: auto;
@@ -23,8 +23,31 @@
   color: transparent;
 }
 
-.foot {
+.hint {
   grid-row: 2;
+  justify-self: center;
+  align-self: end;
+  margin-block-end: 1.25rem;
+  color: var(--mist);
+  font-size: var(--step--1);
+  text-align: center;
+  animation: hint-in 1s 3s ease-out both;
+}
+
+@keyframes hint-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hint {
+    animation: none;
+  }
+}
+
+.foot {
+  grid-row: 3;
   display: grid;
   gap: 1.75rem;
   align-items: end;

@@ -2,7 +2,20 @@
 
 Personal site of **Mohammed Nabil** (محمد نبيل), software developer in Sweden. Bilingual (English / Arabic with full right-to-left layout), built with React, TypeScript and Three.js.
 
-The hero is a WebGL particle field drawn with custom GLSL shaders: about 16,000 particles assemble into the name, morph between its Latin and Arabic spellings, part around the pointer, and dissolve into a night sky that stays behind the page as you scroll.
+Three.js runs through the whole page:
+
+| Section    | Scene                                                                                              |
+| ---------- | -------------------------------------------------------------------------------------------------- |
+| Hero       | ~16,000 GLSL particles assemble the name, morph Latin ↔ Arabic, part around the pointer, burst on click |
+| Background | The same particles dissolve into a night sky that stays behind the page                            |
+| About      | Personal traits orbit the portrait on a tilted ring                                                |
+| Skills     | A draggable skill globe; field filters light up one domain at a time                               |
+| Experience | A career helix: each role and degree is a strand rising through the years, linked to the list on hover |
+| Projects   | A rotating ring of project cards, synced with the detail panel, arrows and keyboard                |
+| Education  | All 26 transcript courses as a stack of books; point at one to pull it out and read it             |
+| Contact    | The particles regroup into "Hej · Hello · مرحباً"                                                   |
+
+Each section scene loads lazily and only exists while it is near the viewport, so the page never holds more than a few WebGL contexts.
 
 ## Stack
 
@@ -37,7 +50,7 @@ Add `?lang=ar` or `?lang=en` to any URL to open the site in that language.
 
 ## Editing the content
 
-Everything personal lives in **`src/data/resume.ts`**: name, intro, about text, roles, education, skills and social links. Every text field has an `en` and an `ar` version, and the tests fail if either is missing. Interface copy (buttons, labels, messages) is in `src/i18n/dictionary.ts`.
+Everything personal lives in **`src/data/resume.ts`**: name, intro, about text, traits, roles, degrees, the course list from the transcript, projects, certificates, skills and social links. Every text field has an `en` and an `ar` version, and the tests fail if either is missing. Interface copy (buttons, labels, messages) is in `src/i18n/dictionary.ts`.
 
 Projects are the six most recently updated public, non-fork repositories on GitHub; articles are the latest four on DEV. Both update automatically.
 
@@ -52,7 +65,9 @@ src/
     layout/               header, footer, skip link
     sections/             hero, about, skills, experience, projects, writing, contact
     ui/                   section shell, icons, buttons, shared list styles
-  scene/                  WebGL layer: point sampling, shaders, particle system
+  scene/                  WebGL: hero particles and shaders
+    kit/                  shared scene helpers: drag-to-turn, text labels, camera fitting, palette
+    sections/             one lazily loaded scene per page section
   hooks/                  media queries, active section, remote data
   lib/                    dates, skills matrix, API clients, storage, WebGL detection
   styles/global.css       design tokens and base styles

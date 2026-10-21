@@ -1,4 +1,5 @@
 import { profile } from '../../data/resume';
+import { useMediaQuery } from '../../hooks/useMediaQuery';
 import { useLanguage } from '../../i18n/context';
 import type { SceneStatus } from '../../scene/BackgroundScene';
 import buttons from '../ui/Button.module.css';
@@ -12,12 +13,19 @@ export function Hero({ sceneStatus }: HeroProps) {
   const { t, language } = useLanguage();
   // With WebGL the particles draw the name; the heading stays in the page for search and screen readers.
   const drawnByScene = sceneStatus !== 'off';
+  const touch = useMediaQuery('(hover: none)');
 
   return (
     <section id="top" className={styles.hero} aria-labelledby="hero-title">
       <h1 id="hero-title" className={drawnByScene ? 'visually-hidden' : styles.fallbackTitle}>
         {profile.name[language]}
       </h1>
+
+      {sceneStatus === 'ready' ? (
+        <p className={styles.hint} aria-hidden="true">
+          {touch ? t.hero.hintTouch : t.hero.hint}
+        </p>
+      ) : null}
 
       <div className={styles.foot}>
         <div className={styles.copy}>

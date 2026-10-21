@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { education, profile, roles, skills } from '../data/resume';
+import { certificates, courses, degrees, profile, projects, roles, skills } from '../data/resume';
 import { dictionaries } from '../i18n/dictionary';
 import { buildSkillMatrix, DOMAIN_ORDER, TIER_ORDER } from './skills';
 
@@ -30,7 +30,11 @@ describe('resume content', () => {
     ...profile.about,
     ...profile.interests,
     ...roles.flatMap((role) => [role.title, role.organisation, role.summary, ...role.highlights]),
-    ...education.flatMap((item) => [item.degree, item.institution, ...item.courses]),
+    ...profile.traits,
+    ...degrees.flatMap((degree) => [degree.title, degree.institution, degree.programme, degree.thesis.title]),
+    ...courses.map((course) => course.name),
+    ...projects.flatMap((project) => [project.summary, ...project.features]),
+    ...certificates.flatMap((certificate) => [certificate.name, certificate.summary]),
   ];
 
   it('is written in both languages', () => {
@@ -46,6 +50,29 @@ describe('resume content', () => {
     for (const role of roles) {
       expect(role.start).toMatch(/^\d{4}-\d{2}$/);
       if (role.end) expect(role.end >= role.start).toBe(true);
+    }
+  });
+});
+
+describe('transcript', () => {
+  it('adds up to the 222 credits on the official transcript', () => {
+    expect(courses.reduce((sum, course) => sum + course.credits, 0)).toBe(222);
+    expect(courses.filter((course) => course.cycle === 1).reduce((sum, course) => sum + course.credits, 0)).toBe(180);
+  });
+
+  it('lists courses in the order they were completed, with unique codes', () => {
+    const dates = courses.map((course) => course.completed);
+    expect([...dates].sort()).toEqual(dates);
+    expect(new Set(courses.map((course) => course.code)).size).toBe(courses.length);
+  });
+});
+
+describe('projects', () => {
+  it('have unique ids and valid date ranges', () => {
+    expect(new Set(projects.map((project) => project.id)).size).toBe(projects.length);
+    for (const project of projects) {
+      if (project.start && project.end) expect(project.end >= project.start).toBe(true);
+      expect(project.stack.length).toBeGreaterThan(0);
     }
   });
 });

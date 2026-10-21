@@ -3,9 +3,9 @@
   gap: 2.5rem;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 1000px) {
   .layout {
-    grid-template-columns: minmax(0, 1fr) minmax(12rem, 18.75rem);
+    grid-template-columns: minmax(0, 1fr) minmax(22rem, 28rem);
     gap: clamp(2rem, 4vw, 4rem);
     align-items: start;
   }
@@ -55,16 +55,20 @@
   margin-inline-start: 0.35em;
 }
 
-.portrait {
+/* Portrait with its ring of traits: the canvas sits over the photo and fills the whole square. */
+.orbit {
   position: relative;
-  max-width: 18.75rem;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  max-width: 28rem;
+  aspect-ratio: 1 / 1.08;
+  margin-inline: auto;
 }
 
-@media (max-width: 699px) {
-  .portrait {
-    order: -1;
-    max-width: 14rem;
-  }
+.portrait {
+  position: relative;
+  width: 44%;
 }
 
 .portrait img {
@@ -72,18 +76,23 @@
   aspect-ratio: 4 / 5;
   object-fit: cover;
   object-position: 50% 30%;
-  border-radius: var(--radius-m);
+  border-radius: 999px 999px var(--radius-m) var(--radius-m);
   filter: saturate(0.82) contrast(1.04);
+  box-shadow: 0 30px 80px -30px rgb(92 214 191 / 0.35);
 }
 
-/* A thin aurora edge ties the photograph to the particle sky behind it. */
 .portrait::after {
   content: '';
   position: absolute;
-  inset-inline: 12%;
+  inset-inline: 14%;
   inset-block-end: -1px;
   height: 2px;
   border-radius: 2px;
   background: linear-gradient(90deg, var(--teal), var(--violet));
   box-shadow: 0 0 24px 2px rgb(92 214 191 / 0.35);
+}
+
+.orbitScene {
+  position: absolute;
+  inset: 0;
 }

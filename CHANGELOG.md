@@ -8,6 +8,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.1.0] - 2026-10-21
+
+### Added
+- A 3D scene in every section: trait orbit around the portrait, skill globe with field filters, career helix linked to the roles list, rotating project ring, and a stack of course books from the transcript.
+- Click-to-scatter burst on the hero name, and a "Hej · Hello · مرحباً" particle greeting at the contact section.
+- Education section with both degrees, thesis titles, all 26 courses (222 credits) and certificates.
+- Ten featured projects from the CV, with live GitHub repositories below them.
+- Swedish among languages; soft skills; updated roles from the current CV.
+
+### Changed
+- Content rewritten from the CV, official transcript and certificate of registration. Identity numbers, control codes and phone numbers are intentionally not published.
+
 ## [2.0.0] - 2026-10-21
 
 Complete rebuild.

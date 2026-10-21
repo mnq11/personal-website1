@@ -39,3 +39,9 @@ export function formatDuration(months: number, duration: Dictionary['duration'])
 export function currentMonth(now = new Date()): string {
   return `${now.getUTCFullYear()}-${String(now.getUTCMonth() + 1).padStart(2, '0')}`;
 }
+
+/** `YYYY-MM` as a fractional year (2022-08 → 2022.583), for placing things on a time axis. */
+export function yearFraction(value: string): number {
+  const date = parseMonth(value);
+  return date.getUTCFullYear() + date.getUTCMonth() / 12;
+}
