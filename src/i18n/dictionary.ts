@@ -43,6 +43,20 @@ const en = {
     traits: 'How I work',
     traitsHint: 'The qualities people mention when they work with me. Drag to turn the constellation.',
   },
+  numbers: {
+    title: 'By the numbers',
+    lede: 'Counted straight from this page, so they always add up.',
+    hint: 'Point at a tower to light it up. Drag to look around the skyline.',
+    labels: {
+      years: 'Years in software',
+      projects: 'Projects',
+      skills: 'Skills',
+      verified: 'LinkedIn verified',
+      courses: 'Courses',
+      credits: 'Credits',
+      certificates: 'Certificates',
+    },
+  },
   skills: {
     title: 'Skills',
     lede: 'Grouped by how deeply I work with each tool, not by how impressive it sounds.',
@@ -117,6 +131,7 @@ const en = {
   writing: {
     title: 'Writing',
     lede: 'Articles I have published on DEV.',
+    hint: 'Slide across the cards to bring one forward, then click it to read.',
     loading: 'Loading articles…',
     error: 'DEV didn’t respond, so articles can’t be shown right now.',
     empty: 'No articles published yet.',
@@ -129,6 +144,8 @@ const en = {
     copy: 'Copy email',
     copied: 'Email copied',
     elsewhere: 'Elsewhere',
+    hello: 'Say hello',
+    orbitsHint: 'Click a planet to visit it, or the core to write an email. Drag to spin.',
   },
   footer: {
     rights: 'All rights reserved.',
@@ -185,6 +202,20 @@ const ar: Dictionary = {
     outsideWork: 'خارج العمل',
     traits: 'كيف أعمل',
     traitsHint: 'الصفات التي يذكرها من يعمل معي. اسحب لتدوير الكوكبة.',
+  },
+  numbers: {
+    title: 'بالأرقام',
+    lede: 'محسوبة مباشرة من بيانات هذه الصفحة، فهي دائماً مطابقة لها.',
+    hint: 'أشر إلى برج لتضيئه. اسحب لتتجول حول الأفق.',
+    labels: {
+      years: 'سنوات في البرمجة',
+      projects: 'مشاريع',
+      skills: 'مهارات',
+      verified: 'موثّقة في LinkedIn',
+      courses: 'مقررات',
+      credits: 'وحدات دراسية',
+      certificates: 'شهادات',
+    },
   },
   skills: {
     title: 'المهارات',
@@ -260,6 +291,7 @@ const ar: Dictionary = {
   writing: {
     title: 'المقالات',
     lede: 'مقالات نشرتها على منصة DEV.',
+    hint: 'مرّر المؤشر بين البطاقات لتقدّم إحداها، ثم انقر عليها لقراءتها.',
     loading: 'جارٍ تحميل المقالات…',
     error: 'لم تستجب منصة DEV، لذا لا يمكن عرض المقالات الآن.',
     empty: 'لم تُنشر مقالات بعد.',
@@ -272,6 +304,8 @@ const ar: Dictionary = {
     copy: 'نسخ البريد',
     copied: 'تم نسخ البريد',
     elsewhere: 'حساباتي',
+    hello: 'قل مرحباً',
+    orbitsHint: 'انقر كوكباً لزيارته، أو النواة لكتابة رسالة بريد. اسحب للتدوير.',
   },
   footer: {
     rights: 'جميع الحقوق محفوظة.',

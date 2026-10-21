@@ -91,3 +91,20 @@ describe('buildSkillMatrix', () => {
     expect(new Set(names).size).toBe(names.length);
   });
 });
+
+describe('headline numbers', () => {
+  it('are derived from the resume data', async () => {
+    const { buildStats } = await import('./stats');
+    const stats = Object.fromEntries(buildStats(new Date('2026-10-21')).map((stat) => [stat.id, stat.value]));
+    expect(stats.projects).toBe(projects.length);
+    expect(stats.skills).toBe(skills.length);
+    expect(stats.courses).toBe(courses.length);
+    expect(stats.certificates).toBe(certificates.length);
+    expect(stats.years).toBeGreaterThanOrEqual(10);
+  });
+
+  it('have an English and Arabic label each', () => {
+    const labels = Object.keys(dictionaries.en.numbers.labels);
+    expect(labels.sort()).toEqual(Object.keys(dictionaries.ar.numbers.labels).sort());
+  });
+});

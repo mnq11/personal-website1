@@ -1,0 +1,9 @@
+.deck {
+  height: clamp(15rem, 34vw, 21rem);
+  margin-block-end: clamp(1.5rem, 3vw, 2.5rem);
+  /* Cards are clickable links, so the grab cursor would mislead. */
+}
+
+.deck > div {
+  cursor: pointer;
+}

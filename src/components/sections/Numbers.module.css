@@ -1,0 +1,27 @@
+.towers {
+  height: clamp(20rem, 42vw, 30rem);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: 1.5rem 1rem;
+}
+
+.stat {
+  padding-block-start: 0.9rem;
+  border-block-start: 2px solid var(--saffron);
+}
+
+.value {
+  font-size: var(--step-3);
+  font-weight: 560;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+
+.label {
+  margin-block-start: 0.25rem;
+  color: var(--mist);
+  font-size: var(--step--1);
+}

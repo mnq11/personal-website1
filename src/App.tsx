@@ -7,6 +7,7 @@ import { Contact } from './components/sections/Contact';
 import { Education } from './components/sections/Education';
 import { Experience } from './components/sections/Experience';
 import { Hero } from './components/sections/Hero';
+import { Numbers } from './components/sections/Numbers';
 import { Projects } from './components/sections/Projects';
 import { Skills } from './components/sections/Skills';
 import { Writing } from './components/sections/Writing';
@@ -28,6 +29,7 @@ export function App() {
       <main id="main" tabIndex={-1}>
         <Hero sceneStatus={sceneStatus} />
         <About />
+        <Numbers />
         <Skills />
         <Experience />
         <Projects />

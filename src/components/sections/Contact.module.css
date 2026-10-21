@@ -88,3 +88,25 @@
     font-variation-settings: 'HEXP' 55;
   }
 }
+
+.orbits {
+  max-width: var(--max-width);
+  margin: clamp(2rem, 5vw, 3rem) auto 0;
+  padding-inline: var(--gutter);
+}
+
+.orbitScene {
+  height: 20rem;
+}
+
+/* Beside the greeting on wide screens, tucked under it so the copy column stays clear. */
+@media (min-width: 1000px) {
+  .orbits {
+    position: absolute;
+    inset-block-end: clamp(3rem, 6vw, 6rem);
+    inset-inline-end: var(--gutter);
+    width: min(42%, 34rem);
+    margin: 0;
+    padding: 0;
+  }
+}

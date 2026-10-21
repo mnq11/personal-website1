@@ -9,11 +9,13 @@ Three.js runs through the whole page:
 | Hero       | ~16,000 GLSL particles assemble the name, morph Latin ↔ Arabic, part around the pointer, burst on click |
 | Background | The same particles dissolve into a night sky that stays behind the page                            |
 | About      | Personal traits orbit the portrait on a tilted ring                                                |
+| Numbers    | A skyline of hexagonal towers (years, projects, skills, credits…) that rise on entry and glow on hover; every figure is computed from the resume data |
 | Skills     | A draggable skill globe; field filters light up one domain at a time                               |
 | Experience | A career helix: each role and degree is a strand rising through the years, linked to the list on hover |
 | Projects   | A rotating ring of project cards, synced with the detail panel, arrows and keyboard                |
 | Education  | All 26 transcript courses as a stack of books; point at one to pull it out and read it             |
-| Contact    | The particles regroup into "Hej · Hello · مرحباً"                                                   |
+| Writing    | DEV articles fanned like a hand of cards; slide across to bring one forward, click to read         |
+| Contact    | The particles regroup into "Hej · Hello · مرحباً", beside orbiting planets that link to GitHub, LinkedIn, DEV and X, with a core that opens an email |
 
 Each section scene loads lazily and only exists while it is near the viewport, so the page never holds more than a few WebGL contexts.
 

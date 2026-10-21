@@ -1,14 +1,36 @@
-import { useEffect, useRef, useState } from 'react';
+import { lazy, useEffect, useMemo, useRef, useState } from 'react';
 import { profile, socials } from '../../data/resume';
 import { useLanguage } from '../../i18n/context';
+import { css } from '../../scene/kit/theme';
+import type { OrbitLink } from '../../scene/sections/SocialOrbits';
 import { ExternalLink } from '../ui/ExternalLink';
 import { Icon } from '../ui/Icon';
+import { LazyScene } from '../ui/LazyScene';
 import buttons from '../ui/Button.module.css';
 import styles from './Contact.module.css';
+
+const SocialOrbits = lazy(() => import('../../scene/sections/SocialOrbits'));
+
+const NETWORK_ACCENT: Record<string, string> = {
+  github: css.violet,
+  linkedin: css.sky,
+  devto: css.teal,
+  x: css.rose,
+};
 
 export function Contact() {
   const { t } = useLanguage();
   const [copied, setCopied] = useState(false);
+  const orbitLinks = useMemo<OrbitLink[]>(
+    () =>
+      socials.map((social) => ({
+        id: social.network,
+        label: social.label,
+        url: social.url,
+        accent: NETWORK_ACCENT[social.network] ?? css.saffron,
+      })),
+    [],
+  );
   const resetTimer = useRef<number | undefined>(undefined);
 
   useEffect(() => () => window.clearTimeout(resetTimer.current), []);
@@ -54,6 +76,18 @@ export function Contact() {
             </li>
           ))}
         </ul>
+      </div>
+
+      <div className={styles.orbits}>
+        <LazyScene className={styles.orbitScene} hint={t.contact.orbitsHint}>
+          <SocialOrbits
+            centre={t.contact.hello}
+            links={orbitLinks}
+            onCentre={() => {
+              window.location.href = `mailto:${profile.email}`;
+            }}
+          />
+        </LazyScene>
       </div>
     </section>
   );

@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Three.js scenes for the last sections that had none: a "By the numbers" tower skyline, a fan of DEV article cards, and orbiting social links in the contact section.
+- `lib/stats.ts`: headline figures derived from the resume data, covered by the bilingual dictionary checks.
 - From LinkedIn: master's degree in Computer Science with a machine learning focus and its activities, earlier diplomas (graphic design, computer maintenance), Edraak and HP LIFE courses, an AI and data science skill group, and gold markers on the 16 skills with a passed LinkedIn skill assessment.
 
 ## [2.1.0] - 2026-10-21
