@@ -12,6 +12,7 @@ export function Skills() {
   const { t } = useLanguage();
   const matrix = useMemo(() => buildSkillMatrix(skills), []);
   const [focus, setFocus] = useState<SkillDomain | null>(null);
+  const verified = useMemo(() => new Set(skills.filter((skill) => skill.verified).map((skill) => skill.name)), []);
 
   return (
     <Section id="skills" title={t.skills.title} lede={t.skills.lede}>
@@ -36,6 +37,10 @@ export function Skills() {
             </button>
           ))}
         </div>
+        <p className={styles.legend}>
+          <span className={styles.verified} aria-hidden="true" />
+          {t.skills.verifiedLegend(verified.size)}
+        </p>
       </div>
 
       <table className={styles.table}>
@@ -59,6 +64,9 @@ export function Skills() {
                     <ul className={styles.names}>
                       {matrix[domain][tier].map((name) => (
                         <li key={name} className="ltr">
+                          {verified.has(name) ? (
+                            <span className={styles.verified} role="img" aria-label={t.skills.verified} title={t.skills.verified} />
+                          ) : null}
                           {name}
                         </li>
                       ))}

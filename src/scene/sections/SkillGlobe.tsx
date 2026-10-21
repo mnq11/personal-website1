@@ -23,7 +23,7 @@ interface SkillGlobeProps {
   focus: SkillDomain | null;
 }
 
-const RADIUS = 2.6;
+const RADIUS = 3.1;
 const world = new Vector3();
 
 const tierStyle = {
@@ -44,7 +44,7 @@ function fibonacciSphere(n: number, radius: number): Vector3[] {
 }
 
 function Globe({ skills, focus }: SkillGlobeProps) {
-  useFitCamera(8.4, 1.15);
+  useFitCamera(9.8, 1.15);
   const motion = useMotionFactor();
   const { step } = useDragRotation({ autoSpeed: 0.16 * motion });
   const group = useRef<Group>(null);
@@ -70,7 +70,12 @@ function Globe({ skills, focus }: SkillGlobeProps) {
       if (!live) return;
       setLabels(
         ordered.map((skill) =>
-          makeLabel(skill.name, { size: 56, weight: tierStyle[skill.tier].weight, color: '#ffffff' }),
+          makeLabel(skill.name, {
+            size: 56,
+            weight: tierStyle[skill.tier].weight,
+            color: '#ffffff',
+            ...(skill.verified ? { dot: css.saffron } : {}),
+          }),
         ),
       );
     });
@@ -162,7 +167,7 @@ function Globe({ skills, focus }: SkillGlobeProps) {
 
 export default function SkillGlobe(props: SkillGlobeProps) {
   return (
-    <SceneFrame fov={40} position={[0, 0, 8.4]}>
+    <SceneFrame fov={40} position={[0, 0, 9.8]}>
       <Globe {...props} />
     </SceneFrame>
   );

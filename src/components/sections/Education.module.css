@@ -230,3 +230,40 @@
   color: rgb(232 239 243 / 0.8);
   font-size: var(--step--1);
 }
+
+.activitiesLabel {
+  margin-block-start: 1.1rem;
+  color: var(--mist);
+  font-size: var(--step--1);
+}
+
+.activities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-block-start: 0.5rem;
+}
+
+.activities li {
+  padding: 0.2rem 0.7rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-size: var(--step--1);
+  color: rgb(232 239 243 / 0.85);
+}
+
+.diplomas {
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .diplomas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.diploma {
+  padding-block-start: 1rem;
+  border-block-start: 1px solid var(--line-strong);
+}

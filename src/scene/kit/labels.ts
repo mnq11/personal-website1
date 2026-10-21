@@ -14,6 +14,8 @@ interface LabelOptions {
   /** Optional rounded pill drawn behind the text. */
   background?: string;
   border?: string;
+  /** Small coloured dot drawn before the text, e.g. to mark a verified skill. */
+  dot?: string;
   paddingX?: number;
   paddingY?: number;
 }
@@ -31,20 +33,22 @@ export function makeLabel(text: string, options: LabelOptions = {}): Label {
     color = '#e8eff3',
     background,
     border,
+    dot,
     paddingX = background ? size * 0.55 : size * 0.15,
     paddingY = background ? size * 0.32 : size * 0.12,
   } = options;
-  const key = JSON.stringify([text, size, weight, color, background, border, paddingX, paddingY]);
+  const key = JSON.stringify([text, size, weight, color, background, border, dot, paddingX, paddingY]);
   const hit = cache.get(key);
   if (hit) return hit;
 
   const canvas = document.createElement('canvas');
   const context = canvas.getContext('2d');
   const font = `${weight} ${size}px "${FONT_FAMILY}", system-ui, sans-serif`;
+  const dotSpace = dot ? size * 0.55 : 0;
   let width = size * 4;
   if (context) {
     context.font = font;
-    width = Math.ceil(context.measureText(text).width + paddingX * 2);
+    width = Math.ceil(context.measureText(text).width + paddingX * 2 + dotSpace);
   }
   const height = Math.ceil(size * 1.45 + paddingY * 2);
   canvas.width = width;
@@ -63,11 +67,17 @@ export function makeLabel(text: string, options: LabelOptions = {}): Label {
         context.stroke();
       }
     }
+    if (dot) {
+      context.beginPath();
+      context.arc(paddingX + size * 0.16, height / 2, size * 0.14, 0, Math.PI * 2);
+      context.fillStyle = dot;
+      context.fill();
+    }
     context.font = font;
     context.fillStyle = color;
     context.textAlign = 'center';
     context.textBaseline = 'middle';
-    context.fillText(text, width / 2, height / 2 + size * 0.04);
+    context.fillText(text, (width + dotSpace) / 2, height / 2 + size * 0.04);
   }
 
   const texture = new CanvasTexture(canvas);

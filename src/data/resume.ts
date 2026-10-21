@@ -7,7 +7,7 @@ import type { Localized } from '../i18n/types';
  * not reproduced here.
  */
 
-export type SkillDomain = 'frontend' | 'backend' | 'data' | 'delivery' | 'mobile';
+export type SkillDomain = 'frontend' | 'backend' | 'data' | 'ai' | 'delivery' | 'mobile';
 
 /** How much hands-on depth a skill has: daily core tool, proficient, or working knowledge. */
 export type SkillTier = 'core' | 'proficient' | 'familiar';
@@ -16,6 +16,8 @@ export interface Skill {
   name: string;
   domain: SkillDomain;
   tier: SkillTier;
+  /** Passed the LinkedIn skill assessment for this skill. */
+  verified?: boolean;
 }
 
 export interface Role {
@@ -37,8 +39,20 @@ export interface Degree {
   programme: Localized;
   start: string;
   end: string;
-  credits: number;
+  /** Credits of the awarded degree, when the transcript states it. */
+  credits?: number;
   thesis: { title: Localized; distinction: boolean };
+  activities?: Localized[];
+}
+
+/** Earlier vocational diplomas, shown under "Earlier studies". */
+export interface Diploma {
+  id: string;
+  title: Localized;
+  institution: Localized;
+  start: number;
+  end: number;
+  detail: Localized;
 }
 
 export interface Course {
@@ -101,8 +115,8 @@ export const profile = {
     fallback: 'images/portrait-720.jpg',
   },
   intro: {
-    en: 'I build web, mobile and AI-assisted products end to end, from the database schema to the screen people touch.',
-    ar: 'أبني منتجات الويب والجوال والمنتجات المدعومة بالذكاء الاصطناعي من البداية إلى النهاية، من قاعدة البيانات حتى الشاشة التي يلمسها المستخدم.',
+    en: 'I build web, mobile and machine-learning products end to end, from the database schema to the screen people touch.',
+    ar: 'أبني منتجات الويب والجوال وتعلّم الآلة من البداية إلى النهاية، من قاعدة البيانات حتى الشاشة التي يلمسها المستخدم.',
   },
   about: [
     {
@@ -110,8 +124,8 @@ export const profile = {
       ar: 'أنا مطوّر برمجيات متكاملة أحبّ المشكلات التي تبدو فوضوية في البداية: متطلبات متشابكة، وبيانات لا تتّسق، وعمليات لم يوثّقها أحد. عملي هو تحويل ذلك إلى برمجيات سهلة الاستخدام وسهلة الصيانة.',
     },
     {
-      en: 'I studied computer science at Kristianstad University: a bachelor’s degree in 2022, then master’s-level courses ending in a thesis on an AI-assisted tool for creating children’s books, awarded a pass with distinction. Today I lead development at the start-up Hlkat Wsl and take on freelance projects.',
-      ar: 'درست علوم الحاسوب في جامعة كريستيانستاد: بكالوريوس عام 2022، ثم مقررات بمستوى الماجستير اختتمتها برسالة عن أداة مدعومة بالذكاء الاصطناعي لتأليف كتب الأطفال، نالت تقدير "ناجح بامتياز". أقود اليوم التطوير في الشركة الناشئة Hlkat Wsl وأعمل على مشاريع مستقلة.',
+      en: 'I studied at Kristianstad University: a bachelor’s in software engineering in 2022, then a master’s in computer science focused on machine learning, finishing in 2025 with a thesis on an AI-assisted tool for creating children’s books that passed with distinction. Today I lead development at the start-up Hlkat Wsl and take on freelance projects.',
+      ar: 'درست في جامعة كريستيانستاد: بكالوريوس هندسة البرمجيات عام 2022، ثم ماجستير علوم الحاسوب بتركيز على تعلّم الآلة أنهيته عام 2025 برسالة عن أداة مدعومة بالذكاء الاصطناعي لتأليف كتب الأطفال نالت تقدير "ناجح بامتياز". أقود اليوم التطوير في الشركة الناشئة Hlkat Wsl وأعمل على مشاريع مستقلة.',
     },
     {
       en: 'Alongside software, I have worked for years as a support worker with children affected by war and with special needs. It taught me to listen first, stay calm under pressure, and act as a bridge between languages and cultures, which is most of what good engineering asks for.',
@@ -239,15 +253,14 @@ export const roles: Role[] = [
 export const degrees: Degree[] = [
   {
     id: 'master-level',
-    title: { en: 'Master’s-level studies, Computer Science', ar: 'دراسات بمستوى الماجستير، علوم الحاسوب' },
+    title: { en: 'Master’s degree, Computer Science', ar: 'ماجستير علوم الحاسوب' },
     institution: { en: 'Kristianstad University', ar: 'جامعة كريستيانستاد' },
     programme: {
-      en: 'Sustainable development, mobile platforms, wireless security and an independent thesis',
-      ar: 'التنمية المستدامة، ومنصات الجوال، وأمن الشبكات اللاسلكية، ورسالة مستقلة',
+      en: 'Focus on machine learning, with mobile platforms, wireless network security and sustainable development',
+      ar: 'بتركيز على تعلّم الآلة، مع منصات الجوال وأمن الشبكات اللاسلكية والتنمية المستدامة',
     },
     start: '2022-08',
     end: '2025-06',
-    credits: 42,
     thesis: {
       title: {
         en: 'Leveraging AI for Creative Writing: Development and Evaluation of an AI-Assisted Tool for Children’s Book Creation',
@@ -255,12 +268,20 @@ export const degrees: Degree[] = [
       },
       distinction: true,
     },
+    activities: [
+      { en: 'Machine learning study groups', ar: 'مجموعات دراسة تعلّم الآلة' },
+      { en: 'AI and data science seminars', ar: 'ندوات الذكاء الاصطناعي وعلم البيانات' },
+      { en: 'Collaborative research workshops', ar: 'ورش بحث تعاونية' },
+      { en: 'University hackathons', ar: 'هاكاثونات جامعية' },
+      { en: 'Peer mentoring in programming and machine learning', ar: 'إرشاد الزملاء في البرمجة وتعلّم الآلة' },
+      { en: 'Computer Science Student Association', ar: 'جمعية طلاب علوم الحاسوب' },
+    ],
   },
   {
     id: 'bachelor',
     title: { en: 'BSc, Computer Science', ar: 'بكالوريوس العلوم في علوم الحاسوب' },
     institution: { en: 'Kristianstad University', ar: 'جامعة كريستيانستاد' },
-    programme: { en: 'Bachelor Programme in Software Development', ar: 'برنامج بكالوريوس تطوير البرمجيات' },
+    programme: { en: 'Bachelor Programme in Software Development (software engineering)', ar: 'برنامج بكالوريوس تطوير البرمجيات (هندسة البرمجيات)' },
     start: '2019-09',
     end: '2022-11',
     credits: 180,
@@ -268,6 +289,28 @@ export const degrees: Degree[] = [
       title: { en: 'Rain Risk-Index Analysis', ar: 'تحليل مؤشر مخاطر الأمطار' },
       distinction: false,
     },
+  },
+];
+
+export const diplomas: Diploma[] = [
+  {
+    id: 'graphic-design',
+    title: { en: 'Diploma in graphic design', ar: 'دبلوم التصميم الجرافيكي' },
+    institution: { en: 'General Telecom Institute', ar: 'معهد الاتصالات العام' },
+    start: 2007,
+    end: 2009,
+    detail: {
+      en: 'Photoshop, Illustrator, After Effects, 3ds Max and Flash. Graduation project graded A.',
+      ar: 'فوتوشوب وإليستريتور وأفتر إفكتس و3ds Max وفلاش. مشروع التخرج بتقدير A.',
+    },
+  },
+  {
+    id: 'computer-maintenance',
+    title: { en: 'Diploma in computer maintenance', ar: 'دبلوم صيانة الحاسوب' },
+    institution: { en: 'General Telecom Institute', ar: 'معهد الاتصالات العام' },
+    start: 2008,
+    end: 2008,
+    detail: { en: 'Hardware and computer engineering. Graded A.', ar: 'العتاد وهندسة الحاسوب. بتقدير A.' },
   },
 ];
 
@@ -469,6 +512,36 @@ export const projects: Project[] = [
 
 export const certificates: Certificate[] = [
   {
+    id: 'edraak-ml',
+    name: { en: 'Data Science and Machine Learning', ar: 'علم البيانات وتعلّم الآلة' },
+    issuer: 'Edraak',
+    year: 2024,
+    summary: {
+      en: 'Course on the data science workflow and core machine learning methods.',
+      ar: 'مقرر في مراحل علم البيانات وأساليب تعلّم الآلة الأساسية.',
+    },
+  },
+  {
+    id: 'hp-data-science',
+    name: { en: 'Data Science and Analytics', ar: 'علم البيانات والتحليلات' },
+    issuer: 'HP LIFE',
+    year: 2024,
+    summary: {
+      en: 'Data-driven business models, the role of ML and AI, data ethics and cybersecurity in data applications.',
+      ar: 'نماذج الأعمال المعتمدة على البيانات، ودور تعلّم الآلة والذكاء الاصطناعي، وأخلاقيات البيانات والأمن السيبراني في تطبيقاتها.',
+    },
+  },
+  {
+    id: 'hp-digital-business',
+    name: { en: 'Digital Business Skills', ar: 'مهارات الأعمال الرقمية' },
+    issuer: 'HP LIFE',
+    year: 2024,
+    summary: {
+      en: 'Agile project management with Scrum and Kanban, applied to real projects.',
+      ar: 'إدارة المشاريع الرشيقة باستخدام Scrum وKanban وتطبيقها على مشاريع حقيقية.',
+    },
+  },
+  {
     id: 'aws-deepracer',
     name: { en: 'AWS DeepRacer Student League', ar: 'دوري طلاب AWS DeepRacer' },
     issuer: 'Amazon',
@@ -490,48 +563,70 @@ export const certificates: Certificate[] = [
   },
 ];
 
+/**
+ * Skills from the CV and LinkedIn. `verified` marks the ones with a passed LinkedIn skill assessment.
+ */
 export const skills: Skill[] = [
   // Front-end
-  { name: 'React', domain: 'frontend', tier: 'core' },
-  { name: 'JavaScript', domain: 'frontend', tier: 'core' },
+  { name: 'React', domain: 'frontend', tier: 'core', verified: true },
+  { name: 'JavaScript', domain: 'frontend', tier: 'core', verified: true },
+  { name: 'HTML', domain: 'frontend', tier: 'core', verified: true },
+  { name: 'CSS', domain: 'frontend', tier: 'core', verified: true },
   { name: 'TypeScript', domain: 'frontend', tier: 'core' },
-  { name: 'HTML', domain: 'frontend', tier: 'core' },
-  { name: 'CSS', domain: 'frontend', tier: 'core' },
+  { name: 'jQuery', domain: 'frontend', tier: 'proficient', verified: true },
   { name: 'Next.js', domain: 'frontend', tier: 'proficient' },
   { name: 'Tailwind CSS', domain: 'frontend', tier: 'proficient' },
   { name: 'Angular', domain: 'frontend', tier: 'familiar' },
   // Back-end
-  { name: 'Java', domain: 'backend', tier: 'core' },
-  { name: 'Spring', domain: 'backend', tier: 'core' },
-  { name: 'Python', domain: 'backend', tier: 'core' },
-  { name: 'Node.js', domain: 'backend', tier: 'core' },
-  { name: 'REST APIs', domain: 'backend', tier: 'core' },
-  { name: 'Hibernate', domain: 'backend', tier: 'proficient' },
+  { name: 'Java', domain: 'backend', tier: 'core', verified: true },
+  { name: 'Spring', domain: 'backend', tier: 'core', verified: true },
+  { name: 'Python', domain: 'backend', tier: 'core', verified: true },
+  { name: 'Node.js', domain: 'backend', tier: 'core', verified: true },
+  { name: 'C#', domain: 'backend', tier: 'core', verified: true },
+  { name: '.NET', domain: 'backend', tier: 'core', verified: true },
+  { name: 'REST APIs', domain: 'backend', tier: 'core', verified: true },
+  { name: 'OOP', domain: 'backend', tier: 'core', verified: true },
+  { name: 'ASP.NET Core', domain: 'backend', tier: 'proficient' },
   { name: 'Express', domain: 'backend', tier: 'proficient' },
+  { name: 'NestJS', domain: 'backend', tier: 'proficient' },
+  { name: 'Hibernate', domain: 'backend', tier: 'proficient' },
   { name: 'Servlets', domain: 'backend', tier: 'proficient' },
   { name: 'Tomcat', domain: 'backend', tier: 'proficient' },
-  { name: '.NET', domain: 'backend', tier: 'familiar' },
+  { name: 'Multithreading', domain: 'backend', tier: 'familiar' },
   // Data
   { name: 'SQL', domain: 'data', tier: 'core' },
-  { name: 'MongoDB', domain: 'data', tier: 'core' },
+  { name: 'MongoDB', domain: 'data', tier: 'core', verified: true },
+  { name: 'MySQL', domain: 'data', tier: 'core', verified: true },
   { name: 'NoSQL', domain: 'data', tier: 'core' },
   { name: 'PostgreSQL', domain: 'data', tier: 'proficient' },
-  { name: 'MySQL', domain: 'data', tier: 'proficient' },
   { name: 'SQLite', domain: 'data', tier: 'familiar' },
-  { name: 'Data mining', domain: 'data', tier: 'familiar' },
-  // Delivery & quality
-  { name: 'Git', domain: 'delivery', tier: 'core' },
+  { name: 'Real-time databases', domain: 'data', tier: 'familiar' },
+  // AI and data science
+  { name: 'Machine learning', domain: 'ai', tier: 'proficient' },
+  { name: 'Generative AI', domain: 'ai', tier: 'proficient' },
+  { name: 'Data analysis', domain: 'ai', tier: 'proficient' },
+  { name: 'TensorFlow', domain: 'ai', tier: 'familiar' },
+  { name: 'Model training', domain: 'ai', tier: 'familiar' },
+  { name: 'Text analytics', domain: 'ai', tier: 'familiar' },
+  { name: 'Apache Spark', domain: 'ai', tier: 'familiar' },
+  { name: 'Big data', domain: 'ai', tier: 'familiar' },
+  { name: 'Data mining', domain: 'ai', tier: 'familiar' },
+  // Delivery, testing and security
+  { name: 'Git', domain: 'delivery', tier: 'core', verified: true },
   { name: 'Agile', domain: 'delivery', tier: 'core' },
   { name: 'Unit testing', domain: 'delivery', tier: 'core' },
   { name: 'JUnit', domain: 'delivery', tier: 'proficient' },
   { name: 'Integration testing', domain: 'delivery', tier: 'proficient' },
-  { name: 'Mock testing', domain: 'delivery', tier: 'proficient' },
+  { name: 'Test-driven development', domain: 'delivery', tier: 'proficient' },
   { name: 'Linux', domain: 'delivery', tier: 'proficient' },
   { name: 'Heroku', domain: 'delivery', tier: 'proficient' },
-  { name: 'Google Cloud', domain: 'delivery', tier: 'familiar' },
+  { name: 'Azure DevOps', domain: 'delivery', tier: 'familiar' },
   { name: 'AWS', domain: 'delivery', tier: 'familiar' },
+  { name: 'Google Cloud', domain: 'delivery', tier: 'familiar' },
   { name: 'Docker', domain: 'delivery', tier: 'familiar' },
-  // Mobile & desktop
+  { name: 'Jenkins', domain: 'delivery', tier: 'familiar' },
+  { name: 'OWASP', domain: 'delivery', tier: 'familiar' },
+  // Mobile and desktop
   { name: 'Android', domain: 'mobile', tier: 'proficient' },
   { name: 'JavaFX', domain: 'mobile', tier: 'proficient' },
   { name: 'React Native', domain: 'mobile', tier: 'proficient' },

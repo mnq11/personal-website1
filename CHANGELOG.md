@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- From LinkedIn: master's degree in Computer Science with a machine learning focus and its activities, earlier diplomas (graphic design, computer maintenance), Edraak and HP LIFE courses, an AI and data science skill group, and gold markers on the 16 skills with a passed LinkedIn skill assessment.
+
 ## [2.1.0] - 2026-10-21
 
 ### Added

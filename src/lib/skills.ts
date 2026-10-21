@@ -1,6 +1,6 @@
 import type { Skill, SkillDomain, SkillTier } from '../data/resume';
 
-export const DOMAIN_ORDER: SkillDomain[] = ['frontend', 'backend', 'data', 'delivery', 'mobile'];
+export const DOMAIN_ORDER: SkillDomain[] = ['frontend', 'backend', 'data', 'ai', 'delivery', 'mobile'];
 export const TIER_ORDER: SkillTier[] = ['core', 'proficient', 'familiar'];
 
 export type SkillMatrix = Record<SkillDomain, Record<SkillTier, string[]>>;

@@ -40,6 +40,26 @@
   color: var(--saffron);
 }
 
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--mist);
+  font-size: var(--step--1);
+}
+
+/* Gold dot: a skill with a passed LinkedIn assessment, matching the dot on the globe. */
+.verified {
+  display: inline-block;
+  flex: none;
+  width: 0.45rem;
+  height: 0.45rem;
+  margin-inline-end: 0.4rem;
+  border-radius: 50%;
+  background: var(--saffron);
+  vertical-align: 0.12em;
+}
+
 .table tbody tr {
   transition: opacity 0.3s ease;
 }
@@ -104,20 +124,6 @@
   color: var(--mist);
 }
 
-thead [data-tier='core'] {
-  position: relative;
-}
-
-thead [data-tier='core']::before {
-  content: '';
-  display: inline-block;
-  width: 0.45rem;
-  height: 0.45rem;
-  margin-inline-end: 0.5rem;
-  border-radius: 50%;
-  background: var(--saffron);
-  vertical-align: 0.1em;
-}
 
 /* Narrow screens: each domain becomes its own block with tier labels inline. */
 @media (max-width: 640px) {

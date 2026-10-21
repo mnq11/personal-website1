@@ -1,5 +1,5 @@
 import { lazy, useMemo, useState } from 'react';
-import { certificates, courses, degrees } from '../../data/resume';
+import { certificates, courses, degrees, diplomas } from '../../data/resume';
 import { useLanguage } from '../../i18n/context';
 import { formatMonth } from '../../lib/dates';
 import type { BookData } from '../../scene/sections/BookStack';
@@ -73,7 +73,7 @@ export function Education() {
                 <p className={styles.when}>
                   <time dateTime={degree.start}>{formatMonth(degree.start, locale)}</time> –{' '}
                   <time dateTime={degree.end}>{formatMonth(degree.end, locale)}</time>
-                  <span>{t.education.credits(degree.credits)}</span>
+                  {degree.credits ? <span>{t.education.credits(degree.credits)}</span> : null}
                 </p>
                 <h3 className={styles.degreeTitle}>{degree.title[language]}</h3>
                 <p className={styles.institution}>
@@ -88,6 +88,16 @@ export function Education() {
                   </p>
                   <p className={styles.thesisTitle}>{degree.thesis.title[language]}</p>
                 </div>
+                {degree.activities?.length ? (
+                  <>
+                    <p className={styles.activitiesLabel}>{t.education.activities}</p>
+                    <ul className={styles.activities}>
+                      {degree.activities.map((activity) => (
+                        <li key={activity.en}>{activity[language]}</li>
+                      ))}
+                    </ul>
+                  </>
+                ) : null}
               </li>
             ))}
           </ol>
@@ -129,6 +139,22 @@ export function Education() {
               </div>
             ))}
           </details>
+
+          <h3 className={styles.subheading}>{t.education.earlier}</h3>
+          <ul className={styles.diplomas}>
+            {diplomas.map((diploma) => (
+              <li key={diploma.id} className={styles.diploma}>
+                <p className={styles.when}>
+                  {diploma.start === diploma.end
+                    ? yearFormat.format(diploma.start)
+                    : `${yearFormat.format(diploma.start)} – ${yearFormat.format(diploma.end)}`}
+                  <span>{diploma.institution[language]}</span>
+                </p>
+                <p className={styles.certificateName}>{diploma.title[language]}</p>
+                <p className={styles.certificateSummary}>{diploma.detail[language]}</p>
+              </li>
+            ))}
+          </ul>
 
           <h3 className={styles.subheading}>{t.education.certificates}</h3>
           <ul className={styles.certificates}>

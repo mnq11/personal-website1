@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { certificates, courses, degrees, profile, projects, roles, skills } from '../data/resume';
+import { certificates, courses, degrees, diplomas, profile, projects, roles, skills } from '../data/resume';
 import { dictionaries } from '../i18n/dictionary';
 import { buildSkillMatrix, DOMAIN_ORDER, TIER_ORDER } from './skills';
 
@@ -35,6 +35,8 @@ describe('resume content', () => {
     ...courses.map((course) => course.name),
     ...projects.flatMap((project) => [project.summary, ...project.features]),
     ...certificates.flatMap((certificate) => [certificate.name, certificate.summary]),
+    ...degrees.flatMap((degree) => degree.activities ?? []),
+    ...diplomas.flatMap((diploma) => [diploma.title, diploma.institution, diploma.detail]),
   ];
 
   it('is written in both languages', () => {
