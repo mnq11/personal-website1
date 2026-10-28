@@ -8,6 +8,7 @@ import { Contact } from './components/sections/Contact';
 import { Education } from './components/sections/Education';
 import { Experience } from './components/sections/Experience';
 import { Hero } from './components/sections/Hero';
+import { Lab } from './components/sections/Lab';
 import { Numbers } from './components/sections/Numbers';
 import { Projects } from './components/sections/Projects';
 import { Story } from './components/sections/Story';
@@ -35,6 +36,7 @@ export function App() {
         <Story />
         <Numbers />
         <Skills />
+        <Lab />
         <Experience />
         <Projects />
         <Education />

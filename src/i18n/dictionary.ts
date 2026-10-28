@@ -89,6 +89,20 @@ const en = {
     lede: 'Six steps from a design diploma to a master’s in machine learning.',
     hint: 'Point at a milestone, or at a chapter, to light up the other. Drag to turn the road.',
   },
+  lab: {
+    title: 'Lab',
+    lede: 'A tiny machine-learning model, running live in your browser.',
+    explain:
+      'This is k-means clustering, the simplest way a machine finds groups on its own. The grey points have no labels. Each round, every point joins its nearest diamond, then the diamonds move to the middle of their group.',
+    hint: 'Drag to turn the cloud. Press Train and watch the diamonds settle.',
+    train: 'Train',
+    pause: 'Pause',
+    step: 'One step',
+    shuffle: 'New data',
+    ready: 'Untrained: no labels yet.',
+    iteration: (n: number) => `Round ${n}: the groups are still moving.`,
+    converged: (n: number) => `Converged after ${n} ${n === 1 ? 'round' : 'rounds'}: nothing moves any more.`,
+  },
   numbers: {
     title: 'By the numbers',
     lede: 'Counted straight from this page, so they always add up.',
@@ -294,6 +308,20 @@ const ar: Dictionary = {
     title: 'مساري',
     lede: 'ست محطات من دبلوم تصميم إلى ماجستير في تعلّم الآلة.',
     hint: 'أشر إلى محطة أو إلى فصل ليُضاء الآخر. اسحب لتدوير الطريق.',
+  },
+  lab: {
+    title: 'المختبر',
+    lede: 'نموذج تعلّم آلة صغير يعمل مباشرة في متصفحك.',
+    explain:
+      'هذه خوارزمية التجميع k-means، أبسط طريقة تجد بها الآلة المجموعات بنفسها. النقاط الرمادية بلا تسميات. في كل جولة تنضم كل نقطة إلى أقرب معيّن، ثم تنتقل المعيّنات إلى وسط مجموعتها.',
+    hint: 'اسحب لتدوير السحابة. اضغط تدريب وراقب المعيّنات وهي تستقر.',
+    train: 'تدريب',
+    pause: 'إيقاف مؤقت',
+    step: 'خطوة واحدة',
+    shuffle: 'بيانات جديدة',
+    ready: 'غير مدرَّب: لا تسميات بعد.',
+    iteration: (n: number) => `الجولة ${n}: ما زالت المجموعات تتحرك.`,
+    converged: (n: number) => `تقاربت. عدد الجولات: ${n}. لا شيء يتحرك بعد الآن.`,
   },
   numbers: {
     title: 'بالأرقام',
