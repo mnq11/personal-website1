@@ -17,6 +17,8 @@ Three.js runs through the whole page:
 | Writing    | DEV articles fanned like a hand of cards; slide across to bring one forward, click to read         |
 | Contact    | The particles regroup into "Hej · Hello · مرحباً", beside orbiting planets that link to GitHub, LinkedIn, DEV and X, with a core that opens an email |
 
+**Ask my CV.** A floating box (press `/`) answers questions in English or Arabic, from the resume data only, and the page answers by moving: ask "Do you know Spring?" and the skills globe turns that word to the front, ask "Where do you work?" and the career helix lights that strand, "How many projects?" lights a tower. It is plain keyword matching (`src/lib/ask.ts`), so there is no server, no key, and an answer can never say more than the data does.
+
 Each section scene loads lazily and only exists while it is near the viewport, so the page never holds more than a few WebGL contexts.
 
 ## Stack
@@ -70,6 +72,7 @@ src/
   scene/                  WebGL: hero particles and shaders
     kit/                  shared scene helpers: drag-to-turn, text labels, camera fitting, palette
     sections/             one lazily loaded scene per page section
+  focus/                  shared "where is the visitor looking" state that Ask my CV drives
   hooks/                  media queries, active section, remote data
   lib/                    dates, skills matrix, API clients, storage, WebGL detection
   styles/global.css       design tokens and base styles

@@ -1,5 +1,6 @@
 import { lazy, useMemo, useState, type KeyboardEvent } from 'react';
 import { profile, projects, socials, type ProjectKind } from '../../data/resume';
+import { useFocus } from '../../focus/context';
 import { useRemoteData } from '../../hooks/useRemoteData';
 import { useLanguage } from '../../i18n/context';
 import { formatDate } from '../../lib/dates';
@@ -100,6 +101,15 @@ export function Projects() {
   const { t, language, direction } = useLanguage();
   const years = useYears();
   const [active, setActive] = useState(0);
+  const { focus } = useFocus();
+  const [seen, setSeen] = useState(0);
+  // When an answer points at a project, jump to it once per question. React allows this render-time
+  // adjustment, and it avoids an effect that would set state after the fact.
+  if (focus?.projectId && focus.stamp !== seen) {
+    setSeen(focus.stamp);
+    const index = projects.findIndex((item) => item.id === focus.projectId);
+    if (index >= 0) setActive(index);
+  }
   const project = projects[active] ?? projects[0];
 
   const panels = useMemo<PanelData[]>(

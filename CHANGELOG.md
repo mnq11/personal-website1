@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- "Ask my CV": a question box (`/` or the floating button) that answers in English or Arabic from the resume data and points the page at the answer: the skills globe turns a skill to the front, the project ring jumps to a project, the career helix lights a role, the skyline lights a tower. No server or API key.
 - Three.js scenes for the last sections that had none: a "By the numbers" tower skyline, a fan of DEV article cards, and orbiting social links in the contact section.
 - `lib/stats.ts`: headline figures derived from the resume data, covered by the bilingual dictionary checks.
 - From LinkedIn: master's degree in Computer Science with a machine learning focus and its activities, earlier diplomas (graphic design, computer maintenance), Edraak and HP LIFE courses, an AI and data science skill group, and gold markers on the 16 skills with a passed LinkedIn skill assessment.

@@ -21,6 +21,8 @@ import { useMotionFactor } from '../kit/useMotion';
 interface SkillGlobeProps {
   skills: Skill[];
   focus: SkillDomain | null;
+  /** A skill to bring to the front and light up, e.g. after a question. */
+  highlight?: string | null;
 }
 
 const RADIUS = 3.1;
@@ -43,7 +45,7 @@ function fibonacciSphere(n: number, radius: number): Vector3[] {
   });
 }
 
-function Globe({ skills, focus }: SkillGlobeProps) {
+function Globe({ skills, focus, highlight = null }: SkillGlobeProps) {
   useFitCamera(9.8, 1.15);
   const motion = useMotionFactor();
   const { step } = useDragRotation({ autoSpeed: 0.16 * motion });
@@ -63,6 +65,7 @@ function Globe({ skills, focus }: SkillGlobeProps) {
     return shuffled;
   }, [skills]);
   const positions = useMemo(() => fibonacciSphere(ordered.length, RADIUS), [ordered.length]);
+  const pointedAt = highlight === null ? -1 : ordered.findIndex((skill) => skill.name === highlight);
 
   useEffect(() => {
     let live = true;
@@ -104,7 +107,16 @@ function Globe({ skills, focus }: SkillGlobeProps) {
   );
 
   useFrame((_, delta) => {
-    const s = step(Math.min(delta, 0.05));
+    const dt = Math.min(delta, 0.05);
+    const s = step(dt, pointedAt < 0);
+    const spot = pointedAt >= 0 ? positions[pointedAt] : undefined;
+    if (spot && !s.dragging) {
+      // Turn the globe so the skill that was asked about faces the visitor (shortest way round).
+      const wanted = -Math.atan2(spot.x, spot.z);
+      const gap = Math.atan2(Math.sin(wanted - s.yaw), Math.cos(wanted - s.yaw));
+      s.velocity = 0;
+      s.yaw += gap * Math.min(1, dt * 3.2);
+    }
     if (!group.current || !labels) return;
     group.current.rotation.set(0.25 + s.pitch, s.yaw, 0);
     group.current.updateMatrixWorld();
@@ -116,13 +128,14 @@ function Globe({ skills, focus }: SkillGlobeProps) {
       const front = (sprite.getWorldPosition(world).z + RADIUS) / (RADIUS * 2);
       const style = tierStyle[skill.tier];
       const inFocus = focus === null || focus === skill.domain;
-      const target = (style.height + (hovered === i ? 0.12 : 0)) * (inFocus && focus ? 1.15 : 1);
+      const asked = pointedAt === i;
+      const target = (style.height + (hovered === i ? 0.12 : 0)) * (inFocus && focus ? 1.15 : 1) * (asked ? 1.7 : 1);
       const current = sprite.scale.y || target;
       const height = current + (target - current) * Math.min(1, delta * 8);
       sprite.scale.set(height * label.aspect, height, 1);
-      const opacity = (0.15 + front * 0.85) * (inFocus ? 1 : 0.12);
+      const opacity = asked ? 1 : (0.15 + front * 0.85) * (inFocus ? 1 : 0.12) * (pointedAt >= 0 ? 0.5 : 1);
       sprite.material.opacity += (opacity - sprite.material.opacity) * Math.min(1, delta * 6);
-      sprite.renderOrder = Math.round(front * 100);
+      sprite.renderOrder = asked ? 200 : Math.round(front * 100);
     });
   });
 
@@ -155,7 +168,7 @@ function Globe({ skills, focus }: SkillGlobeProps) {
                   transparent
                   opacity={0}
                   depthWrite={false}
-                  color={hovered === i ? css.saffron : tierStyle[skill.tier].color}
+                  color={hovered === i || pointedAt === i ? css.saffron : tierStyle[skill.tier].color}
                 />
               </sprite>
             );

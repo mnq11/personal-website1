@@ -1,4 +1,5 @@
 import { lazy, useMemo } from 'react';
+import { useFocus } from '../../focus/context';
 import { useLanguage } from '../../i18n/context';
 import { buildStats } from '../../lib/stats';
 import { supportsWebGL } from '../../lib/webgl';
@@ -17,6 +18,7 @@ export function Numbers() {
   const stats = useMemo(() => buildStats(), []);
   const format = useMemo(() => new Intl.NumberFormat(locale), [locale]);
   const webgl = supportsWebGL();
+  const { focus } = useFocus();
 
   const towers = useMemo<TowerData[]>(() => {
     const top = Math.log(1 + Math.max(...stats.map((stat) => stat.value)));
@@ -43,7 +45,7 @@ export function Numbers() {
   return (
     <Section id="numbers" title={t.numbers.title} lede={t.numbers.lede}>
       <LazyScene className={styles.towers} hint={t.numbers.hint} fallback={list}>
-        <StatTowers towers={towers} />
+        <StatTowers towers={towers} highlight={focus?.stat ?? null} />
       </LazyScene>
       {webgl ? list : null}
     </Section>

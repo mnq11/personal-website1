@@ -1,5 +1,7 @@
 .frame {
   position: relative;
+  /* "Ask my CV" scrolls a scene to just under the header, clear of its answer panel below. */
+  scroll-margin-block-start: calc(var(--header-height) + 1rem);
 }
 
 .stage {

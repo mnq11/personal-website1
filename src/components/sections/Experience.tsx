@@ -1,5 +1,6 @@
 import { lazy, useMemo, useState } from 'react';
 import { degrees, roles } from '../../data/resume';
+import { useFocus } from '../../focus/context';
 import { useLanguage } from '../../i18n/context';
 import { currentMonth, formatDuration, formatMonth, monthsBetween, yearFraction } from '../../lib/dates';
 import type { Strand } from '../../scene/sections/CareerHelix';
@@ -42,6 +43,12 @@ function DateRange({ start, end }: { start: string; end?: string | undefined }) 
 export function Experience() {
   const { t, language } = useLanguage();
   const [active, setActive] = useState<string | null>(null);
+  const { focus } = useFocus();
+  const [seen, setSeen] = useState(0);
+  if (focus?.roleId && focus.stamp !== seen) {
+    setSeen(focus.stamp);
+    setActive(focus.roleId);
+  }
 
   const strands = useMemo<Strand[]>(() => {
     const now = yearFraction(currentMonth());

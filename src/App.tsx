@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react';
+import { Ask } from './components/ask/Ask';
 import { SiteFooter } from './components/layout/SiteFooter';
 import { SiteHeader } from './components/layout/SiteHeader';
 import { SkipLink } from './components/layout/SkipLink';
@@ -11,6 +12,7 @@ import { Numbers } from './components/sections/Numbers';
 import { Projects } from './components/sections/Projects';
 import { Skills } from './components/sections/Skills';
 import { Writing } from './components/sections/Writing';
+import { FocusProvider } from './focus/FocusProvider';
 import { useLanguage } from './i18n/context';
 import { supportsWebGL } from './lib/webgl';
 import { BackgroundScene, type SceneStatus } from './scene/BackgroundScene';
@@ -22,7 +24,7 @@ export function App() {
   const handleStatus = useCallback((status: SceneStatus) => setSceneStatus(status), []);
 
   return (
-    <>
+    <FocusProvider>
       <SkipLink />
       <SiteHeader />
       <BackgroundScene language={language} enabled={webgl} onStatus={handleStatus} />
@@ -38,6 +40,7 @@ export function App() {
         <Contact />
       </main>
       <SiteFooter />
-    </>
+      <Ask />
+    </FocusProvider>
   );
 }
