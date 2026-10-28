@@ -48,7 +48,7 @@ export function LazyScene({ children, fallback = null, hint, hintPlacement = 'be
 
   return (
     <SceneBoundary fallback={fallback}>
-      <div ref={frame} className={`${styles.frame} ${className ?? ''}`}>
+      <div ref={frame} className={`${styles.frame} ${className ?? ''}`} data-scene="">
         <div className={styles.stage} aria-hidden="true">
           {near ? <Suspense fallback={null}>{children}</Suspense> : null}
         </div>

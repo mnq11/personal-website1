@@ -20,6 +20,8 @@ export interface TowerData {
 
 interface StatTowersProps {
   towers: TowerData[];
+  /** Id of a tower to light up, e.g. after "how many projects?". */
+  highlight?: string | null;
 }
 
 const SPACING = 1.4;
@@ -31,7 +33,7 @@ interface TowerLabels {
   value: Label;
 }
 
-function Towers({ towers }: StatTowersProps) {
+function Towers({ towers, highlight = null }: StatTowersProps) {
   useFitCamera(9.4, 1.9);
   const motion = useMotionFactor();
   const { step } = useDragRotation({ autoSpeed: 0.07 * motion, maxPitch: 0.2 });
@@ -40,7 +42,9 @@ function Towers({ towers }: StatTowersProps) {
   const caps = useRef<(Sprite | null)[]>([]);
   const born = useRef(0);
   const [labels, setLabels] = useState<TowerLabels[] | null>(null);
-  const [hovered, setHovered] = useState<number | null>(null);
+  const [pointer, setPointer] = useState<number | null>(null);
+  const pointedAt = highlight === null ? -1 : towers.findIndex((tower) => tower.id === highlight);
+  const hovered = pointer ?? (pointedAt >= 0 ? pointedAt : null);
 
   useEffect(() => {
     let live = true;
@@ -136,9 +140,9 @@ function Towers({ towers }: StatTowersProps) {
               rotation={[0, Math.PI / 6, 0]}
               onPointerOver={(event) => {
                 event.stopPropagation();
-                setHovered(i);
+                setPointer(i);
               }}
-              onPointerOut={() => setHovered((current) => (current === i ? null : current))}
+              onPointerOut={() => setPointer((current) => (current === i ? null : current))}
             />
             <sprite
               ref={(sprite) => {
