@@ -17,6 +17,7 @@ const en = {
   },
   nav: {
     about: 'About',
+    story: 'Path',
     skills: 'Skills',
     experience: 'Experience',
     projects: 'Projects',
@@ -82,6 +83,11 @@ const en = {
       projects: (count: string) => `${count} projects so far. Spin the ring to browse them.`,
       writing: 'I write about software on DEV. The latest articles are below.',
     },
+  },
+  story: {
+    title: 'My path',
+    lede: 'Six steps from a design diploma to a master’s in machine learning.',
+    hint: 'Point at a milestone, or at a chapter, to light up the other. Drag to turn the road.',
   },
   numbers: {
     title: 'By the numbers',
@@ -217,6 +223,7 @@ const ar: Dictionary = {
   },
   nav: {
     about: 'نبذة',
+    story: 'المسار',
     skills: 'المهارات',
     experience: 'الخبرات',
     projects: 'المشاريع',
@@ -282,6 +289,11 @@ const ar: Dictionary = {
       projects: (count: string) => `${count} مشاريع حتى الآن. أدِر الحلقة لتتصفحها.`,
       writing: 'أكتب عن البرمجة على DEV، وأحدث المقالات أدناه.',
     },
+  },
+  story: {
+    title: 'مساري',
+    lede: 'ست محطات من دبلوم تصميم إلى ماجستير في تعلّم الآلة.',
+    hint: 'أشر إلى محطة أو إلى فصل ليُضاء الآخر. اسحب لتدوير الطريق.',
   },
   numbers: {
     title: 'بالأرقام',

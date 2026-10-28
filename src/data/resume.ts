@@ -660,3 +660,76 @@ export const skills: Skill[] = [
   { name: 'UX design', domain: 'mobile', tier: 'proficient' },
   { name: 'Flutter', domain: 'mobile', tier: 'familiar' },
 ];
+
+export interface StoryChapter {
+  id: string;
+  /** Short mark shown on the road and beside the text, e.g. a year or "Now". */
+  mark: Localized;
+  title: Localized;
+  text: Localized;
+  accent: 'saffron' | 'teal' | 'violet' | 'sky' | 'rose';
+}
+
+/** The path in six steps. Years follow the roles, degrees and diplomas above. */
+export const story: StoryChapter[] = [
+  {
+    id: 'design',
+    mark: { en: '2007', ar: '2007' },
+    title: { en: 'Design first', ar: 'التصميم أولاً' },
+    text: {
+      en: 'Two diplomas at General Telecom Institute, graphic design and computer maintenance, gave me an eye for how things look and an understanding of how the machines underneath work.',
+      ar: 'دبلومان في معهد الاتصالات العام، التصميم الجرافيكي وصيانة الحاسوب، منحاني عيناً ترى كيف تبدو الأشياء وفهماً لكيف تعمل الأجهزة تحتها.',
+    },
+    accent: 'saffron',
+  },
+  {
+    id: 'sweden',
+    mark: { en: '2015', ar: '2015' },
+    title: { en: 'A new country, a different craft', ar: 'بلد جديد وحرفة مختلفة' },
+    text: {
+      en: 'In Sweden I began supporting children affected by war and children with special needs, and started freelancing as a developer. Listening before acting became my first engineering skill.',
+      ar: 'في السويد بدأت أدعم أطفالاً متأثرين بالحرب وأطفالاً من ذوي الاحتياجات الخاصة، وبدأت العمل مطوّراً مستقلاً. صار الإصغاء قبل التصرف أولى مهاراتي الهندسية.',
+    },
+    accent: 'teal',
+  },
+  {
+    id: 'degree',
+    mark: { en: '2019', ar: '2019' },
+    title: { en: 'Back to the code', ar: 'العودة إلى الشيفرة' },
+    text: {
+      en: 'I started the software engineering bachelor’s at Kristianstad University and worked there as a full-stack developer, learning to ship features from requirements to running software.',
+      ar: 'بدأت بكالوريوس هندسة البرمجيات في جامعة كريستيانستاد وعملت هناك مطوّراً متكاملاً، وتعلّمت إيصال الميزات من المتطلبات حتى البرمجيات العاملة.',
+    },
+    accent: 'violet',
+  },
+  {
+    id: 'lead',
+    mark: { en: '2022', ar: '2022' },
+    title: { en: 'Leading a team', ar: 'قيادة فريق' },
+    text: {
+      en: 'At the start-up Hlkat Wsl I lead the development team and work directly with clients. The same year I began my master’s in computer science, with a focus on machine learning.',
+      ar: 'في الشركة الناشئة حلقة وصل أقود فريق التطوير وأعمل مباشرة مع العملاء. وفي العام نفسه بدأت ماجستير علوم الحاسوب بتركيز على تعلّم الآلة.',
+    },
+    accent: 'sky',
+  },
+  {
+    id: 'master',
+    mark: { en: '2025', ar: '2025' },
+    title: { en: 'A master’s with distinction', ar: 'ماجستير بتقدير امتياز' },
+    text: {
+      en: 'My thesis built and evaluated an AI-assisted tool for creating children’s books, and was graded with distinction. It joined everything above: design, children, code and machine learning.',
+      ar: 'بنت رسالتي وقيّمت أداة مدعومة بالذكاء الاصطناعي لتأليف كتب الأطفال، ونالت تقدير امتياز. جمعت كل ما سبق: التصميم والأطفال والبرمجة وتعلّم الآلة.',
+    },
+    accent: 'rose',
+  },
+  {
+    id: 'now',
+    mark: { en: 'Now', ar: 'الآن' },
+    title: { en: 'Building with AI', ar: 'أبني بالذكاء الاصطناعي' },
+    text: {
+      en: 'Full-stack products and machine-learning projects, from the first conversation to deployment, with a team or on my own.',
+      ar: 'منتجات متكاملة ومشاريع تعلّم آلة، من أول حوار حتى النشر، مع فريق أو بمفردي.',
+    },
+    accent: 'saffron',
+  },
+];
