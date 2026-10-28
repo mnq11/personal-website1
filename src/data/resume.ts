@@ -89,7 +89,7 @@ export interface Certificate {
   summary: Localized;
 }
 
-export type SocialNetwork = 'github' | 'linkedin' | 'devto' | 'x';
+export type SocialNetwork = 'github' | 'linkedin' | 'devto' | 'x' | 'web';
 
 export interface SocialProfile {
   network: SocialNetwork;
@@ -165,10 +165,11 @@ export const socials: SocialProfile[] = [
     network: 'linkedin',
     label: 'LinkedIn',
     handle: 'Mohammed Nabil',
-    url: 'https://www.linkedin.com/in/mohammed-nabil-48b539107',
+    url: 'https://www.linkedin.com/in/mohammednabil-48b539107',
   },
   { network: 'devto', label: 'DEV', handle: 'mnq11', url: 'https://dev.to/mnq11' },
   { network: 'x', label: 'X', handle: 'MohammedlNabil', url: 'https://x.com/MohammedlNabil' },
+  { network: 'web', label: 'Website', handle: 'mohammedn.info', url: 'https://www.mohammedn.info/' },
 ];
 
 export const roles: Role[] = [
@@ -194,6 +195,27 @@ export const roles: Role[] = [
       {
         en: 'Worked closely with clients to keep solutions tailored to their needs.',
         ar: 'عملت عن قرب مع العملاء لتبقى الحلول مصمّمة وفق احتياجاتهم.',
+      },
+    ],
+  },
+  {
+    id: 'kristianstad-university',
+    organisation: { en: 'Kristianstad University', ar: 'جامعة كريستيانستاد' },
+    title: { en: 'Full-stack developer', ar: 'مطوّر برمجيات متكاملة' },
+    start: '2019-07',
+    end: '2023-05',
+    summary: {
+      en: 'Full-stack development work at the university alongside my studies, taking features from requirements to working software.',
+      ar: 'عمل في تطوير البرمجيات المتكاملة في الجامعة بالتوازي مع دراستي، من المتطلبات حتى البرمجيات العاملة.',
+    },
+    highlights: [
+      {
+        en: 'Implemented defined features across the front end and back end.',
+        ar: 'نفّذت ميزات محددة في الواجهة الأمامية والخلفية.',
+      },
+      {
+        en: 'Worked with stakeholders and managed resources to keep delivery on track.',
+        ar: 'عملت مع أصحاب المصلحة وأدرت الموارد لإبقاء التسليم في مساره.',
       },
     ],
   },
@@ -241,6 +263,10 @@ export const roles: Role[] = [
       {
         en: 'Acted as a cultural and language bridge between children, families and professionals.',
         ar: 'كنت جسراً ثقافياً ولغوياً بين الأطفال وأسرهم والمختصين.',
+      },
+      {
+        en: 'Built trust and a sense of belonging so each child could settle in and thrive in the long term.',
+        ar: 'بنيت الثقة والإحساس بالانتماء ليتأقلم كل طفل وينمو على المدى الطويل.',
       },
       {
         en: 'Handled crisis situations with de-escalation and quick coordination of the right support.',
@@ -587,6 +613,7 @@ export const skills: Skill[] = [
   { name: 'REST APIs', domain: 'backend', tier: 'core', verified: true },
   { name: 'OOP', domain: 'backend', tier: 'core', verified: true },
   { name: 'ASP.NET Core', domain: 'backend', tier: 'proficient' },
+  { name: 'ASP.NET MVC', domain: 'backend', tier: 'proficient' },
   { name: 'Express', domain: 'backend', tier: 'proficient' },
   { name: 'NestJS', domain: 'backend', tier: 'proficient' },
   { name: 'Hibernate', domain: 'backend', tier: 'proficient' },
