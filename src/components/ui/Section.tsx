@@ -1,19 +1,19 @@
-import { useRef, type ReactNode } from "react";
-import { useReveal } from "../../hooks/useReveal";
-import styles from "./Section.module.css";
+import { useRef, type ReactNode } from 'react';
+import { useReveal } from '../../hooks/useReveal';
+import styles from './Section.module.css';
 
 /** Page order of the chapters, so each section can show its number. */
 const CHAPTERS = [
-  "about",
-  "story",
-  "projects",
-  "skills",
-  "lab",
-  "numbers",
-  "experience",
-  "education",
-  "writing",
-  "contact",
+  'about',
+  'story',
+  'projects',
+  'skills',
+  'lab',
+  'numbers',
+  'experience',
+  'education',
+  'writing',
+  'contact',
 ];
 
 interface SectionProps {
@@ -40,7 +40,7 @@ export function Section({ id, title, lede, children }: SectionProps) {
           <div>
             {index >= 0 ? (
               <span className={styles.chapter} aria-hidden="true">
-                {String(index + 1).padStart(2, "0")}
+                {String(index + 1).padStart(2, '0')}
                 <span className={styles.chapterOf}> / {CHAPTERS.length}</span>
               </span>
             ) : null}

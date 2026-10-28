@@ -1,4 +1,4 @@
-import { lazy, useMemo } from 'react';
+import { lazy, useMemo, useState } from 'react';
 import { profile } from '../../data/resume';
 import { useLanguage } from '../../i18n/context';
 import { LazyScene } from '../ui/LazyScene';
@@ -6,13 +6,29 @@ import { Section } from '../ui/Section';
 import styles from './About.module.css';
 
 const TraitOrbit = lazy(() => import('../../scene/sections/TraitOrbit'));
+const PortraitDust = lazy(() => import('../../scene/sections/PortraitDust'));
+
+const portraitUrl = () => new URL(profile.portrait.small, document.baseURI).href;
 
 export function About() {
   const { t, language } = useLanguage();
   const traits = useMemo(() => profile.traits.map((trait) => trait[language]), [language]);
 
+  // Pointing at the portrait (or tapping it) turns the photo into a field of particles that moves with the pointer.
+  const [dust, setDust] = useState(false);
+  const [burst, setBurst] = useState(0);
+
   const portrait = (
-    <figure className={styles.portrait}>
+    <figure
+      className={styles.portrait}
+      data-dust={dust}
+      onPointerEnter={(event) => setDust(event.pointerType !== 'touch' ? true : dust)}
+      onPointerLeave={(event) => event.pointerType !== 'touch' && setDust(false)}
+      onClick={() => {
+        setDust((on) => !on);
+        setBurst((count) => count + 1);
+      }}
+    >
       <picture>
         <source
           type="image/webp"
@@ -28,6 +44,9 @@ export function About() {
           decoding="async"
         />
       </picture>
+      <LazyScene className={styles.dust} hint={null}>
+        <PortraitDust src={portraitUrl()} active={dust} burstKey={burst} />
+      </LazyScene>
     </figure>
   );
 

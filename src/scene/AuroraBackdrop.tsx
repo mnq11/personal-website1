@@ -1,7 +1,7 @@
-import { useMemo } from "react";
-import { useFrame, useThree } from "@react-three/fiber";
-import { BufferAttribute, BufferGeometry, ShaderMaterial } from "three";
-import { chapterTint, journeyState } from "./journey";
+import { useMemo } from 'react';
+import { useFrame, useThree } from '@react-three/fiber';
+import { BufferAttribute, BufferGeometry, ShaderMaterial } from 'three';
+import { chapterTint, journeyState, secondColourAt } from './journey';
 
 const vertexShader = /* glsl */ `
   void main() {
@@ -79,27 +79,19 @@ interface AuroraBackdropProps {
   quality: number;
 }
 
-const COOL = [0.45, 0.5, 1];
-
 const smooth = (edge0: number, edge1: number, x: number) => {
   const t = Math.min(Math.max((x - edge0) / (edge1 - edge0), 0), 1);
   return t * t * (3 - 2 * t);
 };
 
 /** A full-screen aurora behind everything: slow folds of light that take the colour of the chapter in view. */
-export function AuroraBackdrop({
-  reducedMotion,
-  quality,
-}: AuroraBackdropProps) {
+export function AuroraBackdrop({ reducedMotion, quality }: AuroraBackdropProps) {
   const size = useThree((state) => state.size);
   const dpr = useThree((state) => state.viewport.dpr);
 
   const geometry = useMemo(() => {
     const built = new BufferGeometry();
-    built.setAttribute(
-      "position",
-      new BufferAttribute(new Float32Array([-1, -1, 0, 3, -1, 0, -1, 3, 0]), 3),
-    );
+    built.setAttribute('position', new BufferAttribute(new Float32Array([-1, -1, 0, 3, -1, 0, -1, 3, 0]), 3));
     return built;
   }, []);
 
@@ -125,6 +117,12 @@ export function AuroraBackdrop({
     [quality],
   );
 
+  // The second hue follows the visitor's local time: gold at dawn, blue by day, rose at dusk, violet at night.
+  const cool = useMemo(() => {
+    const now = new Date();
+    return secondColourAt(now.getHours() + now.getMinutes() / 60);
+  }, []);
+
   const current = useMemo(
     () => ({
       tint: [0.36, 0.84, 0.75] as [number, number, number],
@@ -144,32 +142,21 @@ export function AuroraBackdrop({
     const target = chapterTint(journeyState.place);
     const k = reducedMotion ? 1 : Math.min(1, delta * 2.5);
     for (let i = 0; i < 3; i++)
-      current.tint[i] =
-        (current.tint[i] ?? 0) +
-        ((target[i] ?? 0) - (current.tint[i] ?? 0)) * k;
+      current.tint[i] = (current.tint[i] ?? 0) + ((target[i] ?? 0) - (current.tint[i] ?? 0)) * k;
     // The second colour is the chapter colour pulled toward cool blue-violet, so the folds always have two hues.
-    const second = current.tint.map((c, i) => c * 0.4 + (COOL[i] ?? 1) * 0.6);
-    current.x +=
-      (journeyState.pointerX * 0.5 + 0.5 - current.x) * Math.min(1, delta * 4);
-    current.y +=
-      (journeyState.pointerY * 0.5 + 0.5 - current.y) * Math.min(1, delta * 4);
+    const second = current.tint.map((c, i) => c * 0.4 + (cool[i] ?? 1) * 0.6);
+    current.x += (journeyState.pointerX * 0.5 + 0.5 - current.x) * Math.min(1, delta * 4);
+    current.y += (journeyState.pointerY * 0.5 + 0.5 - current.y) * Math.min(1, delta * 4);
 
     const progress = window.scrollY / Math.max(window.innerHeight, 1);
-    set("uResolution", [size.width * dpr, size.height * dpr]);
-    set("uTime", reducedMotion ? 0 : state.clock.elapsedTime);
-    set("uScroll", reducedMotion ? 0 : progress);
-    set("uTint", [...current.tint]);
-    set("uTintB", second);
-    set("uPointer", reducedMotion ? [0.5, 0.5] : [current.x, current.y]);
-    set("uAmount", 0.7 + 0.3 * smooth(0.1, 0.9, progress));
+    set('uResolution', [size.width * dpr, size.height * dpr]);
+    set('uTime', reducedMotion ? 0 : state.clock.elapsedTime);
+    set('uScroll', reducedMotion ? 0 : progress);
+    set('uTint', [...current.tint]);
+    set('uTintB', second);
+    set('uPointer', reducedMotion ? [0.5, 0.5] : [current.x, current.y]);
+    set('uAmount', 0.7 + 0.3 * smooth(0.1, 0.9, progress));
   });
 
-  return (
-    <mesh
-      geometry={geometry}
-      material={material}
-      frustumCulled={false}
-      renderOrder={-10}
-    />
-  );
+  return <mesh geometry={geometry} material={material} frustumCulled={false} renderOrder={-10} />;
 }

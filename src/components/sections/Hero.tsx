@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { profile } from '../../data/resume';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
 import { useLanguage } from '../../i18n/context';
+import { periodOfDay } from '../../scene/journey';
 import type { SceneStatus } from '../../scene/BackgroundScene';
 import buttons from '../ui/Button.module.css';
 import styles from './Hero.module.css';
@@ -14,6 +16,11 @@ export function Hero({ sceneStatus }: HeroProps) {
   // With WebGL the particles draw the name; the heading stays in the page for search and screen readers.
   const drawnByScene = sceneStatus !== 'off';
   const touch = useMediaQuery('(hover: none)');
+  // A greeting for the visitor's own time of day, computed once when the page opens.
+  const [greeting] = useState(() => {
+    const now = new Date();
+    return periodOfDay(now.getHours() + now.getMinutes() / 60);
+  });
 
   return (
     <section id="top" className={styles.hero} aria-labelledby="hero-title">
@@ -29,6 +36,7 @@ export function Hero({ sceneStatus }: HeroProps) {
 
       <div className={styles.foot}>
         <div className={styles.copy}>
+          <p className={styles.greeting}>{t.hero.greeting[greeting]}</p>
           <p className={styles.role}>
             {t.hero.basedIn} {profile.location[language]}
           </p>

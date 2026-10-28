@@ -18,6 +18,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - The numbers skyline fits its frame, so no label is cut off.
 
 ### Added
+- Your portrait turns into a field of coloured particles when you point at it (or tap it), the particles move away from the pointer, and a click scatters them. The photo stays the accessible version.
+- The aurora's second colour and the hero greeting follow the visitor's local time of day (gold at dawn, blue by day, rose at dusk, violet at night).
 - A living aurora behind the whole page: slow folds of light that take the colour of the chapter in view and pool around the pointer (calmer on small screens, still under reduced motion).
 - Sections reveal as you scroll, each title carries its chapter number (03 / 10), and a thin progress line runs along the header. All three step aside for visitors who prefer reduced motion.
 - Lab section: k-means clustering running live in the browser (Train, One step, New data) with a 3D point cloud and gliding centroids, in English and Arabic.

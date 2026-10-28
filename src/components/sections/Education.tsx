@@ -1,13 +1,13 @@
-import { lazy, useMemo, useState } from "react";
-import { certificates, courses, degrees, diplomas } from "../../data/resume";
-import { useLanguage } from "../../i18n/context";
-import { formatMonth } from "../../lib/dates";
-import type { BookData } from "../../scene/sections/BookStack";
-import { LazyScene } from "../ui/LazyScene";
-import { Section } from "../ui/Section";
-import styles from "./Education.module.css";
+import { lazy, useMemo, useState } from 'react';
+import { certificates, courses, degrees, diplomas } from '../../data/resume';
+import { useLanguage } from '../../i18n/context';
+import { formatMonth } from '../../lib/dates';
+import type { BookData } from '../../scene/sections/BookStack';
+import { LazyScene } from '../ui/LazyScene';
+import { Section } from '../ui/Section';
+import styles from './Education.module.css';
 
-const BookStack = lazy(() => import("../../scene/sections/BookStack"));
+const BookStack = lazy(() => import('../../scene/sections/BookStack'));
 
 export function Education() {
   const { t, language, direction, locale } = useLanguage();
@@ -17,11 +17,7 @@ export function Education() {
   const distinctions = courses.filter((course) => course.distinction).length;
   const numbers = new Intl.NumberFormat(locale);
   const yearFormat = new Intl.NumberFormat(locale, { useGrouping: false });
-  const summary = t.education.summary(
-    courses.length,
-    totalCredits,
-    distinctions,
-  );
+  const summary = t.education.summary(courses.length, totalCredits, distinctions);
 
   const books = useMemo<BookData[]>(
     () =>
@@ -60,16 +56,8 @@ export function Education() {
                   <span className="ltr">{current.code}</span>
                   <span>{t.education.credits(current.credits)}</span>
                   <span>{formatMonth(current.completed, locale)}</span>
-                  <span>
-                    {current.cycle === 1
-                      ? t.education.bachelorLevel
-                      : t.education.masterLevel}
-                  </span>
-                  {current.distinction ? (
-                    <span className={styles.distinction}>
-                      {t.education.distinction}
-                    </span>
-                  ) : null}
+                  <span>{current.cycle === 1 ? t.education.bachelorLevel : t.education.masterLevel}</span>
+                  {current.distinction ? <span className={styles.distinction}>{t.education.distinction}</span> : null}
                 </p>
               </>
             ) : (
@@ -83,16 +71,9 @@ export function Education() {
             {degrees.map((degree) => (
               <li key={degree.id} className={styles.degree}>
                 <p className={styles.when}>
-                  <time dateTime={degree.start}>
-                    {formatMonth(degree.start, locale)}
-                  </time>{" "}
-                  –{" "}
-                  <time dateTime={degree.end}>
-                    {formatMonth(degree.end, locale)}
-                  </time>
-                  {degree.credits ? (
-                    <span>{t.education.credits(degree.credits)}</span>
-                  ) : null}
+                  <time dateTime={degree.start}>{formatMonth(degree.start, locale)}</time> –{' '}
+                  <time dateTime={degree.end}>{formatMonth(degree.end, locale)}</time>
+                  {degree.credits ? <span>{t.education.credits(degree.credits)}</span> : null}
                 </p>
                 <h3 className={styles.degreeTitle}>{degree.title[language]}</h3>
                 <p className={styles.institution}>
@@ -102,20 +83,14 @@ export function Education() {
                   <p className={styles.thesisLabel}>
                     {t.education.thesis}
                     {degree.thesis.distinction ? (
-                      <span className={styles.distinction}>
-                        {t.education.distinction}
-                      </span>
+                      <span className={styles.distinction}>{t.education.distinction}</span>
                     ) : null}
                   </p>
-                  <p className={styles.thesisTitle}>
-                    {degree.thesis.title[language]}
-                  </p>
+                  <p className={styles.thesisTitle}>{degree.thesis.title[language]}</p>
                 </div>
                 {degree.activities?.length ? (
                   <>
-                    <p className={styles.activitiesLabel}>
-                      {t.education.activities}
-                    </p>
+                    <p className={styles.activitiesLabel}>{t.education.activities}</p>
                     <ul className={styles.activities}>
                       {degree.activities.map((activity) => (
                         <li key={activity.en}>{activity[language]}</li>
@@ -134,11 +109,7 @@ export function Education() {
             </summary>
             {([1, 2] as const).map((cycle) => (
               <div key={cycle} className={styles.cycle}>
-                <p className={styles.cycleLabel}>
-                  {cycle === 1
-                    ? t.education.bachelorLevel
-                    : t.education.masterLevel}
-                </p>
+                <p className={styles.cycleLabel}>{cycle === 1 ? t.education.bachelorLevel : t.education.masterLevel}</p>
                 <ul>
                   {courses
                     .filter((course) => course.cycle === cycle)
@@ -153,10 +124,7 @@ export function Education() {
                           <span>{course.name[language]}</span>
                           <span className={styles.courseMeta}>
                             {course.distinction ? (
-                              <span
-                                className={styles.star}
-                                aria-label={t.education.distinction}
-                              >
+                              <span className={styles.star} aria-label={t.education.distinction}>
                                 ★
                               </span>
                             ) : null}
@@ -182,12 +150,8 @@ export function Education() {
                       : `${yearFormat.format(diploma.start)} – ${yearFormat.format(diploma.end)}`}
                     <span>{diploma.institution[language]}</span>
                   </p>
-                  <p className={styles.certificateName}>
-                    {diploma.title[language]}
-                  </p>
-                  <p className={styles.certificateSummary}>
-                    {diploma.detail[language]}
-                  </p>
+                  <p className={styles.certificateName}>{diploma.title[language]}</p>
+                  <p className={styles.certificateSummary}>{diploma.detail[language]}</p>
                 </li>
               ))}
             </ul>
@@ -200,12 +164,8 @@ export function Education() {
                     <span className="ltr">{certificate.issuer}</span>
                     <span>{yearFormat.format(certificate.year)}</span>
                   </p>
-                  <p className={styles.certificateName}>
-                    {certificate.name[language]}
-                  </p>
-                  <p className={styles.certificateSummary}>
-                    {certificate.summary[language]}
-                  </p>
+                  <p className={styles.certificateName}>{certificate.name[language]}</p>
+                  <p className={styles.certificateSummary}>{certificate.summary[language]}</p>
                 </li>
               ))}
             </ul>
