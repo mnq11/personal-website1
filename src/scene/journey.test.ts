@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { bankAngle, CHAPTER_TINTS, chapterTint, fieldAmount, travelDistance } from './journey';
+import { bankAngle, CHAPTER_TINTS, chapterTint, fieldAmount, periodOfDay, secondColourAt, travelDistance } from './journey';
 import { WORLD_SECTIONS } from './world';
 
 const tint = (i: number): [number, number, number] => [...(CHAPTER_TINTS[i] ?? [0, 0, 0])] as [number, number, number];
@@ -33,5 +33,24 @@ describe('journey', () => {
 
   it('banks gently', () => {
     for (const y of [0, 500, 2000, 9000]) expect(Math.abs(bankAngle(y))).toBeLessThanOrEqual(0.14);
+  });
+
+  it('names the part of the day', () => {
+    expect(periodOfDay(6)).toBe('dawn');
+    expect(periodOfDay(12)).toBe('day');
+    expect(periodOfDay(19)).toBe('dusk');
+    expect(periodOfDay(23)).toBe('night');
+    expect(periodOfDay(2)).toBe('night');
+    expect(periodOfDay(25)).toBe('night');
+  });
+
+  it('blends the second aurora colour smoothly and wraps around midnight', () => {
+    expect(secondColourAt(0)).toEqual(secondColourAt(24));
+    expect(secondColourAt(12)).toEqual([0.4, 0.78, 1]);
+    const dawn = secondColourAt(7);
+    const day = secondColourAt(10);
+    const between = secondColourAt(8.5);
+    expect(between[0]).toBeLessThan(dawn[0]);
+    expect(between[0]).toBeGreaterThan(day[0]);
   });
 });

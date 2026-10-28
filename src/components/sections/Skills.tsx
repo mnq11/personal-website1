@@ -1,14 +1,14 @@
-import { lazy, useMemo, useState } from "react";
-import { skills, type SkillDomain } from "../../data/resume";
-import { useFocus } from "../../focus/context";
-import { useLanguage } from "../../i18n/context";
-import { DOMAIN_ORDER, TIER_ORDER, buildSkillMatrix } from "../../lib/skills";
-import { supportsWebGL } from "../../lib/webgl";
-import { LazyScene } from "../ui/LazyScene";
-import { Section } from "../ui/Section";
-import styles from "./Skills.module.css";
+import { lazy, useMemo, useState } from 'react';
+import { skills, type SkillDomain } from '../../data/resume';
+import { useFocus } from '../../focus/context';
+import { useLanguage } from '../../i18n/context';
+import { DOMAIN_ORDER, TIER_ORDER, buildSkillMatrix } from '../../lib/skills';
+import { supportsWebGL } from '../../lib/webgl';
+import { LazyScene } from '../ui/LazyScene';
+import { Section } from '../ui/Section';
+import styles from './Skills.module.css';
 
-const SkillGlobe = lazy(() => import("../../scene/sections/SkillGlobe"));
+const SkillGlobe = lazy(() => import('../../scene/sections/SkillGlobe'));
 
 export function Skills() {
   const { t } = useLanguage();
@@ -23,36 +23,17 @@ export function Skills() {
     clear();
     setChosen(domain);
   };
-  const verified = useMemo(
-    () =>
-      new Set(
-        skills.filter((skill) => skill.verified).map((skill) => skill.name),
-      ),
-    [],
-  );
+  const verified = useMemo(() => new Set(skills.filter((skill) => skill.verified).map((skill) => skill.name)), []);
 
   return (
     <Section id="skills" title={t.skills.title} lede={t.skills.lede}>
       <div className={styles.explorer}>
         <LazyScene className={styles.globe} hint={t.skills.hint}>
-          <SkillGlobe
-            skills={skills}
-            focus={focus}
-            highlight={pointed?.skill ?? null}
-          />
+          <SkillGlobe skills={skills} focus={focus} highlight={pointed?.skill ?? null} />
         </LazyScene>
 
-        <div
-          className={styles.filters}
-          role="group"
-          aria-label={t.skills.filterLabel}
-        >
-          <button
-            type="button"
-            className={styles.chip}
-            aria-pressed={focus === null}
-            onClick={() => choose(null)}
-          >
+        <div className={styles.filters} role="group" aria-label={t.skills.filterLabel}>
+          <button type="button" className={styles.chip} aria-pressed={focus === null} onClick={() => choose(null)}>
             {t.skills.all}
           </button>
           {DOMAIN_ORDER.map((domain) => (
@@ -91,11 +72,7 @@ export function Skills() {
               <tr key={domain} data-dim={focus !== null && focus !== domain}>
                 <th scope="row">{t.skills.domains[domain]}</th>
                 {TIER_ORDER.map((tier) => (
-                  <td
-                    key={tier}
-                    data-tier={tier}
-                    data-label={t.skills.tiers[tier]}
-                  >
+                  <td key={tier} data-tier={tier} data-label={t.skills.tiers[tier]}>
                     {matrix[domain][tier].length > 0 ? (
                       <ul className={styles.names}>
                         {matrix[domain][tier].map((name) => (

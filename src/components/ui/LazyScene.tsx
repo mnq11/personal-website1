@@ -27,7 +27,8 @@ interface LazySceneProps {
   children: ReactNode;
   /** Shown without WebGL or if the scene fails. Keep it meaningful; it is the accessible version. */
   fallback?: ReactNode;
-  hint?: string;
+  /** Interaction hint under or over the scene. `null` shows none, e.g. for a purely decorative effect. */
+  hint?: string | null;
   /** Where the interaction hint goes: under the scene (default) or over its bottom edge. */
   hintPlacement?: 'below' | 'overlay';
   className?: string | undefined;
@@ -44,7 +45,12 @@ export function LazyScene({ children, fallback = null, hint, hintPlacement = 'be
 
   if (!webglAvailable) return <>{fallback}</>;
 
-  const hintText = <p className={styles.hint} data-placement={hintPlacement}>{hint ?? t.scene.drag}</p>;
+  const hintText =
+    hint === null ? null : (
+      <p className={styles.hint} data-placement={hintPlacement}>
+        {hint ?? t.scene.drag}
+      </p>
+    );
 
   return (
     <SceneBoundary fallback={fallback}>

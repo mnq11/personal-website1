@@ -1,13 +1,13 @@
-import { lazy, useMemo, useState } from "react";
-import { story } from "../../data/resume";
-import { useLanguage } from "../../i18n/context";
-import { css } from "../../scene/kit/theme";
-import type { StoryStop } from "../../scene/sections/StoryRoad";
-import { LazyScene } from "../ui/LazyScene";
-import { Section } from "../ui/Section";
-import styles from "./Story.module.css";
+import { lazy, useMemo, useState } from 'react';
+import { story } from '../../data/resume';
+import { useLanguage } from '../../i18n/context';
+import { css } from '../../scene/kit/theme';
+import type { StoryStop } from '../../scene/sections/StoryRoad';
+import { LazyScene } from '../ui/LazyScene';
+import { Section } from '../ui/Section';
+import styles from './Story.module.css';
 
-const StoryRoad = lazy(() => import("../../scene/sections/StoryRoad"));
+const StoryRoad = lazy(() => import('../../scene/sections/StoryRoad'));
 
 export function Story() {
   const { t, language, direction } = useLanguage();
@@ -32,7 +32,7 @@ export function Story() {
               key={chapter.id}
               className={styles.chapter}
               data-active={active === chapter.id}
-              style={{ ["--accent" as string]: `var(--${chapter.accent})` }}
+              style={{ ['--accent' as string]: `var(--${chapter.accent})` }}
               onMouseEnter={() => setActive(chapter.id)}
               onFocus={() => setActive(chapter.id)}
               onBlur={() => setActive(null)}
@@ -42,10 +42,7 @@ export function Story() {
               <h3 className={styles.heading}>{chapter.title[language]}</h3>
               <p>{chapter.text[language]}</p>
               <a className={styles.more} href={`#${chapter.more}`}>
-                {t.story.more}{" "}
-                <span aria-hidden="true">
-                  {direction === "rtl" ? "←" : "→"}
-                </span>
+                {t.story.more} <span aria-hidden="true">{direction === 'rtl' ? '←' : '→'}</span>
               </a>
             </li>
           ))}

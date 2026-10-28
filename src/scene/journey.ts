@@ -44,3 +44,39 @@ export function bankAngle(scrollY: number): number {
 
 /** Shared between the name layer (which knows the section in view) and the flight field. */
 export const journeyState = { place: 0, greet: 0, pointerX: 0, pointerY: 0 };
+
+export type Period = 'dawn' | 'day' | 'dusk' | 'night';
+
+/** Which part of the day an hour (0 to 24, fractions allowed) falls in. */
+export function periodOfDay(hour: number): Period {
+  const h = ((hour % 24) + 24) % 24;
+  if (h >= 5 && h < 9) return 'dawn';
+  if (h >= 9 && h < 17) return 'day';
+  if (h >= 17 && h < 21) return 'dusk';
+  return 'night';
+}
+
+const SECOND_COLOUR_STOPS: readonly (readonly [number, readonly [number, number, number]])[] = [
+  [0, [0.5, 0.42, 1]], // deep night: violet
+  [5, [0.55, 0.45, 1]],
+  [7, [1, 0.72, 0.5]], // dawn: warm gold-rose
+  [10, [0.4, 0.78, 1]], // day: clear sky blue
+  [16, [0.4, 0.78, 1]],
+  [18.5, [1, 0.55, 0.5]], // dusk: rose-orange
+  [21, [0.55, 0.4, 1]],
+  [24, [0.5, 0.42, 1]],
+];
+
+/** The aurora's second colour for the visitor's local time of day, blended smoothly between the stops. */
+export function secondColourAt(hour: number): [number, number, number] {
+  const h = ((hour % 24) + 24) % 24;
+  for (let i = 0; i < SECOND_COLOUR_STOPS.length - 1; i++) {
+    const [h0, c0] = SECOND_COLOUR_STOPS[i] ?? [0, [1, 1, 1]];
+    const [h1, c1] = SECOND_COLOUR_STOPS[i + 1] ?? [24, c0];
+    if (h >= h0 && h <= h1) {
+      const t = (h - h0) / Math.max(h1 - h0, 1e-6);
+      return [c0[0] + (c1[0] - c0[0]) * t, c0[1] + (c1[1] - c0[1]) * t, c0[2] + (c1[2] - c0[2]) * t];
+    }
+  }
+  return [0.5, 0.42, 1];
+}

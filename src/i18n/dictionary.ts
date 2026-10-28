@@ -35,6 +35,7 @@ const en = {
     contact: 'Get in touch',
     hint: 'Run your cursor through the letters. Click to scatter them.',
     hintTouch: 'Tap the letters to scatter them.',
+    greeting: { dawn: 'Good morning', day: 'Good day', dusk: 'Good evening', night: 'Welcome' },
   },
   about: {
     title: 'About',
@@ -258,6 +259,7 @@ const ar: Dictionary = {
     contact: 'تواصل معي',
     hint: 'مرّر المؤشر بين الحروف، وانقر لتبعثرها.',
     hintTouch: 'المس الحروف لتبعثرها.',
+    greeting: { dawn: 'صباح الخير', day: 'يومك سعيد', dusk: 'مساء الخير', night: 'أهلاً بك' },
   },
   about: {
     title: 'نبذة',
