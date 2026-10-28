@@ -184,3 +184,43 @@ main {
   direction: ltr;
   unicode-bidi: isolate;
 }
+
+/* ------------------------------------------------------------------
+   Print: a clean, ink-friendly CV. The 3D layers and controls are left out.
+   ------------------------------------------------------------------ */
+@media print {
+  :root {
+    color-scheme: light;
+    --night: #fff;
+    --night-deep: #fff;
+    --night-raised: #f4f6f8;
+    --line: rgb(0 0 0 / 0.15);
+    --line-strong: rgb(0 0 0 / 0.35);
+    --snow: #111;
+    --mist: #444;
+    --saffron: #8a5a00;
+    --teal: #0b6b5a;
+    --violet: #4b3fb0;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  canvas,
+  [data-scene],
+  header[data-scrolled] {
+    display: none !important;
+  }
+
+  section {
+    break-inside: avoid-page;
+  }
+
+  a[href^='http']::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.75em;
+    color: #444;
+    word-break: break-all;
+  }
+}

@@ -4,6 +4,7 @@ import { AdditiveBlending, BufferAttribute, BufferGeometry, ShaderMaterial } fro
 import { profile } from '../data/resume';
 import type { Language } from '../i18n/types';
 import { createRandom, sampleField, sampleSeeds, sampleText } from './sampling';
+import { journeyState } from './journey';
 import { placeFromScroll, WORLD_SECTIONS, worldAmount } from './world';
 import { fragmentShader, vertexShader } from './shaders';
 
@@ -306,6 +307,8 @@ export function ParticleName({ language, reducedMotion, compact, onReady }: Part
     const target = placeFromScroll(sectionMids.current, window.scrollY + window.innerHeight * 0.5);
     place.current = reducedMotion ? target : place.current + (target - place.current) * Math.min(1, delta * 6);
     const worldScale = compact ? Math.min(width * 0.26, height * 0.15) : Math.min(width * 0.115, height * 0.26);
+    journeyState.place = place.current;
+    journeyState.greet = s.greet;
     set('uWorld', worldAmount(scrollProgress, s.greet));
     set('uPlace', place.current);
     set('uWorldScale', worldScale);

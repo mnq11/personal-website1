@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- The flight: a field of points streams past as you scroll, banks gently and takes the colour of the chapter in view; still under reduced motion.
+- “My path” section: six milestones from a design diploma to a master’s with distinction, told beside a 3D road that lights up with the text (English and Arabic).
+- Print stylesheet for a clean CV, and a lighter scene on low-power or data-saving devices.
 - LinkedIn profile data: Kristianstad University full-stack role (2019–2023), personal website link, ASP.NET MVC skill, richer support-worker detail, corrected LinkedIn URL.
 - A connected world: the particles that spell the name now flow, as you scroll, into a companion shape for each section in the empty margin beside the content (mirrored in Arabic). The scroll maths is pure and tested (`scene/world.ts`).
 - "Ask my CV": a question box (`/` or the floating button) that answers in English or Arabic from the resume data and points the page at the answer: the skills globe turns a skill to the front, the project ring jumps to a project, the career helix lights a role, the skyline lights a tower. No server or API key.
