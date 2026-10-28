@@ -143,7 +143,7 @@ const en = {
   },
   experience: {
     title: 'Experience',
-    lede: 'Three threads running side by side since 2015.',
+    lede: 'Work and study running side by side since 2015.',
     present: 'Present',
     hint: 'Each strand is one role rising through the years. Point at a strand or a role to link them.',
   },
@@ -366,7 +366,7 @@ const ar: Dictionary = {
   },
   experience: {
     title: 'الخبرات',
-    lede: 'ثلاثة مسارات تسير جنباً إلى جنب منذ عام 2015.',
+    lede: 'عمل ودراسة يسيران جنباً إلى جنب منذ عام 2015.',
     present: 'حتى الآن',
     hint: 'كل خيط يمثّل دوراً يرتفع عبر السنين. أشر إلى خيط أو دور للربط بينهما.',
   },
