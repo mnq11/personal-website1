@@ -203,6 +203,8 @@ export function ParticleName({ language, reducedMotion, compact, onReady }: Part
       pointer.current.x = (event.clientX / window.innerWidth) * 2 - 1;
       pointer.current.y = -(event.clientY / window.innerHeight) * 2 + 1;
       pointer.current.active = true;
+      journeyState.pointerX = pointer.current.x;
+      journeyState.pointerY = pointer.current.y;
     };
     const onLeave = () => {
       pointer.current.active = false;

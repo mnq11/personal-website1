@@ -175,3 +175,26 @@
     display: none;
   }
 }
+
+/* Reading progress: a thin gradient line along the bottom edge of the header. */
+.progress {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: -1px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--teal), var(--violet), var(--saffron));
+  transform: scaleX(0);
+  transform-origin: left center;
+  pointer-events: none;
+}
+
+[dir='rtl'] .progress {
+  background: linear-gradient(270deg, var(--teal), var(--violet), var(--saffron));
+  transform-origin: right center;
+}
+
+@media print {
+  .progress {
+    display: none;
+  }
+}

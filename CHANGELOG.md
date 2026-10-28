@@ -18,6 +18,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - The numbers skyline fits its frame, so no label is cut off.
 
 ### Added
+- A living aurora behind the whole page: slow folds of light that take the colour of the chapter in view and pool around the pointer (calmer on small screens, still under reduced motion).
+- Sections reveal as you scroll, each title carries its chapter number (03 / 10), and a thin progress line runs along the header. All three step aside for visitors who prefer reduced motion.
 - Lab section: k-means clustering running live in the browser (Train, One step, New data) with a 3D point cloud and gliding centroids, in English and Arabic.
 - The flight: a field of points streams past as you scroll, banks gently and takes the colour of the chapter in view; still under reduced motion.
 - “My path” section: six milestones from a design diploma to a master’s with distinction, told beside a 3D road that lights up with the text (English and Arabic).

@@ -43,4 +43,4 @@ export function bankAngle(scrollY: number): number {
 }
 
 /** Shared between the name layer (which knows the section in view) and the flight field. */
-export const journeyState = { place: 0, greet: 0 };
+export const journeyState = { place: 0, greet: 0, pointerX: 0, pointerY: 0 };

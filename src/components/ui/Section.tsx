@@ -1,5 +1,20 @@
-import type { ReactNode } from 'react';
-import styles from './Section.module.css';
+import { useRef, type ReactNode } from "react";
+import { useReveal } from "../../hooks/useReveal";
+import styles from "./Section.module.css";
+
+/** Page order of the chapters, so each section can show its number. */
+const CHAPTERS = [
+  "about",
+  "story",
+  "projects",
+  "skills",
+  "lab",
+  "numbers",
+  "experience",
+  "education",
+  "writing",
+  "contact",
+];
 
 interface SectionProps {
   id: string;
@@ -14,16 +29,30 @@ interface SectionProps {
  */
 export function Section({ id, title, lede, children }: SectionProps) {
   const titleId = `${id}-title`;
+  const head = useRef<HTMLElement>(null);
+  const body = useRef<HTMLDivElement>(null);
+  useReveal([head, body]);
+  const index = CHAPTERS.indexOf(id);
   return (
     <section id={id} className={styles.section} aria-labelledby={titleId}>
       <div className={styles.inner}>
-        <header className={styles.head}>
-          <h2 id={titleId} className={styles.title}>
-            {title}
-          </h2>
+        <header ref={head} className={styles.head}>
+          <div>
+            {index >= 0 ? (
+              <span className={styles.chapter} aria-hidden="true">
+                {String(index + 1).padStart(2, "0")}
+                <span className={styles.chapterOf}> / {CHAPTERS.length}</span>
+              </span>
+            ) : null}
+            <h2 id={titleId} className={styles.title}>
+              {title}
+            </h2>
+          </div>
           {lede ? <p className={styles.lede}>{lede}</p> : null}
         </header>
-        <div className={styles.body}>{children}</div>
+        <div ref={body} className={styles.body}>
+          {children}
+        </div>
       </div>
     </section>
   );
