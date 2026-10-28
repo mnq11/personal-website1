@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
+- The full skills table and the earlier studies and certificates now sit under “open” summaries, which makes the page about 10% shorter. The skills table starts open when WebGL is unavailable.
+- Every step of “My path” links to the section with the full details.
 - Section order puts the proof first: About, Path, Projects, Skills, Lab, By the numbers, Experience, Education, Writing, Contact. The margin shapes and tints follow the new order.
 - The margin shape now fades out over Projects and Skills, which have their own large scenes.
 - “Ask my CV” stays out of the way over the hero buttons and appears once you scroll on (the `/` shortcut still works).

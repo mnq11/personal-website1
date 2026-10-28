@@ -668,6 +668,8 @@ export interface StoryChapter {
   title: Localized;
   text: Localized;
   accent: 'saffron' | 'teal' | 'violet' | 'sky' | 'rose';
+  /** Section holding the full details for this step. */
+  more: 'education' | 'experience' | 'projects';
 }
 
 /** The path in six steps. Years follow the roles, degrees and diplomas above. */
@@ -681,6 +683,7 @@ export const story: StoryChapter[] = [
       ar: 'دبلومان في معهد الاتصالات العام، التصميم الجرافيكي وصيانة الحاسوب، منحاني عيناً ترى كيف تبدو الأشياء وفهماً لكيف تعمل الأجهزة تحتها.',
     },
     accent: 'saffron',
+    more: 'education',
   },
   {
     id: 'sweden',
@@ -691,6 +694,7 @@ export const story: StoryChapter[] = [
       ar: 'في السويد بدأت أدعم أطفالاً متأثرين بالحرب وأطفالاً من ذوي الاحتياجات الخاصة، وبدأت العمل مطوّراً مستقلاً. صار الإصغاء قبل التصرف أولى مهاراتي الهندسية.',
     },
     accent: 'teal',
+    more: 'experience',
   },
   {
     id: 'degree',
@@ -701,6 +705,7 @@ export const story: StoryChapter[] = [
       ar: 'بدأت بكالوريوس هندسة البرمجيات في جامعة كريستيانستاد وعملت هناك مطوّراً متكاملاً، وتعلّمت إيصال الميزات من المتطلبات حتى البرمجيات العاملة.',
     },
     accent: 'violet',
+    more: 'education',
   },
   {
     id: 'lead',
@@ -711,6 +716,7 @@ export const story: StoryChapter[] = [
       ar: 'في الشركة الناشئة حلقة وصل أقود فريق التطوير وأعمل مباشرة مع العملاء. وفي العام نفسه بدأت ماجستير علوم الحاسوب بتركيز على تعلّم الآلة.',
     },
     accent: 'sky',
+    more: 'experience',
   },
   {
     id: 'master',
@@ -721,6 +727,7 @@ export const story: StoryChapter[] = [
       ar: 'بنت رسالتي وقيّمت أداة مدعومة بالذكاء الاصطناعي لتأليف كتب الأطفال، ونالت تقدير امتياز. جمعت كل ما سبق: التصميم والأطفال والبرمجة وتعلّم الآلة.',
     },
     accent: 'rose',
+    more: 'education',
   },
   {
     id: 'now',
@@ -731,5 +738,6 @@ export const story: StoryChapter[] = [
       ar: 'منتجات متكاملة ومشاريع تعلّم آلة، من أول حوار حتى النشر، مع فريق أو بمفردي.',
     },
     accent: 'saffron',
+    more: 'projects',
   },
 ];

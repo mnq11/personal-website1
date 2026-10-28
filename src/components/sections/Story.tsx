@@ -1,20 +1,25 @@
-import { lazy, useMemo, useState } from 'react';
-import { story } from '../../data/resume';
-import { useLanguage } from '../../i18n/context';
-import { css } from '../../scene/kit/theme';
-import type { StoryStop } from '../../scene/sections/StoryRoad';
-import { LazyScene } from '../ui/LazyScene';
-import { Section } from '../ui/Section';
-import styles from './Story.module.css';
+import { lazy, useMemo, useState } from "react";
+import { story } from "../../data/resume";
+import { useLanguage } from "../../i18n/context";
+import { css } from "../../scene/kit/theme";
+import type { StoryStop } from "../../scene/sections/StoryRoad";
+import { LazyScene } from "../ui/LazyScene";
+import { Section } from "../ui/Section";
+import styles from "./Story.module.css";
 
-const StoryRoad = lazy(() => import('../../scene/sections/StoryRoad'));
+const StoryRoad = lazy(() => import("../../scene/sections/StoryRoad"));
 
 export function Story() {
-  const { t, language } = useLanguage();
+  const { t, language, direction } = useLanguage();
   const [active, setActive] = useState<string | null>(null);
 
   const stops = useMemo<StoryStop[]>(
-    () => story.map((chapter) => ({ id: chapter.id, label: chapter.mark[language], color: css[chapter.accent] })),
+    () =>
+      story.map((chapter) => ({
+        id: chapter.id,
+        label: chapter.mark[language],
+        color: css[chapter.accent],
+      })),
     [language],
   );
 
@@ -27,7 +32,7 @@ export function Story() {
               key={chapter.id}
               className={styles.chapter}
               data-active={active === chapter.id}
-              style={{ ['--accent' as string]: `var(--${chapter.accent})` }}
+              style={{ ["--accent" as string]: `var(--${chapter.accent})` }}
               onMouseEnter={() => setActive(chapter.id)}
               onFocus={() => setActive(chapter.id)}
               onBlur={() => setActive(null)}
@@ -36,6 +41,12 @@ export function Story() {
               <span className={styles.mark}>{chapter.mark[language]}</span>
               <h3 className={styles.heading}>{chapter.title[language]}</h3>
               <p>{chapter.text[language]}</p>
+              <a className={styles.more} href={`#${chapter.more}`}>
+                {t.story.more}{" "}
+                <span aria-hidden="true">
+                  {direction === "rtl" ? "←" : "→"}
+                </span>
+              </a>
             </li>
           ))}
         </ol>
