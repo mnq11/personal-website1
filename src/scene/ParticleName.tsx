@@ -4,6 +4,7 @@ import { AdditiveBlending, BufferAttribute, BufferGeometry, ShaderMaterial } fro
 import { profile } from '../data/resume';
 import type { Language } from '../i18n/types';
 import { createRandom, sampleField, sampleSeeds, sampleText } from './sampling';
+import { placeFromScroll, WORLD_SECTIONS, worldAmount } from './world';
 import { fragmentShader, vertexShader } from './shaders';
 
 const FONT_FAMILY = 'Readex Pro Variable';
@@ -103,6 +104,9 @@ export function ParticleName({ language, reducedMotion, compact, onReady }: Part
     greet: 0,
   });
   const contact = useRef<HTMLElement | null>(null);
+  // Page-space centres of the sections that have a shape; measured, not read every frame.
+  const sectionMids = useRef<number[]>([]);
+  const place = useRef(0);
 
   const geometry = useMemo(() => {
     if (!cloud) return null;
@@ -145,6 +149,12 @@ export function ParticleName({ language, reducedMotion, compact, onReady }: Part
           uGreetOffset: { value: [0, 0] },
           uBurst: { value: 0 },
           uBurstPoint: { value: [0, 0] },
+          uWorld: { value: 0 },
+          uPlace: { value: 0 },
+          uWorldCenter: { value: [0, 0] },
+          uWorldScale: { value: 1 },
+          uSpin: { value: 0 },
+          uWorldGain: { value: 1.5 },
         },
       }),
     [],
@@ -159,6 +169,33 @@ export function ParticleName({ language, reducedMotion, compact, onReady }: Part
     state.morphTarget = language === 'ar' ? 1 : 0;
     state.holdUntil = Math.max(state.holdUntil, state.time + MORPH_SECONDS + HOLD_SECONDS * 1.5);
   }, [language]);
+
+  useEffect(() => {
+    let frame = 0;
+    const measure = () => {
+      sectionMids.current = WORLD_SECTIONS.flatMap((id) => {
+        const element = document.getElementById(id);
+        if (!element) return [];
+        const rect = element.getBoundingClientRect();
+        return [rect.top + window.scrollY + rect.height / 2];
+      });
+    };
+    const schedule = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(measure);
+    };
+    measure();
+    // Lazy scenes, fonts and the language all change section heights, so measure again when they do.
+    const observer = new ResizeObserver(schedule);
+    observer.observe(document.body);
+    window.addEventListener('resize', schedule);
+    void document.fonts.ready.then(schedule);
+    return () => {
+      cancelAnimationFrame(frame);
+      observer.disconnect();
+      window.removeEventListener('resize', schedule);
+    };
+  }, []);
 
   useEffect(() => {
     const onMove = (event: PointerEvent) => {
@@ -262,6 +299,19 @@ export function ParticleName({ language, reducedMotion, compact, onReady }: Part
     set('uGreet', s.greet);
     set('uGreetScale', greetScale);
     set('uGreetOffset', [width * (rtl ? -0.23 : 0.23), height * 0.04]);
+
+    // The world: a companion shape in the empty margin beside the content, following the section in view.
+    const rtlPage = document.documentElement.dir === 'rtl';
+    const side = rtlPage ? 1 : -1;
+    const target = placeFromScroll(sectionMids.current, window.scrollY + window.innerHeight * 0.5);
+    place.current = reducedMotion ? target : place.current + (target - place.current) * Math.min(1, delta * 6);
+    const worldScale = compact ? Math.min(width * 0.26, height * 0.15) : Math.min(width * 0.115, height * 0.26);
+    set('uWorld', worldAmount(scrollProgress, s.greet));
+    set('uPlace', place.current);
+    set('uWorldScale', worldScale);
+    set('uWorldCenter', compact ? [-side * width * 0.3, height * 0.3] : [side * width * 0.35, -height * 0.02]);
+    set('uWorldGain', compact ? 0.75 : 1.5);
+    set('uSpin', s.time * 0.16 + window.scrollY * (reducedMotion ? 0 : 0.0012));
 
     if (!readyFired.current) {
       readyFired.current = true;

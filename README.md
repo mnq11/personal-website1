@@ -7,7 +7,7 @@ Three.js runs through the whole page:
 | Section    | Scene                                                                                              |
 | ---------- | -------------------------------------------------------------------------------------------------- |
 | Hero       | ~16,000 GLSL particles assemble the name, morph Latin ↔ Arabic, part around the pointer, burst on click |
-| Background | The same particles dissolve into a night sky that stays behind the page                            |
+| Background | The same particles dissolve into a night sky; as you scroll, part of it takes the shape of the section you are reading (ring, columns, globe, helix, card ring, slabs, wave) in the empty margin beside the content, then regroups into the greeting |
 | About      | Personal traits orbit the portrait on a tilted ring                                                |
 | Numbers    | A skyline of hexagonal towers (years, projects, skills, credits…) that rise on entry and glow on hover; every figure is computed from the resume data |
 | Skills     | A draggable skill globe; field filters light up one domain at a time                               |
