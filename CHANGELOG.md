@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Lab section: k-means clustering running live in the browser (Train, One step, New data) with a 3D point cloud and gliding centroids, in English and Arabic.
 - The flight: a field of points streams past as you scroll, banks gently and takes the colour of the chapter in view; still under reduced motion.
 - “My path” section: six milestones from a design diploma to a master’s with distinction, told beside a 3D road that lights up with the text (English and Arabic).
 - Print stylesheet for a clean CV, and a lighter scene on low-power or data-saving devices.
