@@ -5,7 +5,7 @@ import { profile } from '../data/resume';
 import type { Language } from '../i18n/types';
 import { createRandom, sampleField, sampleSeeds, sampleText } from './sampling';
 import { journeyState } from './journey';
-import { placeFromScroll, WORLD_SECTIONS, worldAmount } from './world';
+import { placeFromScroll, WORLD_SECTIONS, worldAmount, worldVisibility } from './world';
 import { fragmentShader, vertexShader } from './shaders';
 
 const FONT_FAMILY = 'Readex Pro Variable';
@@ -309,7 +309,7 @@ export function ParticleName({ language, reducedMotion, compact, onReady }: Part
     const worldScale = compact ? Math.min(width * 0.26, height * 0.15) : Math.min(width * 0.115, height * 0.26);
     journeyState.place = place.current;
     journeyState.greet = s.greet;
-    set('uWorld', worldAmount(scrollProgress, s.greet));
+    set('uWorld', worldAmount(scrollProgress, s.greet) * worldVisibility(place.current));
     set('uPlace', place.current);
     set('uWorldScale', worldScale);
     set('uWorldCenter', compact ? [-side * width * 0.3, height * 0.3] : [side * width * 0.35, -height * 0.02]);

@@ -5,7 +5,7 @@ import { useActiveSection } from '../../hooks/useActiveSection';
 import { Icon } from '../ui/Icon';
 import styles from './SiteHeader.module.css';
 
-const NAV_SECTIONS = ['about', 'story', 'skills', 'experience', 'projects', 'education', 'writing', 'contact'] as const;
+const NAV_SECTIONS = ['about', 'story', 'projects', 'skills', 'experience', 'education', 'writing', 'contact'] as const;
 
 export function SiteHeader() {
   const { t, language, toggleLanguage } = useLanguage();

@@ -34,7 +34,7 @@ interface TowerLabels {
 }
 
 function Towers({ towers, highlight = null }: StatTowersProps) {
-  useFitCamera(9.4, 1.9);
+  useFitCamera(10.8, 1.9);
   const motion = useMotionFactor();
   const { step } = useDragRotation({ autoSpeed: 0.07 * motion, maxPitch: 0.2 });
   const group = useRef<Group>(null);
@@ -170,7 +170,7 @@ function Towers({ towers, highlight = null }: StatTowersProps) {
 
 export default function StatTowers(props: StatTowersProps) {
   return (
-    <SceneFrame fov={36} position={[0, 0, 9.4]}>
+    <SceneFrame fov={36} position={[0, 0, 10.8]}>
       <ambientLight intensity={0.9} />
       <directionalLight position={[3, 6, 5]} intensity={2.4} />
       <directionalLight position={[-5, 2, -2]} intensity={0.8} color="#9c8cff" />

@@ -34,11 +34,11 @@ export function App() {
         <Hero sceneStatus={sceneStatus} />
         <About />
         <Story />
-        <Numbers />
+        <Projects />
         <Skills />
         <Lab />
+        <Numbers />
         <Experience />
-        <Projects />
         <Education />
         <Writing />
         <Contact />

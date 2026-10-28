@@ -5,7 +5,7 @@
  */
 
 /** Sections that have a shape, in page order. The shader's shape ids follow this order. */
-export const WORLD_SECTIONS = ['about', 'numbers', 'skills', 'experience', 'projects', 'education', 'writing'] as const;
+export const WORLD_SECTIONS = ['about', 'projects', 'skills', 'numbers', 'experience', 'education', 'writing'] as const;
 
 export type WorldSection = (typeof WORLD_SECTIONS)[number];
 
@@ -37,4 +37,17 @@ export function placeFromScroll(mids: readonly number[], y: number): number {
 /** How much of the world is visible: hidden over the hero name, gone again once the greeting arrives. */
 export function worldAmount(scrollProgress: number, greet: number): number {
   return smoothstep(0.3, 0.95, scrollProgress) * (1 - greet);
+}
+
+/** Shape indices (in WORLD_SECTIONS) whose sections already show a large 3D scene of their own. */
+const BUSY_FROM = WORLD_SECTIONS.indexOf('projects');
+const BUSY_TO = WORLD_SECTIONS.indexOf('skills');
+
+/**
+ * Fades the margin shape out while the visitor is in the projects or skills sections, which have their
+ * own big scenes, so the page never shows the same shape twice. 1 elsewhere, easing in over half a step.
+ */
+export function worldVisibility(place: number): number {
+  const distance = place < BUSY_FROM ? BUSY_FROM - place : place > BUSY_TO ? place - BUSY_TO : 0;
+  return smoothstep(0, 0.5, distance);
 }

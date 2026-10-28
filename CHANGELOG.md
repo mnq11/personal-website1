@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Section order puts the proof first: About, Path, Projects, Skills, Lab, By the numbers, Experience, Education, Writing, Contact. The margin shapes and tints follow the new order.
+- The margin shape now fades out over Projects and Skills, which have their own large scenes.
+- “Ask my CV” stays out of the way over the hero buttons and appears once you scroll on (the `/` shortcut still works).
+- The numbers skyline fits its frame, so no label is cut off.
+
 ### Added
 - Lab section: k-means clustering running live in the browser (Train, One step, New data) with a 3D point cloud and gliding centroids, in English and Arabic.
 - The flight: a field of points streams past as you scroll, banks gently and takes the colour of the chapter in view; still under reduced motion.
