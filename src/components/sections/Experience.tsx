@@ -14,6 +14,7 @@ const CareerHelix = lazy(() => import('../../scene/sections/CareerHelix'));
 /** One colour per thread, shared by the 3D strands and the swatches in the list. */
 const STRAND_COLORS: Record<string, string> = {
   'hlkat-wsl': '#f2b544',
+  'kristianstad-university': '#4fd1ff',
   freelance: '#5cd6bf',
   'support-worker': '#9c8cff',
   bachelor: '#6ea8ff',
