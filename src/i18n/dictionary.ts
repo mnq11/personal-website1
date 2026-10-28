@@ -88,6 +88,7 @@ const en = {
     title: 'My path',
     lede: 'Six steps from a design diploma to a master’s in machine learning.',
     hint: 'Point at a milestone, or at a chapter, to light up the other. Drag to turn the road.',
+    more: 'The details',
   },
   lab: {
     title: 'Lab',
@@ -121,6 +122,7 @@ const en = {
     title: 'Skills',
     lede: 'Grouped by how deeply I work with each tool, not by how impressive it sounds.',
     filterLabel: 'Highlight a field',
+    matrix: 'The full list, by depth of experience',
     all: 'All',
     hint: 'Drag the globe to spin it. Brighter means deeper experience; a gold dot marks a passed LinkedIn assessment.',
     domains: {
@@ -187,6 +189,7 @@ const en = {
     certificates: 'Certificates and courses',
     activities: 'Activities',
     earlier: 'Earlier studies',
+    moreTitle: 'Earlier studies and certificates',
   },
   writing: {
     title: 'Writing',
@@ -308,6 +311,7 @@ const ar: Dictionary = {
     title: 'مساري',
     lede: 'ست محطات من دبلوم تصميم إلى ماجستير في تعلّم الآلة.',
     hint: 'أشر إلى محطة أو إلى فصل ليُضاء الآخر. اسحب لتدوير الطريق.',
+    more: 'التفاصيل',
   },
   lab: {
     title: 'المختبر',
@@ -341,6 +345,7 @@ const ar: Dictionary = {
     title: 'المهارات',
     lede: 'مرتّبة حسب عمق خبرتي العملية بكل أداة، لا حسب وقع اسمها.',
     filterLabel: 'أبرِز مجالاً',
+    matrix: 'القائمة الكاملة، حسب عمق الخبرة',
     all: 'الكل',
     hint: 'اسحب الكرة لتدويرها. كلما كانت المهارة أسطع كانت خبرتي فيها أعمق، والنقطة الذهبية تعني اجتياز تقييم LinkedIn.',
     domains: {
@@ -407,6 +412,7 @@ const ar: Dictionary = {
     certificates: 'الشهادات والدورات',
     activities: 'الأنشطة',
     earlier: 'دراسات سابقة',
+    moreTitle: 'دراسات سابقة وشهادات',
   },
   writing: {
     title: 'المقالات',
