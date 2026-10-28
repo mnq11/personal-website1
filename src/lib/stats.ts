@@ -12,7 +12,7 @@ export const STAT_ORDER: StatId[] = ['years', 'projects', 'skills', 'verified', 
 
 /** Headline numbers, always derived from the resume data so they can never drift from it. */
 export function buildStats(now = new Date()): Stat[] {
-  const firstStart = Math.min(...roles.map((role) => yearFraction(role.start)));
+  const firstStart = Math.min(...roles.filter((role) => role.software !== false).map((role) => yearFraction(role.start)));
   const values: Record<StatId, number> = {
     years: Math.max(1, Math.floor(yearFraction(currentMonth(now)) - firstStart)),
     projects: projects.length,

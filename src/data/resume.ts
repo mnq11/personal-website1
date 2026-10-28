@@ -25,6 +25,8 @@ export interface Role {
   organisation: Localized;
   title: Localized;
   url?: string;
+  /** False for work outside software, so it is left out of the years-in-software count. */
+  software?: boolean;
   /** ISO months (YYYY-MM). `end` omitted means the role is ongoing. */
   start: string;
   end?: string;
@@ -223,7 +225,7 @@ export const roles: Role[] = [
     id: 'freelance',
     organisation: { en: 'Self-employed, Kristianstad', ar: 'عمل حر، كريستيانستاد' },
     title: { en: 'Freelance software developer', ar: 'مطوّر برمجيات مستقل' },
-    start: '2015-01',
+    start: '2019-01',
     summary: {
       en: 'Full-stack web applications for a mix of clients, built with Java, Python, React, Spring and MongoDB, from first conversation to deployment.',
       ar: 'تطبيقات ويب متكاملة لعملاء متنوعين باستخدام Java وPython وReact وSpring وMongoDB، من أول حوار حتى النشر.',
@@ -250,7 +252,9 @@ export const roles: Role[] = [
       ar: 'بلديتا كريستيانستاد وأوسترا يوينغه',
     },
     title: { en: 'Specialized support worker', ar: 'عامل دعم متخصص' },
+    software: false,
     start: '2015-01',
+    end: '2019-05',
     summary: {
       en: 'Supported children affected by war and children with special needs, as part of a team of teachers, therapists and families.',
       ar: 'دعمت أطفالاً متأثرين بالحرب وأطفالاً من ذوي الاحتياجات الخاصة، ضمن فريق من المعلمين والمعالجين والأسر.',
@@ -690,8 +694,8 @@ export const story: StoryChapter[] = [
     mark: { en: '2015', ar: '2015' },
     title: { en: 'A new country, a different craft', ar: 'بلد جديد وحرفة مختلفة' },
     text: {
-      en: 'In Sweden I began supporting children affected by war and children with special needs, and started freelancing as a developer. Listening before acting became my first engineering skill.',
-      ar: 'في السويد بدأت أدعم أطفالاً متأثرين بالحرب وأطفالاً من ذوي الاحتياجات الخاصة، وبدأت العمل مطوّراً مستقلاً. صار الإصغاء قبل التصرف أولى مهاراتي الهندسية.',
+      en: 'In Sweden I began supporting children affected by war and children with special needs. Listening before acting became my first engineering skill.',
+      ar: 'في السويد بدأت أدعم أطفالاً متأثرين بالحرب وأطفالاً من ذوي الاحتياجات الخاصة. صار الإصغاء قبل التصرف أولى مهاراتي الهندسية.',
     },
     accent: 'teal',
     more: 'experience',
@@ -701,8 +705,8 @@ export const story: StoryChapter[] = [
     mark: { en: '2019', ar: '2019' },
     title: { en: 'Back to the code', ar: 'العودة إلى الشيفرة' },
     text: {
-      en: 'I started the software engineering bachelor’s at Kristianstad University and worked there as a full-stack developer, learning to ship features from requirements to running software.',
-      ar: 'بدأت بكالوريوس هندسة البرمجيات في جامعة كريستيانستاد وعملت هناك مطوّراً متكاملاً، وتعلّمت إيصال الميزات من المتطلبات حتى البرمجيات العاملة.',
+      en: 'I started the software engineering bachelor’s at Kristianstad University, worked there as a full-stack developer and began freelancing, learning to ship features from requirements to running software.',
+      ar: 'بدأت بكالوريوس هندسة البرمجيات في جامعة كريستيانستاد، وعملت هناك مطوّراً متكاملاً وبدأت العمل المستقل، وتعلّمت إيصال الميزات من المتطلبات حتى البرمجيات العاملة.',
     },
     accent: 'violet',
     more: 'education',

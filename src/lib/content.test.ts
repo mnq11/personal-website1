@@ -101,7 +101,7 @@ describe('headline numbers', () => {
     expect(stats.skills).toBe(skills.length);
     expect(stats.courses).toBe(courses.length);
     expect(stats.certificates).toBe(certificates.length);
-    expect(stats.years).toBeGreaterThanOrEqual(10);
+    expect(stats.years).toBe(7);
   });
 
   it('have an English and Arabic label each', () => {
