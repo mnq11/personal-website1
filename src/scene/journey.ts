@@ -6,10 +6,10 @@
 /** One tint per world section, in the same order as WORLD_SECTIONS (RGB, 0 to 1). */
 export const CHAPTER_TINTS: readonly (readonly [number, number, number])[] = [
   [0.36, 0.84, 0.75], // about: teal
-  [0.95, 0.71, 0.27], // numbers: saffron
-  [0.61, 0.55, 1.0], // skills: violet
-  [0.43, 0.66, 1.0], // experience: sky
   [1.0, 0.56, 0.64], // projects: rose
+  [0.61, 0.55, 1.0], // skills: violet
+  [0.95, 0.71, 0.27], // numbers: saffron
+  [0.43, 0.66, 1.0], // experience: sky
   [0.36, 0.84, 0.75], // education: teal
   [0.95, 0.71, 0.27], // writing: saffron
 ];

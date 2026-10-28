@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { placeFromScroll, WORLD_SECTIONS, worldAmount } from './world';
+import { placeFromScroll, WORLD_SECTIONS, worldAmount, worldVisibility } from './world';
 
 const mids = [1000, 2000, 3500, 4000];
 
@@ -43,5 +43,17 @@ describe('worldAmount', () => {
 
   it('has one shape per section the shader knows about', () => {
     expect(WORLD_SECTIONS).toHaveLength(7);
+  });
+
+  it('hides the margin shape over the sections that have their own big scene', () => {
+    const projects = WORLD_SECTIONS.indexOf('projects');
+    const skills = WORLD_SECTIONS.indexOf('skills');
+    expect(worldVisibility(projects)).toBe(0);
+    expect(worldVisibility((projects + skills) / 2)).toBe(0);
+    expect(worldVisibility(skills)).toBe(0);
+    expect(worldVisibility(0)).toBe(1);
+    expect(worldVisibility(WORLD_SECTIONS.length - 1)).toBe(1);
+    expect(worldVisibility(projects - 0.25)).toBeGreaterThan(0);
+    expect(worldVisibility(projects - 0.25)).toBeLessThan(1);
   });
 });

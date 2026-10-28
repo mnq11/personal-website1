@@ -26,11 +26,20 @@ export function Ask() {
   const input = useRef<HTMLInputElement>(null);
   const opener = useRef<HTMLButtonElement>(null);
   const panelId = useId();
+  // Over the hero the launcher would sit on the call-to-action buttons, so it appears once the visitor scrolls on.
+  const [away, setAway] = useState(() => typeof window !== 'undefined' && window.scrollY > window.innerHeight * 0.7);
 
   const show = useCallback(() => setOpen(true), []);
   const hide = useCallback(() => {
     setOpen(false);
     opener.current?.focus();
+  }, []);
+
+  useEffect(() => {
+    const onScroll = () => setAway(window.scrollY > window.innerHeight * 0.7);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   // "/" or Ctrl/Cmd+K opens the box from anywhere on the page; Escape closes it.
@@ -162,6 +171,7 @@ export function Ask() {
         aria-expanded={open}
         aria-controls={open ? panelId : undefined}
         data-open={open}
+        data-away={away || open}
         onClick={open ? hide : show}
       >
         <Icon name="spark" size={18} />

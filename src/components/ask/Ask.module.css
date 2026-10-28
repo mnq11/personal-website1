@@ -31,7 +31,14 @@
   cursor: pointer;
   transition:
     background-color 0.2s ease,
-    color 0.2s ease;
+    color 0.2s ease,
+    opacity 0.3s ease,
+    visibility 0.3s;
+}
+
+.opener[data-away='false'] {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .opener:hover,

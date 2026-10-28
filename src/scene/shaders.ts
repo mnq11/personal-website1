@@ -37,7 +37,7 @@ const noise = /* glsl */ `
     return vec3(p.x, p.y * c - p.z * s, p.y * s + p.z * c);
   }
 
-  // One point of shape id (the sections, in page order), in roughly unit space.
+  // One point of shape id (the sections that have a shape, in page order), in roughly unit space.
   // a, b, c are independent per-particle random numbers; t is time for the moving shapes.
   vec3 shapeAt(float id, float a, float b, float c, float t) {
     if (id < 0.5) {
@@ -47,25 +47,6 @@ const noise = /* glsl */ `
       return rotateX(p, 0.7);
     }
     if (id < 1.5) {
-      // Numbers: a skyline of columns.
-      float slot = floor(a * 7.0);
-      float height = 0.35 + 0.65 * hash11(slot * 7.3 + 1.0);
-      return vec3((slot - 3.0) * 0.3 + (fract(a * 7.0) - 0.5) * 0.14, -0.5 + b * height, (c - 0.5) * 0.14);
-    }
-    if (id < 2.5) {
-      // Skills: the globe, a thin shell of points.
-      float y = 1.0 - 2.0 * a;
-      float r = sqrt(max(1.0 - y * y, 0.0));
-      float angle = b * 6.2831853;
-      return vec3(cos(angle) * r, y, sin(angle) * r) * (0.9 + c * 0.1);
-    }
-    if (id < 3.5) {
-      // Experience: three strands twisting upwards through the years.
-      float strand = floor(c * 3.0);
-      float angle = a * 6.2831853 * 2.2 + strand * 2.0944;
-      return vec3(cos(angle) * 0.42, (a - 0.5) * 2.0, sin(angle) * 0.42) + (vec3(b, c, a) - 0.5) * 0.04;
-    }
-    if (id < 4.5) {
       // Projects: a ring of cards, each drawn as an outline.
       float slot = floor(a * 6.0);
       float angle = slot / 6.0 * 6.2831853;
@@ -79,6 +60,25 @@ const noise = /* glsl */ `
       else if (side < 2.5) u = -0.31;
       else u = 0.31;
       return centre + tangent * u + vec3(0.0, v, 0.0);
+    }
+    if (id < 2.5) {
+      // Skills: the globe, a thin shell of points.
+      float y = 1.0 - 2.0 * a;
+      float r = sqrt(max(1.0 - y * y, 0.0));
+      float angle = b * 6.2831853;
+      return vec3(cos(angle) * r, y, sin(angle) * r) * (0.9 + c * 0.1);
+    }
+    if (id < 3.5) {
+      // Numbers: a skyline of columns.
+      float slot = floor(a * 7.0);
+      float height = 0.35 + 0.65 * hash11(slot * 7.3 + 1.0);
+      return vec3((slot - 3.0) * 0.3 + (fract(a * 7.0) - 0.5) * 0.14, -0.5 + b * height, (c - 0.5) * 0.14);
+    }
+    if (id < 4.5) {
+      // Experience: three strands twisting upwards through the years.
+      float strand = floor(c * 3.0);
+      float angle = a * 6.2831853 * 2.2 + strand * 2.0944;
+      return vec3(cos(angle) * 0.42, (a - 0.5) * 2.0, sin(angle) * 0.42) + (vec3(b, c, a) - 0.5) * 0.04;
     }
     if (id < 5.5) {
       // Education: a stack of slabs, like the books.
@@ -94,12 +94,12 @@ const noise = /* glsl */ `
 
   vec3 worldAccent(float id) {
     if (id < 0.5) return vec3(0.36, 0.84, 0.75);
-    if (id < 1.5) return vec3(0.95, 0.71, 0.27);
+    if (id < 1.5) return vec3(1.0, 0.56, 0.64);
     if (id < 2.5) return vec3(0.61, 0.55, 1.0);
-    if (id < 3.5) return vec3(0.36, 0.84, 0.75);
+    if (id < 3.5) return vec3(0.95, 0.71, 0.27);
     if (id < 4.5) return vec3(0.43, 0.66, 1.0);
-    if (id < 5.5) return vec3(0.95, 0.71, 0.27);
-    return vec3(1.0, 0.56, 0.64);
+    if (id < 5.5) return vec3(0.36, 0.84, 0.75);
+    return vec3(0.95, 0.71, 0.27);
   }
 
   float easeInOutCubic(float x) {
