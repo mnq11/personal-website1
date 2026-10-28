@@ -2,6 +2,7 @@ import { Canvas } from '@react-three/fiber';
 import { useMediaQuery, usePrefersReducedMotion } from '../hooks/useMediaQuery';
 import { isLowPower } from '../lib/devicePower';
 import type { Language } from '../i18n/types';
+import { AuroraBackdrop } from './AuroraBackdrop';
 import { JourneyField } from './JourneyField';
 import { ParticleName } from './ParticleName';
 import styles from './SceneCanvas.module.css';
@@ -26,6 +27,7 @@ export default function SceneCanvas({ language, onReady }: SceneCanvasProps) {
         dpr={[1, lowPower ? 1.25 : 1.75]}
         gl={{ antialias: false, alpha: true, powerPreference: 'high-performance' }}
       >
+        <AuroraBackdrop reducedMotion={reducedMotion} quality={compact || lowPower ? 3 : 5} />
         <JourneyField reducedMotion={reducedMotion} compact={compact || lowPower} />
         <ParticleName
           language={language}
