@@ -1,0 +1,36 @@
+.ring {
+  position: fixed;
+  top: -16px;
+  left: -16px;
+  z-index: 90;
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid var(--saffron);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  mix-blend-mode: screen;
+  transition:
+    opacity 0.25s ease,
+    width 0.25s var(--ease-out),
+    height 0.25s var(--ease-out),
+    margin 0.25s var(--ease-out),
+    background-color 0.25s ease;
+}
+
+.ring[data-on='true'] {
+  opacity: 0.7;
+}
+
+.ring[data-hot='true'] {
+  width: 56px;
+  height: 56px;
+  margin: -12px 0 0 -12px;
+  background: var(--saffron-soft);
+}
+
+@media print {
+  .ring {
+    display: none;
+  }
+}
