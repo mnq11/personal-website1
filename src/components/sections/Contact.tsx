@@ -63,6 +63,10 @@ export function Contact() {
             <Icon name={copied ? 'check' : 'copy'} size={18} />
             <span aria-live="polite">{copied ? t.contact.copied : t.contact.copy}</span>
           </button>
+          <button type="button" className={buttons.quiet} onClick={() => window.print()}>
+            <Icon name="copy" size={18} />
+            <span>{t.contact.print}</span>
+          </button>
         </div>
 
         <h3 className={styles.elsewhere}>{t.contact.elsewhere}</h3>
