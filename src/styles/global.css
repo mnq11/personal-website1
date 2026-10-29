@@ -208,6 +208,7 @@ main {
   }
 
   canvas,
+  button,
   [data-scene],
   header[data-scrolled] {
     display: none !important;
