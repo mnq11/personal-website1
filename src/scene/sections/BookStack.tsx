@@ -57,15 +57,15 @@ function drawSpine(book: BookData, cover: string): CanvasTexture {
       c.fillRect(w * 0.06, 0, 18, h);
       c.fillRect(w * 0.06 + 28, 0, 6, h);
     }
-    const size = Math.min(h * 0.5, 40);
+    const size = Math.min(h * 0.58, 46);
     c.font = `500 ${size}px "${FONT_FAMILY}", sans-serif`;
     c.fillStyle = 'rgba(232,239,243,0.92)';
     c.textBaseline = 'middle';
     c.direction = book.direction;
     c.textAlign = 'center';
     let title = book.title;
-    while (c.measureText(title).width > w * 0.7 && title.length > 4) title = `${title.slice(0, -2)}…`;
-    c.fillText(title, w * 0.52, h / 2);
+    while (c.measureText(title).width > w * 0.82 && title.length > 4) title = `${title.slice(0, -2)}…`;
+    c.fillText(title, w * 0.54, h / 2);
   }
   const texture = new CanvasTexture(canvas);
   texture.colorSpace = SRGBColorSpace;
