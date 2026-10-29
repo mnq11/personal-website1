@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react';
 import { Ask } from './components/ask/Ask';
+import { Cursor } from './components/fx/Cursor';
 import { SiteFooter } from './components/layout/SiteFooter';
 import { SiteHeader } from './components/layout/SiteHeader';
 import { SkipLink } from './components/layout/SkipLink';
@@ -45,6 +46,7 @@ export function App() {
       </main>
       <SiteFooter />
       <Ask />
+      <Cursor />
     </FocusProvider>
   );
 }
