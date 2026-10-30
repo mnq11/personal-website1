@@ -8,7 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- A soft cursor ring and magnetic buttons for fine pointers (off with reduced motion).
+- A “Save as PDF” button in Contact that uses the print stylesheet.
+
 ### Changed
+- Larger book titles in the Education stack and clearer empty and error text in Writing.
 - “Years in software” now counts from the first software role (2019), not from the start of support work in 2015; the support-worker role ends in May 2019 and freelancing starts in January 2019, matching LinkedIn.
 - The full skills table and the earlier studies and certificates now sit under “open” summaries, which makes the page about 10% shorter. The skills table starts open when WebGL is unavailable.
 - Every step of “My path” links to the section with the full details.
