@@ -11,7 +11,7 @@
   min-height: inherit;
   cursor: grab;
   /* Vertical swipes keep scrolling the page; horizontal drags turn the scene. */
-  touch-action: pan-y;
+  touch-action: pan-y pinch-zoom;
 }
 
 .stage:active {

@@ -71,6 +71,8 @@
 
 .contactStack {
   display: grid;
+  min-width: 0;
+  overflow-wrap: anywhere;
   gap: 0.1rem;
   text-align: end;
   font-size: 0.85rem;
@@ -87,7 +89,7 @@
   break-inside: avoid;
 }
 
-@media (max-width: 760px) {
+@media screen and (max-width: 760px) {
   .sheet {
     padding: 1.25rem;
   }

@@ -64,7 +64,14 @@ function useCloud(count: number, compact: boolean): Cloud | null {
         const random = createRandom(1104);
         setCloud({
           latin: sampleText({ lines: latinText, fontFamily: FONT_FAMILY, direction: 'ltr', count, boxAspect, random }),
-          arabic: sampleText({ lines: arabicText, fontFamily: FONT_FAMILY, direction: 'rtl', count, boxAspect, random }),
+          arabic: sampleText({
+            lines: arabicText,
+            fontFamily: FONT_FAMILY,
+            direction: 'rtl',
+            count,
+            boxAspect,
+            random,
+          }),
           field: sampleField(count, random),
           seeds: sampleSeeds(count, random),
           greeting: sampleText({
@@ -258,10 +265,11 @@ export function ParticleName({ language, reducedMotion, compact, onReady }: Part
     const cssWidth = state.size.width;
     const contentPx = Math.min(cssWidth, CONTENT_MAX_PX) - 2 * gutterPx(cssWidth);
     const availableWidth = (contentPx / cssWidth) * width;
-    const availableHeight = height * (compact ? 0.42 : 0.4);
+    const short = compact && height < 700;
+    const availableHeight = height * (compact ? (short ? 0.28 : 0.42) : 0.4);
     const boxAspect = compact ? 0.78 : 0.24;
     const scale = Math.min(availableWidth, availableHeight / boxAspect);
-    const offsetY = height * (compact ? 0.125 : 0.075);
+    const offsetY = height * (compact ? (short ? 0.24 : 0.125) : 0.075);
 
     const scrollProgress = window.scrollY / Math.max(window.innerHeight, 1);
     const scatter = smoothstep(0.04, 0.8, scrollProgress);

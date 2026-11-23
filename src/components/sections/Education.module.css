@@ -181,6 +181,7 @@
 
 .courseMeta {
   flex: none;
+  white-space: nowrap;
   display: inline-flex;
   gap: 0.5rem;
   color: var(--mist);

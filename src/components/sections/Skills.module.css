@@ -124,7 +124,6 @@
   color: var(--mist);
 }
 
-
 /* Narrow screens: each domain becomes its own block with tier labels inline. */
 @media (max-width: 640px) {
   .table thead {
@@ -155,7 +154,7 @@
 
   .table tbody td {
     display: grid;
-    grid-template-columns: 7.5rem 1fr;
+    grid-template-columns: 7.5rem minmax(0, 1fr);
     gap: 0.75rem;
     padding: 0.35rem 0;
   }

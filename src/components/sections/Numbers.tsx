@@ -3,7 +3,7 @@ import { useFocus } from '../../focus/context';
 import { useLanguage } from '../../i18n/context';
 import { buildStats } from '../../lib/stats';
 import { supportsWebGL } from '../../lib/webgl';
-import { css } from '../../scene/kit/theme';
+import { css } from '../../scene/kit/colors';
 import type { TowerData } from '../../scene/sections/StatTowers';
 import { LazyScene } from '../ui/LazyScene';
 import { Section } from '../ui/Section';

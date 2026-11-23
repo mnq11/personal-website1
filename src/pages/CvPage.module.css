@@ -2,9 +2,10 @@
   --cv-ink: #14181f;
   --cv-slate: #35445a;
   --cv-slate-deep: #263040;
-  --cv-teal: #3f9a9a;
+  --cv-teal: #2b7a7a;
   --cv-pill: #9aa0ab;
   min-height: 100vh;
+  min-height: 100dvh;
   background: #e9edf1;
   color: var(--cv-ink);
   padding: 0 0 3rem;
@@ -24,6 +25,9 @@
 
 .toolbar a,
 .toolbar button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
   color: var(--cv-slate);
   font-weight: 500;
 }
@@ -54,7 +58,9 @@
 }
 
 .styles a {
-  display: block;
+  display: flex;
+  align-items: center;
+  min-height: 2.75rem;
   padding: 0.35rem 0.8rem;
   border-radius: 999px;
   text-decoration: none;
@@ -63,6 +69,38 @@
 .styles a[aria-current='page'] {
   background: var(--cv-teal);
   color: #fff;
+}
+
+@media (max-width: 760px) {
+  .toolbar {
+    justify-content: center;
+    gap: 0.25rem 0.75rem;
+  }
+
+  .actions {
+    display: flex;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .actions > * {
+    flex: 1 1 auto;
+    justify-content: center;
+    margin-inline-start: 0 !important;
+    padding-inline: 0.5rem !important;
+  }
+
+  .styles {
+    flex-wrap: nowrap;
+    max-width: 100%;
+    overflow-x: auto;
+    order: 3;
+    flex-basis: 100%;
+  }
+
+  .styles a {
+    white-space: nowrap;
+  }
 }
 
 @page {

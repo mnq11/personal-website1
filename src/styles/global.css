@@ -34,6 +34,8 @@
   --leading: 1.6;
   --measure: 64ch;
   --gutter: clamp(1rem, 0.5rem + 3vw, 3rem);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
   --max-width: 78rem;
   --header-height: 4.25rem;
 
@@ -80,9 +82,7 @@ body {
   color: var(--snow);
   background:
     radial-gradient(120% 70% at 50% 0%, #0d2335 0%, transparent 70%),
-    radial-gradient(90% 60% at 85% 100%, #0b1b2d 0%, transparent 70%),
-    var(--night);
-  background-attachment: fixed;
+    radial-gradient(90% 60% at 85% 100%, #0b1b2d 0%, transparent 70%), var(--night);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   overflow-x: clip;
@@ -223,5 +223,15 @@ main {
     font-size: 0.75em;
     color: #444;
     word-break: break-all;
+  }
+}
+
+@media (pointer: coarse) {
+  a[class*='more'],
+  a[class*='link'],
+  button[class*='legendItem'] {
+    min-height: 2.75rem;
+    display: inline-flex;
+    align-items: center;
   }
 }

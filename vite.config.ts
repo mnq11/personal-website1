@@ -11,17 +11,8 @@ export default defineConfig({
     sourcemap: true,
     // The Three.js chunk is ~250 kB gzipped but is lazy-loaded after the page renders.
     chunkSizeWarningLimit: 1000,
-    rollupOptions: {
-      output: {
-        // Three.js is large and only needed by the canvas, so it ships as its own cacheable chunk.
-        manualChunks(id) {
-          if (id.includes('node_modules/three') || id.includes('node_modules/@react-three')) {
-            return 'three';
-          }
-          return undefined;
-        },
-      },
-    },
+    // No manual chunking: a forced `three` chunk made the entry bundle import (and preload) it, delaying first paint.
+    // Left to Rollup, Three.js stays in lazy chunks that load after the page renders.
   },
   test: {
     environment: 'jsdom',

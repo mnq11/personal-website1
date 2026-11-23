@@ -55,7 +55,7 @@ export function CvPage({ style }: { style: CvStyle }) {
             </li>
           ))}
         </ul>
-        <span>
+        <span className={styles.actions}>
           <button type="button" onClick={toggleLanguage}>
             {l(UI.other)}
           </button>

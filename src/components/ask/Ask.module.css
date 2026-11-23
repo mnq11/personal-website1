@@ -41,7 +41,6 @@
   visibility: hidden;
 }
 
-.opener:hover,
 .opener[data-open='true'] {
   background: var(--saffron);
   color: var(--night-deep);
@@ -50,6 +49,8 @@
 .panel {
   width: min(100%, 40rem);
   max-height: min(24rem, 62vh);
+  max-height: min(24rem, 62dvh);
+  overscroll-behavior: contain;
   margin-inline: auto;
   padding: 1rem 1.1rem 1.1rem;
   overflow-y: auto;
@@ -211,5 +212,12 @@
 @media print {
   .root {
     display: none;
+  }
+}
+
+@media (hover: hover) {
+  .opener:hover {
+    background: var(--saffron);
+    color: var(--night-deep);
   }
 }

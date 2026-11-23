@@ -101,3 +101,20 @@
   font-weight: 560;
   letter-spacing: 0.06em;
 }
+
+@media (max-height: 700px) and (max-width: 640px) {
+  .intro {
+    font-size: 1.05rem;
+    line-height: 1.4;
+  }
+
+  .hint {
+    display: none;
+  }
+}
+
+@media (max-height: 480px) and (orientation: landscape) {
+  .hint {
+    display: none;
+  }
+}
