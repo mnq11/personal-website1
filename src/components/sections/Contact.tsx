@@ -1,7 +1,7 @@
 import { lazy, useEffect, useMemo, useRef, useState } from 'react';
 import { profile, socials } from '../../data/resume';
 import { useLanguage } from '../../i18n/context';
-import { css } from '../../scene/kit/theme';
+import { css } from '../../scene/kit/colors';
 import type { OrbitLink } from '../../scene/sections/SocialOrbits';
 import { ExternalLink } from '../ui/ExternalLink';
 import { Icon } from '../ui/Icon';

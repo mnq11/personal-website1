@@ -203,7 +203,7 @@
   padding: 0.05rem 0.5rem;
   border-radius: 999px;
   background: var(--teal-soft);
-  color: var(--teal);
+  color: #17695e;
   font-size: 0.76rem;
   font-weight: 600;
   white-space: nowrap;
@@ -261,7 +261,7 @@
 .group h3 {
   margin: 0 0 0.35rem;
   color: var(--muted);
-  font-size: 0.74rem;
+  font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -321,7 +321,7 @@
   font-size: 0.8rem;
 }
 
-@media (max-width: 760px) {
+@media screen and (max-width: 760px) {
   .hero {
     flex-direction: column-reverse;
     align-items: flex-start;
@@ -336,8 +336,12 @@
     padding-inline: 1.25rem;
   }
 
-  .numbers {
-    grid-template-columns: repeat(2, 1fr);
+  .numbers li {
+    padding-inline: 0.4rem;
+  }
+
+  .numbers strong {
+    font-size: 1.5rem;
   }
 
   .columns {

@@ -1,7 +1,7 @@
 import { lazy, useMemo, useState } from 'react';
 import { story } from '../../data/resume';
 import { useLanguage } from '../../i18n/context';
-import { css } from '../../scene/kit/theme';
+import { css } from '../../scene/kit/colors';
 import type { StoryStop } from '../../scene/sections/StoryRoad';
 import { LazyScene } from '../ui/LazyScene';
 import { Section } from '../ui/Section';

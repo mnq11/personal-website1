@@ -14,7 +14,7 @@
   gap: 0.75rem 2rem;
   max-width: var(--max-width);
   margin-inline: auto;
-  padding: 2rem var(--gutter);
+  padding: 2rem max(var(--gutter), var(--safe-right)) 2rem max(var(--gutter), var(--safe-left));
 }
 
 .inner > p {
