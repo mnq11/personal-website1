@@ -93,3 +93,9 @@ src/
 ## License
 
 MIT
+
+## Résumé pages and PDFs
+
+`/cv` (designed), `/cv-ats`, `/cv-compact` and `/cv-classic` all render the same model from `src/data/resume.ts` (see `src/lib/cv.ts`).
+PDFs live in `public/downloads/`. After changing résumé data run `npm run cv:pdf` (needs Playwright with Chromium; set
+`PLAYWRIGHT_MODULE` to its `index.mjs` if it is installed globally) and commit the result. `npm test` fails when the PDFs are out of date.

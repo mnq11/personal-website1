@@ -1,0 +1,309 @@
+.sheet {
+  max-width: 62rem;
+  margin: 0 auto;
+  background: #fff
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='140' fill='none' stroke='%23eef0f3' stroke-width='6'%3E%3Crect x='20' y='60' width='70' height='70' rx='18'/%3E%3Crect x='120' y='20' width='110' height='110' rx='26'/%3E%3Ccircle cx='290' cy='95' r='32'/%3E%3Crect x='340' y='30' width='130' height='100' rx='28'/%3E%3C/svg%3E")
+    repeat-x bottom / 520px 140px;
+  box-shadow: 0 10px 40px rgb(20 30 45 / 0.15);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2rem 2.25rem;
+  background: var(--cv-slate);
+  color: #fff;
+}
+
+.head h1 {
+  margin: 0;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.role {
+  margin: 0.4rem 0 1rem;
+  color: var(--cv-teal);
+  font-size: 1.2rem;
+}
+
+.summary {
+  margin: 0 0 0.5rem;
+  max-width: 42rem;
+  line-height: 1.55;
+  font-size: 0.98rem;
+}
+
+.portrait img {
+  display: block;
+  width: 190px;
+  height: 190px;
+  object-fit: cover;
+  border: 5px solid var(--cv-teal);
+  border-radius: 1.2rem;
+}
+
+.contact {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem 2rem;
+  margin: 0;
+  padding: 1.4rem 2.25rem;
+  list-style: none;
+  background: var(--cv-slate-deep);
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+.contact li {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.contact a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.columns {
+  display: flex;
+  align-items: flex-start;
+  gap: 0 2.5rem;
+  padding: 2rem 2.25rem 8rem;
+}
+
+.columns > div {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.block {
+  margin-block-end: 2.2rem;
+}
+
+.para {
+  margin: 0 0 0.7rem;
+  font-size: 0.93rem;
+  line-height: 1.55;
+}
+
+.sub {
+  margin: 1.2rem 0 0.8rem;
+  color: var(--cv-teal);
+  font-size: 1rem;
+}
+
+.block h2 {
+  display: inline-block;
+  margin: 0 0 1.1rem;
+  padding-block-end: 0.35rem;
+  border-block-end: 3px solid var(--cv-teal);
+  color: var(--cv-teal);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.entry {
+  margin-block-end: 1.4rem;
+}
+
+.entry h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.entry .plain {
+  font-size: 1.05rem;
+  font-weight: 450;
+}
+
+.org {
+  margin: 0.1rem 0 0.3rem;
+  font-size: 1.1rem;
+}
+
+.when {
+  margin: 0 0 0.25rem;
+  color: var(--cv-teal);
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.caption {
+  margin: 0.2rem 0;
+  color: #5a6370;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.courses,
+.bullets {
+  margin: 0.35rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.93rem;
+  line-height: 1.5;
+}
+
+.courses {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.3rem 1rem;
+}
+
+.courses li,
+.bullets li {
+  position: relative;
+  padding-inline-start: 1rem;
+  margin-block-end: 0.3rem;
+}
+
+.courses li::before,
+.bullets li::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0.55em;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: var(--cv-teal);
+}
+
+.bullets a {
+  color: var(--cv-teal);
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pills li {
+  padding: 0.3rem 0.7rem;
+  border-radius: 0.35rem;
+  background: var(--cv-pill);
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.langs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.langs li {
+  display: grid;
+}
+
+@media (max-width: 760px) {
+  .columns {
+    flex-direction: column;
+  }
+
+  .head {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    padding: 1.5rem 1.25rem;
+  }
+
+  .contact {
+    grid-template-columns: 1fr;
+    padding-inline: 1.25rem;
+  }
+
+  .columns {
+    grid-template-columns: 1fr;
+    padding-inline: 1.25rem;
+  }
+
+  .courses {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  /* Flex columns do not fragment across pages in Chromium, so print with floats. */
+  .columns {
+    display: block;
+    overflow: hidden;
+    padding-bottom: 4rem;
+  }
+
+  .columns > div:first-child {
+    float: left;
+    width: 47%;
+  }
+
+  .columns > div:last-child {
+    float: right;
+    width: 47%;
+  }
+
+  [dir='rtl'] .columns > div:first-child {
+    float: right;
+  }
+
+  [dir='rtl'] .columns > div:last-child {
+    float: left;
+  }
+  .sheet {
+    box-shadow: none;
+    max-width: none;
+  }
+
+  .head,
+  .contact,
+  .pills li,
+  .portrait img,
+  .sheet {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .entry {
+    break-inside: avoid;
+  }
+
+  /* A flex list cannot split across pages; inline-block pills can. */
+  .pills {
+    display: block;
+  }
+
+  .pills li {
+    display: inline;
+    margin: 0 0.15rem;
+    padding: 0.2rem 0.6rem;
+    line-height: 2.5;
+    white-space: nowrap;
+  }
+
+  /* A zero-width space gives the inline pills somewhere to wrap. */
+  .pills li::after {
+    content: '\200b';
+    white-space: normal;
+  }
+
+  .sheet a::after {
+    content: none !important;
+  }
+
+  .block h2 {
+    break-after: avoid;
+  }
+}

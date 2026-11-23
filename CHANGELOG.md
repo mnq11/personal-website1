@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Four résumé styles, each with an HTML page and a PDF in English and Arabic: designed (`/cv`), ATS plain (`/cv-ats`), compact (`/cv-compact`) and classic European (`/cv-classic`). All render one model built from `src/data/resume.ts`, so anything added to the data appears in every style. After changing the data, run `npm run cv:pdf` to refresh the PDFs; a test fails if they are stale.
 - A `/cv` page laid out like the printed résumé (English and Arabic, printable), built from the same data as the site. New data: earlier roles (HP in Sana’a, a 2015 placement), French, interests, design patterns and mock testing.
 - A soft cursor ring and magnetic buttons for fine pointers (off with reduced motion).
 - A “Save as PDF” button in Contact that uses the print stylesheet.
