@@ -1,4 +1,5 @@
 import { certificates, courses, degrees, diplomas, profile, projects, roles, skills, socials } from '../data/resume';
+import { dictionaries } from '../i18n/dictionary';
 import type { Language, Localized } from '../i18n/types';
 import { LOCALE } from '../i18n/types';
 import { formatMonth } from './dates';
@@ -25,6 +26,10 @@ export const CV_LABELS = {
   thesis: { en: 'Thesis', ar: 'الرسالة' },
   stack: { en: 'Stack', ar: 'التقنيات' },
   present: { en: 'Present', ar: 'الحاضر' },
+  statProjects: { en: 'Projects', ar: 'مشروع' },
+  statSkills: { en: 'Skills', ar: 'مهارة' },
+  statCertificates: { en: 'Certificates', ar: 'شهادة' },
+  legend: { en: 'Filled: core skill', ar: 'الممتلئ: مهارة أساسية' },
 } satisfies Record<string, Localized>;
 
 export interface CvContact {
@@ -52,6 +57,8 @@ export interface CvModel {
   roles: CvEntry[];
   projects: (CvEntry & { stack: string[]; url?: string })[];
   skills: string[];
+  skillGroups: { label: string; items: { name: string; core: boolean; verified: boolean }[] }[];
+  highlights: { value: string; label: string }[];
   certificates: CvEntry[];
   languages: { name: string; level: string }[];
   traits: string[];
@@ -113,6 +120,19 @@ export function buildCv(language: Language): CvModel {
       ...(project.url ? { url: project.url } : {}),
     })),
     skills: skills.map((skill) => skill.name),
+    skillGroups: (Object.keys(dictionaries[language].skills.domains) as (keyof typeof dictionaries.en.skills.domains)[])
+      .map((domain) => ({
+        label: dictionaries[language].skills.domains[domain],
+        items: skills
+          .filter((skill) => skill.domain === domain)
+          .map((skill) => ({ name: skill.name, core: skill.tier === 'core', verified: Boolean(skill.verified) })),
+      }))
+      .filter((group) => group.items.length > 0),
+    highlights: [
+      { value: String(projects.length), label: l(CV_LABELS.statProjects) },
+      { value: String(skills.length), label: l(CV_LABELS.statSkills) },
+      { value: String(certificates.length), label: l(CV_LABELS.statCertificates) },
+    ],
     certificates: certificates.map((certificate) => ({
       title: l(certificate.name),
       org: certificate.issuer,

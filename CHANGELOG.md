@@ -1,3 +1,8 @@
+## Unreleased
+
+- Domain: canonical, hreflang, Open Graph and JSON-LD now point to https://www.mohammedn.info/; added `sitemap.xml` and a Sitemap line in `robots.txt`.
+- CV: the designed style was redesigned (hero band, highlights strip, skills grouped by domain, flowing two-column body) and now prints in 5 even A4 pages in English and Arabic.
+
 
 # Changelog
 
