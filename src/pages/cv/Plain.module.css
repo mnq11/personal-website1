@@ -1,0 +1,110 @@
+.sheet {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 2.25rem 2.5rem 3rem;
+  background: #fff;
+  color: #111;
+  font-size: 0.97rem;
+  line-height: 1.5;
+  box-shadow: 0 10px 40px rgb(20 30 45 / 0.12);
+}
+
+.sheet h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.sheet h2 {
+  margin: 1.6rem 0 0.6rem;
+  padding-block-end: 0.2rem;
+  border-block-end: 1px solid #111;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.sheet h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.sheet p,
+.sheet ul {
+  margin: 0.25rem 0;
+}
+
+.sheet ul {
+  padding-inline-start: 1.2rem;
+}
+
+.role {
+  margin: 0.2rem 0 0.4rem;
+  font-size: 1.1rem;
+}
+
+.contactLine {
+  color: #333;
+}
+
+.when {
+  color: #444;
+  font-style: italic;
+}
+
+.entry {
+  margin-block-end: 0.9rem;
+  break-inside: avoid;
+}
+
+.compact {
+  max-width: 60rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.compactHead {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.contactStack {
+  display: grid;
+  gap: 0.1rem;
+  text-align: end;
+  font-size: 0.85rem;
+}
+
+.twoCols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 2rem;
+}
+
+.row {
+  margin-block-end: 0.5rem;
+  break-inside: avoid;
+}
+
+@media (max-width: 760px) {
+  .sheet {
+    padding: 1.25rem;
+  }
+
+  .twoCols {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  .sheet a::after {
+    content: none !important;
+  }
+
+  .sheet {
+    box-shadow: none;
+    max-width: none;
+    padding: 12mm 14mm 0;
+  }
+}
