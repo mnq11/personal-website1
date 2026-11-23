@@ -9,12 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- GitHub Action that regenerates the CV PDFs whenever the résumé data or layouts change, and a footer link to the résumé.
+- The alternative CV layouts are marked `noindex` so search engines index only `/cv`.
 - Four résumé styles, each with an HTML page and a PDF in English and Arabic: designed (`/cv`), ATS plain (`/cv-ats`), compact (`/cv-compact`) and classic European (`/cv-classic`). All render one model built from `src/data/resume.ts`, so anything added to the data appears in every style. After changing the data, run `npm run cv:pdf` to refresh the PDFs; a test fails if they are stale.
 - A `/cv` page laid out like the printed résumé (English and Arabic, printable), built from the same data as the site. New data: earlier roles (HP in Sana’a, a 2015 placement), French, interests, design patterns and mock testing.
 - A soft cursor ring and magnetic buttons for fine pointers (off with reduced motion).
 - A “Save as PDF” button in Contact that uses the print stylesheet.
 
 ### Changed
+- CI now runs on pushes to `main` (it still pointed at the old `001` branch) and cancels superseded runs.
 - Larger book titles in the Education stack and clearer empty and error text in Writing.
 - “Years in software” now counts from the first software role (2019), not from the start of support work in 2015; the support-worker role ends in May 2019 and freelancing starts in January 2019, matching LinkedIn.
 - The full skills table and the earlier studies and certificates now sit under “open” summaries, which makes the page about 10% shorter. The skills table starts open when WebGL is unavailable.

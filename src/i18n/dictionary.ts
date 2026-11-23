@@ -215,6 +215,7 @@ const en = {
   footer: {
     rights: 'All rights reserved.',
     source: 'Source on GitHub',
+    cv: 'Résumé (CV)',
     backToTop: 'Back to top',
   },
   duration: {
@@ -440,6 +441,7 @@ const ar: Dictionary = {
   footer: {
     rights: 'جميع الحقوق محفوظة.',
     source: 'الشيفرة على GitHub',
+    cv: 'السيرة الذاتية',
     backToTop: 'العودة للأعلى',
   },
   duration: {

@@ -33,8 +33,14 @@ export function CvPage({ style }: { style: CvStyle }) {
   const Layout = LAYOUTS[style];
 
   useEffect(() => {
-    document.title = `${cv.name} · CV`;
-  }, [cv.name]);
+    document.title = `${cv.name} · CV${style === 'designed' ? '' : ` (${STYLE_LABELS[style].en})`}`;
+    // The alternative layouts repeat /cv word for word, so keep them out of search results.
+    const robots = document.createElement('meta');
+    robots.name = 'robots';
+    robots.content = style === 'designed' ? 'index,follow' : 'noindex,follow';
+    document.head.append(robots);
+    return () => robots.remove();
+  }, [cv.name, style]);
 
   return (
     <div className={styles.page} data-cv-style={style} data-cv-hash={cvFingerprint(allCvModels())}>

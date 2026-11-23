@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { certificates, courses, degrees, diplomas, profile, projects, roles, skills } from '../data/resume';
 import manifestText from '../../public/downloads/cv-manifest.json?raw';
 import { LANGUAGES } from '../i18n/types';
-import { CV_STYLES, allCvModels, buildCv, cvFileName, cvFingerprint } from './cv';
+import { CV_STYLES, allCvModels, buildCv, cvFileName, cvFingerprint, cvPath, cvStyleFromPath } from './cv';
 
 describe('cv model', () => {
   for (const language of LANGUAGES) {
@@ -43,5 +43,14 @@ describe('cv downloads', () => {
     }
     // If this fails, the résumé data changed: run `npm run cv:pdf` and commit the new PDFs.
     expect(manifest.hash).toBe(cvFingerprint(allCvModels()));
+  });
+});
+
+describe('cv routes', () => {
+  it('maps every style to a flat path and back', () => {
+    for (const style of CV_STYLES) expect(cvStyleFromPath(cvPath(style))).toBe(style);
+    expect(cvPath('designed')).toBe('/cv');
+    expect(cvStyleFromPath('/cv/')).toBe('designed');
+    expect(cvStyleFromPath('/cv-unknown')).toBe('designed');
   });
 });

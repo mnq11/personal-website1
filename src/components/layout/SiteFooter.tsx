@@ -18,6 +18,9 @@ export function SiteFooter() {
         <p>
           © {year} {profile.name[language]}. {t.footer.rights}
         </p>
+        <a href="/cv" className={styles.link}>
+          {t.footer.cv}
+        </a>
         <ExternalLink href={SOURCE_URL} className={styles.link}>
           {t.footer.source}
         </ExternalLink>
