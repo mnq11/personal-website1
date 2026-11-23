@@ -28,7 +28,6 @@ export const CV_LABELS = {
   present: { en: 'Present', ar: 'الحاضر' },
   statProjects: { en: 'Projects', ar: 'مشروع' },
   statSkills: { en: 'Skills', ar: 'مهارة' },
-  statCredits: { en: 'University credits', ar: 'نقطة جامعية' },
   statCertificates: { en: 'Certificates', ar: 'شهادة' },
   legend: { en: 'Filled: core skill', ar: 'الممتلئ: مهارة أساسية' },
 } satisfies Record<string, Localized>;
@@ -132,7 +131,6 @@ export function buildCv(language: Language): CvModel {
     highlights: [
       { value: String(projects.length), label: l(CV_LABELS.statProjects) },
       { value: String(skills.length), label: l(CV_LABELS.statSkills) },
-      { value: String(courses.reduce((sum, course) => sum + course.credits, 0)), label: l(CV_LABELS.statCredits) },
       { value: String(certificates.length), label: l(CV_LABELS.statCertificates) },
     ],
     certificates: certificates.map((certificate) => ({
