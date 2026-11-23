@@ -1,67 +1,96 @@
 .sheet {
+  --ink: #16202b;
+  --muted: #5b6876;
+  --line: #e4eaf0;
+  --night: #081521;
+  --night-2: #12314a;
+  --teal: #1c7c70;
+  --teal-soft: #e6f4f1;
+  --saffron: #f2b544;
   max-width: 62rem;
   margin: 0 auto;
-  background: #fff
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='140' fill='none' stroke='%23eef0f3' stroke-width='6'%3E%3Crect x='20' y='60' width='70' height='70' rx='18'/%3E%3Crect x='120' y='20' width='110' height='110' rx='26'/%3E%3Ccircle cx='290' cy='95' r='32'/%3E%3Crect x='340' y='30' width='130' height='100' rx='28'/%3E%3C/svg%3E")
-    repeat-x bottom / 520px 140px;
-  box-shadow: 0 10px 40px rgb(20 30 45 / 0.15);
+  background: #fff;
+  color: var(--ink);
+  font-size: 0.93rem;
+  line-height: 1.55;
+  box-shadow: 0 12px 48px rgb(8 21 33 / 0.18);
+  overflow: hidden;
 }
 
-.head {
+/* Hero ------------------------------------------------------------ */
+.hero {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  padding: 2rem 2.25rem;
-  background: var(--cv-slate);
+  padding: 2.75rem 2.75rem 2.5rem;
   color: #fff;
+  background:
+    radial-gradient(circle at 88% 18%, rgb(92 214 191 / 0.22), transparent 42%),
+    radial-gradient(circle at 8% 110%, rgb(242 181 68 / 0.18), transparent 40%),
+    linear-gradient(135deg, var(--night) 0%, var(--night-2) 100%);
 }
 
-.head h1 {
-  margin: 0;
-  font-size: 2.4rem;
-  font-weight: 400;
-  line-height: 1.1;
+.heroText {
+  max-width: 38rem;
 }
 
 .role {
-  margin: 0.4rem 0 1rem;
-  color: var(--cv-teal);
-  font-size: 1.2rem;
+  margin: 0 0 0.5rem;
+  color: var(--saffron);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 }
 
-.summary {
+.hero h1 {
+  margin: 0 0 1rem;
+  font-size: 2.7rem;
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+.lede {
   margin: 0 0 0.5rem;
-  max-width: 42rem;
-  line-height: 1.55;
-  font-size: 0.98rem;
+  color: rgb(232 239 243 / 0.88);
+  font-size: 0.97rem;
 }
 
 .portrait img {
   display: block;
-  width: 190px;
-  height: 190px;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
-  border: 5px solid var(--cv-teal);
-  border-radius: 1.2rem;
+  border: 3px solid var(--saffron);
+  border-radius: 1.6rem;
+  box-shadow:
+    0 0 0 8px rgb(242 181 68 / 0.14),
+    0 18px 40px rgb(0 0 0 / 0.35);
 }
 
+/* Contact and numbers --------------------------------------------- */
 .contact {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.9rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.6rem;
   margin: 0;
-  padding: 1.4rem 2.25rem;
+  padding: 1rem 2.75rem;
   list-style: none;
-  background: var(--cv-slate-deep);
-  color: #fff;
-  font-size: 0.95rem;
+  background: #0c1c2b;
+  color: #dbe6ee;
+  font-size: 0.88rem;
 }
 
 .contact li {
   display: flex;
   align-items: center;
-  gap: 0.7rem;
+  gap: 0.5rem;
+}
+
+.contact svg {
+  color: var(--saffron);
 }
 
 .contact a {
@@ -69,139 +98,215 @@
   text-decoration: none;
 }
 
-.columns {
-  display: flex;
-  align-items: flex-start;
-  gap: 0 2.5rem;
-  padding: 2rem 2.25rem 8rem;
+.numbers {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-block-end: 1px solid var(--line);
 }
 
-.columns > div {
-  flex: 1 1 0;
-  min-width: 0;
+.numbers li {
+  display: grid;
+  gap: 0.1rem;
+  padding: 1.1rem 1rem;
+  text-align: center;
 }
 
-.block {
-  margin-block-end: 2.2rem;
+.numbers li + li {
+  border-inline-start: 1px solid var(--line);
 }
 
-.para {
-  margin: 0 0 0.7rem;
-  font-size: 0.93rem;
-  line-height: 1.55;
+.numbers strong {
+  color: var(--teal);
+  font-size: 1.9rem;
+  font-weight: 600;
+  line-height: 1.1;
 }
 
-.sub {
-  margin: 1.2rem 0 0.8rem;
-  color: var(--cv-teal);
-  font-size: 1rem;
-}
-
-.block h2 {
-  display: inline-block;
-  margin: 0 0 1.1rem;
-  padding-block-end: 0.35rem;
-  border-block-end: 3px solid var(--cv-teal);
-  color: var(--cv-teal);
-  font-size: 1.35rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
+.numbers span {
+  color: var(--muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
+/* Flowing columns -------------------------------------------------- */
+.columns {
+  column-count: 2;
+  column-gap: 2.8rem;
+  column-rule: 1px solid var(--line);
+  padding: 2rem 2.75rem 3rem;
+}
+
+.block {
+  margin: 0 0 1.9rem;
+}
+
+.block h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0 0 1rem;
+  color: var(--teal);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  break-after: avoid;
+}
+
+.block h2::before {
+  content: '';
+  width: 1.6rem;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--saffron);
+}
+
 .entry {
-  margin-block-end: 1.4rem;
+  position: relative;
+  margin: 0 0 1.15rem;
+  padding-inline-start: 1rem;
+  border-inline-start: 2px solid var(--line);
+  break-inside: avoid;
+}
+
+.entry::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: -5px;
+  top: 0.45rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--teal);
 }
 
 .entry h3 {
   margin: 0;
-  font-size: 1.2rem;
-  font-weight: 700;
-}
-
-.entry .plain {
-  font-size: 1.05rem;
-  font-weight: 450;
+  font-size: 1rem;
+  font-weight: 650;
+  line-height: 1.3;
 }
 
 .org {
-  margin: 0.1rem 0 0.3rem;
-  font-size: 1.1rem;
+  margin: 0.1rem 0 0.35rem;
+  color: var(--muted);
+  font-size: 0.88rem;
 }
 
 .when {
-  margin: 0 0 0.25rem;
-  color: var(--cv-teal);
-  font-style: italic;
-  font-size: 0.9rem;
+  display: inline-block;
+  margin-inline-start: 0.4rem;
+  padding: 0.05rem 0.5rem;
+  border-radius: 999px;
+  background: var(--teal-soft);
+  color: var(--teal);
+  font-size: 0.76rem;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
-.caption {
+.text {
   margin: 0.2rem 0;
-  color: #5a6370;
-  font-style: italic;
-  font-size: 0.9rem;
 }
 
-.courses,
-.bullets {
+.small {
   margin: 0.35rem 0 0;
-  padding: 0;
-  list-style: none;
-  font-size: 0.93rem;
+  color: var(--muted);
+  font-size: 0.8rem;
   line-height: 1.5;
 }
 
-.courses {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.3rem 1rem;
+.small a {
+  color: var(--teal);
 }
 
-.courses li,
+.para {
+  margin: 0 0 0.7rem;
+}
+
+.bullets {
+  margin: 0.3rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
 .bullets li {
   position: relative;
-  padding-inline-start: 1rem;
-  margin-block-end: 0.3rem;
+  margin-block-end: 0.25rem;
+  padding-inline-start: 0.9rem;
+  font-size: 0.88rem;
 }
 
-.courses li::before,
 .bullets li::before {
   content: '';
   position: absolute;
   inset-inline-start: 0;
-  top: 0.55em;
-  width: 0.4rem;
-  height: 0.4rem;
+  top: 0.62em;
+  width: 0.34rem;
+  height: 0.34rem;
   border-radius: 50%;
-  background: var(--cv-teal);
+  background: var(--saffron);
 }
 
-.bullets a {
-  color: var(--cv-teal);
+/* Skills and pills -------------------------------------------------- */
+.group {
+  margin-block-end: 0.8rem;
+  break-inside: avoid;
+}
+
+.group h3 {
+  margin: 0 0 0.35rem;
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
   margin: 0;
   padding: 0;
   list-style: none;
+  line-height: 2.1;
 }
 
 .pills li {
-  padding: 0.3rem 0.7rem;
-  border-radius: 0.35rem;
-  background: var(--cv-pill);
+  display: inline-block;
+  margin: 0 0.3rem 0.15rem 0;
+  padding: 0 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #f6f9fb;
+  color: var(--ink);
+  font-size: 0.8rem;
+  line-height: 1.7;
+  white-space: nowrap;
+}
+
+[dir='rtl'] .pills li {
+  margin: 0 0 0.15rem 0.3rem;
+}
+
+.pills li.core {
+  border-color: var(--teal);
+  background: var(--teal);
   color: #fff;
-  font-size: 0.9rem;
+}
+
+.legend {
+  margin: 0.4rem 0 0;
+  color: var(--muted);
+  font-size: 0.75rem;
 }
 
 .langs {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.8rem 1.5rem;
+  gap: 0.6rem 1rem;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -211,99 +316,53 @@
   display: grid;
 }
 
-@media (max-width: 760px) {
-  .columns {
-    flex-direction: column;
-  }
+.langs span {
+  color: var(--teal);
+  font-size: 0.8rem;
+}
 
-  .head {
+@media (max-width: 760px) {
+  .hero {
     flex-direction: column-reverse;
     align-items: flex-start;
-    padding: 1.5rem 1.25rem;
+    padding: 1.75rem 1.25rem;
+  }
+
+  .hero h1 {
+    font-size: 2.1rem;
   }
 
   .contact {
-    grid-template-columns: 1fr;
     padding-inline: 1.25rem;
+  }
+
+  .numbers {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .columns {
-    grid-template-columns: 1fr;
+    column-count: 1;
     padding-inline: 1.25rem;
-  }
-
-  .courses {
-    grid-template-columns: 1fr;
   }
 }
 
 @media print {
-  /* Flex columns do not fragment across pages in Chromium, so print with floats. */
-  .columns {
-    display: block;
-    overflow: hidden;
-    padding-bottom: 4rem;
-  }
-
-  .columns > div:first-child {
-    float: left;
-    width: 47%;
-  }
-
-  .columns > div:last-child {
-    float: right;
-    width: 47%;
-  }
-
-  [dir='rtl'] .columns > div:first-child {
-    float: right;
-  }
-
-  [dir='rtl'] .columns > div:last-child {
-    float: left;
-  }
   .sheet {
     box-shadow: none;
     max-width: none;
   }
 
-  .head,
-  .contact,
-  .pills li,
-  .portrait img,
-  .sheet {
+  .sheet,
+  .sheet * {
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
-  }
-
-  .entry {
-    break-inside: avoid;
-  }
-
-  /* A flex list cannot split across pages; inline-block pills can. */
-  .pills {
-    display: block;
-  }
-
-  .pills li {
-    display: inline;
-    margin: 0 0.15rem;
-    padding: 0.2rem 0.6rem;
-    line-height: 2.5;
-    white-space: nowrap;
-  }
-
-  /* A zero-width space gives the inline pills somewhere to wrap. */
-  .pills li::after {
-    content: '\200b';
-    white-space: normal;
   }
 
   .sheet a::after {
     content: none !important;
   }
 
-  .block h2 {
-    break-after: avoid;
+  .columns {
+    padding-bottom: 0;
   }
 }
