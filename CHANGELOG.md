@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- A `/cv` page laid out like the printed résumé (English and Arabic, printable), built from the same data as the site. New data: earlier roles (HP in Sana’a, a 2015 placement), French, interests, design patterns and mock testing.
 - A soft cursor ring and magnetic buttons for fine pointers (off with reduced motion).
 - A “Save as PDF” button in Contact that uses the print stylesheet.
 

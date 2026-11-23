@@ -138,13 +138,21 @@ export const profile = {
     { name: { en: 'Arabic', ar: 'العربية' }, level: { en: 'Native', ar: 'اللغة الأم' } },
     { name: { en: 'English', ar: 'الإنجليزية' }, level: { en: 'Full professional', ar: 'إتقان مهني كامل' } },
     { name: { en: 'Swedish', ar: 'السويدية' }, level: { en: 'Full professional', ar: 'إتقان مهني كامل' } },
+    { name: { en: 'French', ar: 'الفرنسية' }, level: { en: 'Elementary', ar: 'مستوى مبتدئ' } },
   ],
   interests: [
     { en: 'Reading', ar: 'القراءة' },
     { en: 'Football', ar: 'كرة القدم' },
     { en: 'Horse riding', ar: 'ركوب الخيل' },
     { en: 'Training', ar: 'ممارسة الرياضة' },
+    { en: 'Food', ar: 'الطعام' },
+    { en: 'Travel', ar: 'السفر' },
+    { en: 'Dogs', ar: 'الكلاب' },
   ] satisfies Localized[],
+  background: {
+    en: 'I grew up in Yemen, lived in Egypt and Saudi Arabia, and have worked in several multicultural environments, which taught me to adapt quickly.',
+    ar: 'نشأت في اليمن وعشت في مصر والسعودية، وعملت في بيئات متعددة الثقافات، فتعلّمت التكيّف بسرعة.',
+  },
   traits: [
     { en: 'Creative', ar: 'مبدع' },
     { en: 'Critical thinking', ar: 'تفكير نقدي' },
@@ -277,6 +285,32 @@ export const roles: Role[] = [
         ar: 'تعاملت مع حالات الأزمات بالتهدئة والتنسيق السريع مع جهات الدعم المناسبة.',
       },
     ],
+  },
+  {
+    id: 'work-placement',
+    organisation: { en: 'Alert Personal, Kristianstad', ar: 'Alert Personal، كريستيانستاد' },
+    title: { en: 'Work-placement intern', ar: 'متدرّب ضمن برنامج تدريب عملي' },
+    software: false,
+    start: '2015-01',
+    end: '2015-05',
+    summary: {
+      en: 'A short work placement in Kristianstad, my first step into Swedish working life.',
+      ar: 'تدريب عملي قصير في كريستيانستاد، كان أول خطوة لي في سوق العمل السويدي.',
+    },
+    highlights: [],
+  },
+  {
+    id: 'hp-yemen',
+    organisation: { en: 'HP, Sana’a branch', ar: 'HP، فرع صنعاء' },
+    title: { en: 'Data engineer assistant', ar: 'مساعد مهندس بيانات' },
+    software: false,
+    start: '2009-01',
+    end: '2011-01',
+    summary: {
+      en: 'Worked as a data engineer assistant at HP’s branch in Yemen, together with technicians’ companies.',
+      ar: 'عملت مساعد مهندس بيانات في فرع HP في اليمن، مع شركات الفنيين.',
+    },
+    highlights: [],
   },
 ];
 
@@ -646,6 +680,8 @@ export const skills: Skill[] = [
   { name: 'Git', domain: 'delivery', tier: 'core', verified: true },
   { name: 'Agile', domain: 'delivery', tier: 'core' },
   { name: 'Unit testing', domain: 'delivery', tier: 'core' },
+  { name: 'Mock testing', domain: 'delivery', tier: 'proficient' },
+  { name: 'Design patterns', domain: 'backend', tier: 'proficient' },
   { name: 'JUnit', domain: 'delivery', tier: 'proficient' },
   { name: 'Integration testing', domain: 'delivery', tier: 'proficient' },
   { name: 'Test-driven development', domain: 'delivery', tier: 'proficient' },
