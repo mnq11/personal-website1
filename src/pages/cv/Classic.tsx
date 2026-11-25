@@ -99,6 +99,11 @@ export function Classic({ cv }: { cv: CvModel }) {
         <Row label={l(CV_LABELS.skills)}>
           <p className="ltr">{cv.skills.join(', ')}</p>
         </Row>
+        {cv.areas.map((area) => (
+          <Row key={area.title} label={area.title}>
+            <p className="ltr">{area.tech.join(', ')}</p>
+          </Row>
+        ))}
         <Row label={l(CV_LABELS.languages)}>
           <p>{cv.languages.map((item) => `${item.name}: ${item.level}`).join(' | ')}</p>
         </Row>

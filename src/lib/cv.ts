@@ -1,4 +1,4 @@
-import { certificates, courses, degrees, diplomas, profile, projects, roles, skills, socials } from '../data/resume';
+import { certificates, courses, degrees, diplomas, profile, projects, roles, skills, socials, buildAreas } from '../data/resume';
 import { dictionaries } from '../i18n/dictionary';
 import type { Language, Localized } from '../i18n/types';
 import { LOCALE } from '../i18n/types';
@@ -22,6 +22,7 @@ export const CV_LABELS = {
   certificates: { en: 'Certificates', ar: 'الشهادات' },
   soft: { en: 'Soft skills', ar: 'المهارات الشخصية' },
   interests: { en: 'Interests', ar: 'الاهتمامات' },
+  built: { en: 'What I build', ar: 'ما أبنيه' },
   tasks: { en: 'Achievements / tasks', ar: 'الإنجازات / المهام' },
   thesis: { en: 'Thesis', ar: 'الرسالة' },
   stack: { en: 'Stack', ar: 'التقنيات' },
@@ -63,6 +64,7 @@ export interface CvModel {
   languages: { name: string; level: string }[];
   traits: string[];
   interests: string[];
+  areas: { title: string; lede: string; tech: string[] }[];
 }
 
 const bare = (url: string) => url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
@@ -143,6 +145,7 @@ export function buildCv(language: Language): CvModel {
     languages: profile.languages.map((item) => ({ name: l(item.name), level: l(item.level) })),
     traits: profile.traits.map(l),
     interests: profile.interests.map(l),
+    areas: buildAreas.map((area) => ({ title: l(area.title), lede: l(area.lede), tech: area.tech })),
   };
 }
 
