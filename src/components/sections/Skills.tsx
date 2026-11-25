@@ -1,5 +1,5 @@
 import { lazy, useMemo, useState } from 'react';
-import { skills, type SkillDomain } from '../../data/resume';
+import { buildAreas, skills, type SkillDomain } from '../../data/resume';
 import { useFocus } from '../../focus/context';
 import { useLanguage } from '../../i18n/context';
 import { DOMAIN_ORDER, TIER_ORDER, buildSkillMatrix } from '../../lib/skills';
@@ -11,7 +11,7 @@ import styles from './Skills.module.css';
 const SkillGlobe = lazy(() => import('../../scene/sections/SkillGlobe'));
 
 export function Skills() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   // Without WebGL there is no globe, so the full list is the main content and starts open.
   const webgl = supportsWebGL();
   const matrix = useMemo(() => buildSkillMatrix(skills), []);
@@ -53,6 +53,23 @@ export function Skills() {
           {t.skills.verifiedLegend(verified.size)}
         </p>
       </div>
+
+      <h3 className={styles.builtTitle}>{t.skills.builtTitle}</h3>
+      <ul className={styles.areas}>
+        {buildAreas.map((area) => (
+          <li key={area.id} className={styles.area}>
+            <h4>{area.title[language]}</h4>
+            <p>{area.lede[language]}</p>
+            <ul className={styles.tech}>
+              {area.tech.map((item) => (
+                <li key={item} className="ltr">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ul>
 
       <details className={styles.matrix} open={!webgl}>
         <summary>{t.skills.matrix}</summary>

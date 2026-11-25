@@ -18,6 +18,13 @@ export function Ats({ cv }: { cv: CvModel }) {
       <h2>{l(CV_LABELS.skills)}</h2>
       <p className="ltr">{cv.skills.join(', ')}</p>
 
+      <h2>{l(CV_LABELS.built)}</h2>
+      {cv.areas.map((area) => (
+        <p key={area.title}>
+          <strong>{area.title}:</strong> <span className="ltr">{area.tech.join(', ')}</span>
+        </p>
+      ))}
+
       <h2>{l(CV_LABELS.experience)}</h2>
       {cv.roles.map((role) => (
         <section key={role.title + role.when} className={styles.entry}>

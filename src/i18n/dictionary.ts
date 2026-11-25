@@ -134,6 +134,7 @@ const en = {
       delivery: 'DevOps, testing and security',
       mobile: 'Mobile and desktop',
     },
+    builtTitle: 'What I build',
     verified: 'Passed LinkedIn skill assessment',
     verifiedLegend: (count: number) => `${count} skills verified by LinkedIn skill assessments`,
     tiers: {
@@ -360,6 +361,7 @@ const ar: Dictionary = {
       delivery: 'DevOps والاختبار والأمن',
       mobile: 'الجوال وسطح المكتب',
     },
+    builtTitle: 'ما أبنيه',
     verified: 'اجتاز تقييم المهارة على LinkedIn',
     verifiedLegend: (count: number) => `${count} مهارة موثّقة باجتياز تقييمات LinkedIn`,
     tiers: {

@@ -82,6 +82,23 @@ export function Designed({ cv }: { cv: CvModel }) {
         </section>
 
         <section className={styles.block}>
+          <h2>{l(CV_LABELS.built)}</h2>
+          {cv.areas.map((area) => (
+            <div key={area.title} className={styles.group}>
+              <h3>{area.title}</h3>
+              <p className={styles.small}>{area.lede}</p>
+              <ul className={styles.pills}>
+                {area.tech.map((item) => (
+                  <li key={item} className="ltr">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </section>
+
+        <section className={styles.block}>
           <h2>{l(CV_LABELS.experience)}</h2>
           {cv.roles.map((role) => (
             <div key={role.title + role.when} className={styles.entry}>

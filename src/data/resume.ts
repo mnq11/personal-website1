@@ -576,6 +576,46 @@ export const projects: Project[] = [
 
 export const certificates: Certificate[] = [
   {
+    id: 'dlai-context-engineering',
+    name: { en: 'Context Engineering', ar: 'هندسة السياق' },
+    issuer: 'DeepLearning.AI with Chroma',
+    year: 2025,
+    summary: {
+      en: 'Agent context components and failure modes, agentic search and retrieval evaluation, context pruning and compaction, and agentic memory.',
+      ar: 'مكوّنات سياق الوكيل وأنماط فشله، والبحث الوكيلي وتقييم الاسترجاع، وتقليم السياق وضغطه، والذاكرة الوكيلية.',
+    },
+  },
+  {
+    id: 'scrimba-context-engineering',
+    name: { en: 'Learn Context Engineering', ar: 'تعلّم هندسة السياق' },
+    issuer: 'Scrimba',
+    year: 2025,
+    summary: {
+      en: 'Built a chat application that manages its own context so it neither crashes nor forgets, using the Vercel AI SDK.',
+      ar: 'بناء تطبيق محادثة يدير سياقه بنفسه فلا ينهار ولا ينسى، باستخدام Vercel AI SDK.',
+    },
+  },
+  {
+    id: 'dlai-agent-memory',
+    name: { en: 'LLMs as Operating Systems: Agent Memory', ar: 'النماذج اللغوية كأنظمة تشغيل: ذاكرة الوكلاء' },
+    issuer: 'DeepLearning.AI with Letta',
+    year: 2025,
+    summary: {
+      en: 'A two-tier memory model in which agents edit their own memory.',
+      ar: 'نموذج ذاكرة من مستويين يعدّل فيه الوكيل ذاكرته بنفسه.',
+    },
+  },
+  {
+    id: 'dlai-langgraph-memory',
+    name: { en: 'Long-Term Agentic Memory with LangGraph', ar: 'الذاكرة الوكيلية طويلة المدى مع LangGraph' },
+    issuer: 'DeepLearning.AI with LangChain',
+    year: 2025,
+    summary: {
+      en: 'Semantic, episodic and procedural memory, built into a personal email agent.',
+      ar: 'الذاكرة الدلالية والحدثية والإجرائية، ضمن وكيل بريد شخصي.',
+    },
+  },
+  {
     id: 'edraak-ml',
     name: { en: 'Data Science and Machine Learning', ar: 'علم البيانات وتعلّم الآلة' },
     issuer: 'Edraak',
@@ -630,6 +670,71 @@ export const certificates: Certificate[] = [
 /**
  * Skills from the CV and LinkedIn. `verified` marks the ones with a passed LinkedIn skill assessment.
  */
+export interface BuildArea {
+  id: string;
+  title: Localized;
+  lede: Localized;
+  tech: string[];
+}
+
+/** The kinds of software built across personal and professional repositories, described without naming projects. */
+export const buildAreas: BuildArea[] = [
+  {
+    id: 'platforms',
+    title: { en: 'Full-stack web platforms', ar: 'منصات ويب متكاملة' },
+    lede: {
+      en: 'Products with a front end, an API and a database, including sign-in, roles and validated input.',
+      ar: 'منتجات بواجهة وواجهة برمجية وقاعدة بيانات، تشمل تسجيل الدخول والصلاحيات والتحقق من المدخلات.',
+    },
+    tech: ['TypeScript', 'React', 'Next.js', 'Tailwind CSS', 'Supabase', 'PostgreSQL', 'Node.js', 'Express', 'Zod'],
+  },
+  {
+    id: 'analytics',
+    title: { en: 'Analytics and maps', ar: 'تحليلات وخرائط' },
+    lede: {
+      en: 'Dashboards, charts and interactive maps that make large data sets readable.',
+      ar: 'لوحات ورسوم وخرائط تفاعلية تجعل البيانات الكبيرة مقروءة.',
+    },
+    tech: ['Recharts', 'D3', 'Leaflet', 'SQL', 'Python'],
+  },
+  {
+    id: 'simulation',
+    title: { en: 'Simulation and 3D', ar: 'محاكاة وثلاثي الأبعاد' },
+    lede: {
+      en: 'Interactive simulations, learning tools and 3D scenes on the web and in games.',
+      ar: 'محاكاة تفاعلية وأدوات تعليمية ومشاهد ثلاثية الأبعاد على الويب وفي الألعاب.',
+    },
+    tech: ['Three.js', 'React Three Fiber', 'C#', 'Unity', 'Shaders'],
+  },
+  {
+    id: 'ai',
+    title: { en: 'AI tooling', ar: 'أدوات الذكاء الاصطناعي' },
+    lede: {
+      en: 'Speech-to-text services and applications built on language models.',
+      ar: 'خدمات تحويل الكلام إلى نص وتطبيقات مبنية على النماذج اللغوية.',
+    },
+    tech: ['Python', 'FastAPI', 'Whisper', 'LLM APIs', 'Prompt and context design'],
+  },
+  {
+    id: 'quality',
+    title: { en: 'Quality and delivery', ar: 'الجودة والتسليم' },
+    lede: {
+      en: 'Automated tests, continuous integration and repeatable deployments.',
+      ar: 'اختبارات آلية وتكامل مستمر ونشر قابل للتكرار.',
+    },
+    tech: ['Vitest', 'Jest', 'Playwright', 'GitHub Actions', 'Docker', 'Vercel'],
+  },
+  {
+    id: 'foundations',
+    title: { en: 'Foundations', ar: 'الأساسيات' },
+    lede: {
+      en: 'Earlier work in Java, JavaScript and the MERN stack, plus data structures, databases and operating systems.',
+      ar: 'أعمال أقدم بـJava وJavaScript وحزمة MERN، مع هياكل البيانات وقواعد البيانات وأنظمة التشغيل.',
+    },
+    tech: ['Java', 'Spring', 'Hibernate', 'JavaFX', 'MySQL', 'MongoDB', 'Express', 'Redux', 'Bootstrap'],
+  },
+];
+
 export const skills: Skill[] = [
   // Front-end
   { name: 'React', domain: 'frontend', tier: 'core', verified: true },

@@ -61,6 +61,12 @@ export function Compact({ cv }: { cv: CvModel }) {
           ))}
           <h2>{l(CV_LABELS.skills)}</h2>
           <p className="ltr">{cv.skills.join(', ')}</p>
+          <h2>{l(CV_LABELS.built)}</h2>
+          {cv.areas.map((area) => (
+            <p key={area.title}>
+              <strong>{area.title}:</strong> <span className="ltr">{area.tech.join(', ')}</span>
+            </p>
+          ))}
           <h2>{l(CV_LABELS.soft)}</h2>
           <p>{cv.traits.join(', ')}</p>
           <h2>{l(CV_LABELS.interests)}</h2>
