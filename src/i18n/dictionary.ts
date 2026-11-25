@@ -48,7 +48,8 @@ const en = {
   ask: {
     open: 'Ask my CV',
     title: 'Ask my CV',
-    intro: 'Ask in English or Arabic. The page answers by moving: the globe, the helix and the project ring all respond.',
+    intro:
+      'Ask in English or Arabic. The page answers by moving: the globe, the helix and the project ring all respond.',
     label: 'Your question',
     placeholder: 'Do you know Spring?',
     send: 'Ask',
@@ -159,6 +160,8 @@ const en = {
     visit: 'Visit the site',
     builtWith: 'Built with',
     listLabel: 'All projects',
+    groups: { selected: 'Selected work', earlier: 'Earlier projects' },
+    origins: { professional: 'Professional work', thesis: 'Thesis' },
     kinds: {
       web: 'Web',
       mobile: 'Mobile',
@@ -303,8 +306,7 @@ const ar: Dictionary = {
     tech: (name: string, list: string) => `${name} ضمن تقنيات ${list}.`,
     domain: (field: string, list: string) => `${field}: ${list}.`,
     topics: {
-      contact: (email: string) =>
-        `راسلني على ${email}، أو تجدني على GitHub وLinkedIn وDEV وX. أردّ خلال يومين تقريباً.`,
+      contact: (email: string) => `راسلني على ${email}، أو تجدني على GitHub وLinkedIn وDEV وX. أردّ خلال يومين تقريباً.`,
       location: (place: string) => `أقيم في ${place}.`,
       languages: (list: string) => `أتحدث ${list}.`,
       certificates: (count: string, list: string) => `${count} شهادات ودورات: ${list}.`,
@@ -386,6 +388,8 @@ const ar: Dictionary = {
     visit: 'زيارة الموقع',
     builtWith: 'التقنيات',
     listLabel: 'كل المشاريع',
+    groups: { selected: 'أعمال مختارة', earlier: 'مشاريع سابقة' },
+    origins: { professional: 'عمل مهني', thesis: 'رسالة علمية' },
     kinds: {
       web: 'ويب',
       mobile: 'جوال',
