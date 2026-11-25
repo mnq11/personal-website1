@@ -146,9 +146,14 @@ export function Projects() {
       </LazyScene>
 
       <div className={styles.showcase} onKeyDown={onKeyDown}>
-        <article className={styles.detail} aria-live="polite" style={{ ['--accent' as string]: KIND_COLORS[project.kind] }}>
+        <article
+          className={styles.detail}
+          aria-live="polite"
+          style={{ ['--accent' as string]: KIND_COLORS[project.kind] }}
+        >
           <p className={styles.kicker}>
             <span className={styles.kind}>{t.projects.kinds[project.kind]}</span>
+            {project.origin ? <span className={styles.origin}>{t.projects.origins[project.origin]}</span> : null}
             {project.start ? <span className={styles.years}>{years(project.start, project.end)}</span> : null}
           </p>
           <h3 className={styles.name}>{project.name}</h3>
@@ -184,22 +189,29 @@ export function Projects() {
             </button>
           </div>
           <p className={styles.listLabel}>{t.projects.listLabel}</p>
-          <ul className={styles.index}>
-            {projects.map((item, i) => (
-              <li key={item.id}>
-                <button
-                  type="button"
-                  className={styles.indexItem}
-                  aria-current={i === active ? 'true' : undefined}
-                  onClick={() => setActive(i)}
-                >
-                  <span className={styles.dot} style={{ background: KIND_COLORS[item.kind] }} />
-                  <span className={styles.indexName}>{item.name}</span>
-                  <span className={styles.indexYear}>{item.start ? years(item.start, item.end) : ''}</span>
-                </button>
-              </li>
-            ))}
-          </ul>
+          {([true, false] as const).map((featured) => (
+            <div key={String(featured)} className={styles.group}>
+              <p className={styles.groupLabel}>{featured ? t.projects.groups.selected : t.projects.groups.earlier}</p>
+              <ul className={styles.index}>
+                {projects.map((item, i) =>
+                  Boolean(item.featured) === featured ? (
+                    <li key={item.id}>
+                      <button
+                        type="button"
+                        className={styles.indexItem}
+                        aria-current={i === active ? 'true' : undefined}
+                        onClick={() => setActive(i)}
+                      >
+                        <span className={styles.dot} style={{ background: KIND_COLORS[item.kind] }} />
+                        <span className={styles.indexName}>{item.name}</span>
+                        <span className={styles.indexYear}>{item.start ? years(item.start, item.end) : ''}</span>
+                      </button>
+                    </li>
+                  ) : null,
+                )}
+              </ul>
+            </div>
+          ))}
         </div>
       </div>
 

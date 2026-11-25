@@ -81,6 +81,10 @@ export interface Project {
   features: Localized[];
   stack: string[];
   url?: string;
+  /** Shown first, under "Selected work". */
+  featured?: boolean;
+  /** Only set where the source documents say so. */
+  origin?: 'professional' | 'thesis';
 }
 
 export interface Certificate {
@@ -345,7 +349,10 @@ export const degrees: Degree[] = [
     id: 'bachelor',
     title: { en: 'BSc, Computer Science', ar: 'بكالوريوس العلوم في علوم الحاسوب' },
     institution: { en: 'Kristianstad University', ar: 'جامعة كريستيانستاد' },
-    programme: { en: 'Bachelor Programme in Software Development (software engineering)', ar: 'برنامج بكالوريوس تطوير البرمجيات (هندسة البرمجيات)' },
+    programme: {
+      en: 'Bachelor Programme in Software Development (software engineering)',
+      ar: 'برنامج بكالوريوس تطوير البرمجيات (هندسة البرمجيات)',
+    },
     start: '2019-09',
     end: '2022-11',
     credits: 180,
@@ -403,7 +410,14 @@ export const courses: Course[] = [
   course('DA224C', 'Development towards Mobile Platforms', 'التطوير لمنصات الجوال', 7.5, 1, '2021-03', true),
   course('DA270B', 'Data Communication', 'اتصالات البيانات', 7.5, 1, '2021-04'),
   course('DA216C', 'Software Engineering 1', 'هندسة البرمجيات 1', 7.5, 1, '2021-06', true),
-  course('EN242K', 'International Relations in a Historical Perspective', 'العلاقات الدولية من منظور تاريخي', 15, 1, '2021-06'),
+  course(
+    'EN242K',
+    'International Relations in a Historical Perspective',
+    'العلاقات الدولية من منظور تاريخي',
+    15,
+    1,
+    '2021-06',
+  ),
   course('DA273B', 'Computer Security', 'أمن الحاسوب', 7.5, 1, '2021-08'),
   course('DA374F', 'Network Applications', 'تطبيقات الشبكات', 7.5, 1, '2021-12'),
   course('DA326C', 'Software Engineering 2', 'هندسة البرمجيات 2', 15, 1, '2022-01'),
@@ -412,16 +426,53 @@ export const courses: Course[] = [
   course('DA377C', 'Software Development for the Web', 'تطوير البرمجيات للويب', 7.5, 1, '2022-09'),
   course('DA399C', 'Bachelor Thesis in Computer Science', 'رسالة البكالوريوس في علوم الحاسوب', 15, 1, '2022-11'),
   course('DT581B', 'Mobile Platforms', 'منصات الجوال', 6, 2, '2023-01', true),
-  course('DT580C', 'Computer Science Methods and Sustainable Development', 'مناهج علوم الحاسوب والتنمية المستدامة', 6, 2, '2023-01'),
+  course(
+    'DT580C',
+    'Computer Science Methods and Sustainable Development',
+    'مناهج علوم الحاسوب والتنمية المستدامة',
+    6,
+    2,
+    '2023-01',
+  ),
   course('DT586D', 'Project in Multidisciplinary Contexts', 'مشروع في سياقات متعددة التخصصات', 9, 2, '2023-04'),
   course('DT583D', 'Wireless Network Security', 'أمن الشبكات اللاسلكية', 6, 2, '2023-06', true),
-  course('DT587C', 'Independent Master Thesis in Computer Science', 'رسالة ماجستير مستقلة في علوم الحاسوب', 15, 2, '2025-06', true),
+  course(
+    'DT587C',
+    'Independent Master Thesis in Computer Science',
+    'رسالة ماجستير مستقلة في علوم الحاسوب',
+    15,
+    2,
+    '2025-06',
+    true,
+  ),
 ];
 
 export const projects: Project[] = [
   {
+    id: 'ai-childrens-books',
+    name: 'AI children’s book studio',
+    featured: true,
+    origin: 'thesis',
+    kind: 'research',
+    start: '2025-03',
+    end: '2025-06',
+    summary: {
+      en: 'My master’s thesis: designing, building and evaluating an AI-assisted tool that helps people create children’s books. Passed with distinction.',
+      ar: 'رسالة الماجستير: تصميم وبناء وتقييم أداة مدعومة بالذكاء الاصطناعي تساعد على تأليف كتب الأطفال. نالت تقدير "ناجح بامتياز".',
+    },
+    features: [
+      {
+        en: 'AI-assisted creative writing for children’s books',
+        ar: 'كتابة إبداعية لكتب الأطفال بمساعدة الذكاء الاصطناعي',
+      },
+      { en: 'Development and evaluation of the tool', ar: 'تطوير الأداة وتقييمها' },
+    ],
+    stack: ['Generative AI', 'Prompt engineering', 'Web'],
+  },
+  {
     id: 'joltna',
     name: 'Joltna',
+    featured: true,
     kind: 'web',
     start: '2023-01',
     url: 'https://www.joltna.com/',
@@ -439,24 +490,10 @@ export const projects: Project[] = [
     stack: ['Next.js', 'React', 'Tailwind CSS', 'Cloudinary', 'react-hook-form'],
   },
   {
-    id: 'ai-childrens-books',
-    name: 'AI children’s book studio',
-    kind: 'research',
-    start: '2025-03',
-    end: '2025-06',
-    summary: {
-      en: 'My master’s thesis: designing, building and evaluating an AI-assisted tool that helps people create children’s books. Passed with distinction.',
-      ar: 'رسالة الماجستير: تصميم وبناء وتقييم أداة مدعومة بالذكاء الاصطناعي تساعد على تأليف كتب الأطفال. نالت تقدير "ناجح بامتياز".',
-    },
-    features: [
-      { en: 'AI-assisted creative writing for children’s books', ar: 'كتابة إبداعية لكتب الأطفال بمساعدة الذكاء الاصطناعي' },
-      { en: 'Development and evaluation of the tool', ar: 'تطوير الأداة وتقييمها' },
-    ],
-    stack: ['Generative AI', 'Prompt engineering', 'Web'],
-  },
-  {
     id: 'hlkat-wsl-site',
     name: 'Hlkat Wsl',
+    featured: true,
+    origin: 'professional',
     kind: 'web',
     start: '2023-03',
     end: '2023-04',
@@ -472,24 +509,10 @@ export const projects: Project[] = [
     stack: ['Full stack', 'Testing', 'UAT'],
   },
   {
-    id: 'call-chat',
-    name: 'Call & chat platform',
-    kind: 'web',
-    start: '2021-08',
-    end: '2022-02',
-    summary: {
-      en: 'Real-time communication that brings messaging, voice and video calls together with collaboration tools.',
-      ar: 'منصة تواصل فوري تجمع الرسائل والمكالمات الصوتية والمرئية مع أدوات للتعاون.',
-    },
-    features: [
-      { en: 'Text, voice and video in one place', ar: 'نص وصوت وفيديو في مكان واحد' },
-      { en: 'Project plan, requirements and feature delivery', ar: 'خطة المشروع والمتطلبات وتنفيذ الميزات' },
-    ],
-    stack: ['Real-time messaging', 'Voice and video', 'Cloud'],
-  },
-  {
     id: 'rain-risk',
     name: 'Rain risk index',
+    featured: true,
+    origin: 'thesis',
     kind: 'research',
     start: '2022-01',
     end: '2022-11',
@@ -515,6 +538,22 @@ export const projects: Project[] = [
     },
     features: [{ en: 'User-defined encryption key', ar: 'مفتاح تشفير يحدده المستخدم' }],
     stack: ['Java', 'JavaFX', 'Scene Builder'],
+  },
+  {
+    id: 'call-chat',
+    name: 'Call & chat platform',
+    kind: 'web',
+    start: '2021-08',
+    end: '2022-02',
+    summary: {
+      en: 'Real-time communication that brings messaging, voice and video calls together with collaboration tools.',
+      ar: 'منصة تواصل فوري تجمع الرسائل والمكالمات الصوتية والمرئية مع أدوات للتعاون.',
+    },
+    features: [
+      { en: 'Text, voice and video in one place', ar: 'نص وصوت وفيديو في مكان واحد' },
+      { en: 'Project plan, requirements and feature delivery', ar: 'خطة المشروع والمتطلبات وتنفيذ الميزات' },
+    ],
+    stack: ['Real-time messaging', 'Voice and video', 'Cloud'],
   },
   {
     id: 'car-usage',
@@ -546,6 +585,19 @@ export const projects: Project[] = [
     stack: ['JavaScript', 'Node.js', 'SQLite', 'Heroku'],
   },
   {
+    id: 'covid-hospital',
+    name: 'CovidHospital19',
+    kind: 'desktop',
+    start: '2019-09',
+    end: '2019-11',
+    summary: {
+      en: 'Hospital management application with a different interface for every role.',
+      ar: 'تطبيق لإدارة المستشفى بواجهة مختلفة لكل دور.',
+    },
+    features: [{ en: 'Hibernate mapping to MySQL', ar: 'ربط Hibernate مع MySQL' }],
+    stack: ['Java', 'JavaFX', 'Hibernate', 'MySQL'],
+  },
+  {
     id: 'studying-tool',
     name: 'Studying tool',
     kind: 'mobile',
@@ -558,19 +610,6 @@ export const projects: Project[] = [
       { en: 'Chat and games', ar: 'دردشة وألعاب' },
     ],
     stack: ['Android', 'Java'],
-  },
-  {
-    id: 'covid-hospital',
-    name: 'CovidHospital19',
-    kind: 'desktop',
-    start: '2019-09',
-    end: '2019-11',
-    summary: {
-      en: 'Hospital management application with a different interface for every role.',
-      ar: 'تطبيق لإدارة المستشفى بواجهة مختلفة لكل دور.',
-    },
-    features: [{ en: 'Hibernate mapping to MySQL', ar: 'ربط Hibernate مع MySQL' }],
-    stack: ['Java', 'JavaFX', 'Hibernate', 'MySQL'],
   },
 ];
 
